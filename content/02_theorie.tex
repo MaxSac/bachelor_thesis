@@ -65,18 +65,16 @@ Die Wobble Observation Strategy zeichnet aus, dass im gegensatz zur klassischen 
 
 \section{Überwachtes Maschinelles Lernen}
 Zur Auswertung der Datenmengen von 300 GB bis 1 TB cite MaxNoethe die FACT jede Nacht aufnimmt werden maschinelle lernmethodenen verwendet. Maschinelles lernen kann dazu genutzt werden Muster und Strukturen auf Datensaetze zu erkennen und zukuenftige ereignisse hervorzusagen. Dabei wird zwischen ueberwachtem und unueberwachtem Training unterschieden. Unueberwachtes lernen kennzeichnet sich dadurch, dass versucht wird auf dem Trainingsdatensatz $X$ spannende Muster zu erkennen.  Ziel des Ueberwachten lernens ist es bei einem gegebenen Trainingsset welches aus Input variablen $X$ und Zielvariablen $y$ besteht Modelle zu finden, welche $X$ bestmoeglich auf $y$ abbilden. \newline
-Zunachst muss dafur das Modell auf einen Datensatz trainiert werden. Daf↓r wird der Datensatz ($X$, $y$) in zwei teile aufgeteilt, dem Trainings- und dem Testdatensatz. Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (uebertraining), sondern allgemein genug bleibt auch aehnliche Datensaetze genau vorherzusagen. Dies geschieht durch beschraenkung der Modelle.
-
+Zunachst muss dafur das Modell auf einen Datensatz trainiert werden. Daf↓r wird der Datensatz ($X$, $y$) in zwei teile aufgeteilt, dem Trainings- und dem Testdatensatz. Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (uebertraining), sondern allgemein genug bleibt auch aehnliche Datensaetze genau vorherzusagen. Dies geschieht durch beschraenkung der Modelle. Durch berechnung des Scores auf dem Testdatensatz welcher unabhaenging von dem Trainings modell ist kann geprueft werden, ob das modell allgemein genug ist oder an ueber trainiert ist.
 \subsection{Entscheidungsbaum}
-\begin{wrapfigure}[14]{R}[0pt]{0.5\textwidth}
-  \centering
+\begin{wrapfigure}[11]{R}[0pt]{0.5\textwidth}
   \includegraphics[width=0.5\textwidth]{logos/tikz/tree/tree.pdf}
   \caption{Entscheidungsbaum der Tiefe 2 bei Gamma Handron Seperation}
 \end{wrapfigure}
-Ziel eines ein Modell zu entwickeln, welches anhand eines Trainingsdatensatzes die eingangsvariablen $x$ auf die Zielvariablen $Y$ abbildet. Daf↓r werden eine Verkettung von Entscheidungen durchgefuehrt,  
-confidence scores
+Ein Entscheidungsbaum besteht aus einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. In der Regel werden in der Datenanalyse Binaere Entscheidungsbaume genutzt, so dass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. Dieser Prozess wird solange durchgefuehrt bis ein Blatt erreicht wird. Die Anzahl an Knoten die durchlaufen werden bis das letzte Blatt errreicht wird, wird als Tiefe der Baeume bezeichnet.
+Der Baum kann entsprechend verschiederner Kriterien gebaut werden. Zu den gaengigen gehoert die Minimierung der Entropie oder der Gini-Index. 
+Zu den vorteilen eines Entscheidungsbaum zaehlt das dieser gut Interpretierbar und Nachvollziehbar ist. Desweiteren kommt es ohne beschraenkung schnell zum Uebertraining.
 \subsection{Random Forest}
-
 \subsection{extra boosted Decisiontree}
 
 \section{Evaluieren}
