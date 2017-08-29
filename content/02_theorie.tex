@@ -64,10 +64,17 @@ Fällt ein Schauer in das Teleskop erzeugt dieses in der Kamera ein Bild. Nach d
 Die Wobble Observation Strategy zeichnet aus, dass im gegensatz zur klassischen Methode nicht hintereinander On/Off postion beobachtet werden. Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. Dies hatt zur Folge dass es mehrere Positionen mit dem selben offest und symmetrie gibt. Bei der standard analyse bei Fact koennen so neben der ON-Position, f↓nf Off-Positionen mit demselben Kippungswinkel zur Kameraachse gemessen. Somit ergibt sich fuer jedes Datensample jeweils ein $\theta_\text{on}$ und fuenf $\theta_\text{off}$. Fuer kleine $\theta$ Winkel kann geschlossen werden, dass das gemessene Teilchen aus richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. Da der Hadron untergrund isotrop in alle Richtungen auftritt, sollten bei Hadronischen Schauern eine Thetaverteilung in etwa gleichverteilt seien  Zu den Vorteilen dieser Methode zaehlen das keine Extra OFF Daten genommen werden muessen. Somit ist es moeglich die Messzeit der Quellaktivitaet zu maximieren. Desweiteren kann durch die gleichzeitige Daten nahme davon ausgegangen werden das fuer die ON/OFF-Positionen annaehernd die selben Wetterbedingungen gelten. 
 
 \section{Überwachtes Maschinelles Lernen}
-Was ist überwachtes lernen
+Zur Auswertung der Datenmengen von 300 GB bis 1 TB cite MaxNoethe die FACT jede Nacht aufnimmt werden maschinelle lernmethodenen verwendet. Maschinelles lernen kann dazu genutzt werden Muster und Strukturen auf Datensaetze zu erkennen und zukuenftige ereignisse hervorzusagen. Dabei wird zwischen ueberwachtem und unueberwachtem Training unterschieden. Unueberwachtes lernen kennzeichnet sich dadurch, dass versucht wird auf dem Trainingsdatensatz $X$ spannende Muster zu erkennen.  Ziel des Ueberwachten lernens ist es bei einem gegebenen Trainingsset welches aus Input variablen $X$ und Zielvariablen $y$ besteht Modelle zu finden, welche $X$ bestmoeglich auf $y$ abbilden. \newline
+Zunachst muss dafur das Modell auf einen Datensatz trainiert werden. Daf↓r wird der Datensatz ($X$, $y$) in zwei teile aufgeteilt, dem Trainings- und dem Testdatensatz. Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (uebertraining), sondern allgemein genug bleibt auch aehnliche Datensaetze genau vorherzusagen. Dies geschieht durch beschraenkung der Modelle.
 
 \subsection{Entscheidungsbaum}
-
+\begin{wrapfigure}[14]{R}[0pt]{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.5\textwidth]{logos/tikz/tree/tree.pdf}
+  \caption{Entscheidungsbaum der Tiefe 2 bei Gamma Handron Seperation}
+\end{wrapfigure}
+Ziel eines ein Modell zu entwickeln, welches anhand eines Trainingsdatensatzes die eingangsvariablen $x$ auf die Zielvariablen $Y$ abbildet. Daf↓r werden eine Verkettung von Entscheidungen durchgefuehrt,  
+confidence scores
 \subsection{Random Forest}
 
 \subsection{extra boosted Decisiontree}
@@ -76,5 +83,8 @@ Was ist überwachtes lernen
 
 \subsection{Li und Ma Signifikanz}
 
+\begin{equation}
+S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}
+\end{equation}
 \subsection{Receiver Operating Characteristic}
 
