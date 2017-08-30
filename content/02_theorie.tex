@@ -75,14 +75,21 @@ Ein Entscheidungsbaum besteht aus einem Wurzelknoten. Ausgehend von diesem wird 
 Der Baum kann entsprechend verschiederner Kriterien gebaut werden. Zu den gaengigen gehoert die Minimierung der Entropie oder der Gini-Index. 
 Zu den vorteilen eines Entscheidungsbaum zaehlt das dieser gut Interpretierbar und Nachvollziehbar ist. Desweiteren kommt es ohne beschraenkung schnell zum Uebertraining.
 \subsection{Random Forest}
+Ein Random forest besteht aus vielen schlechten lernern. dabei werden mehrer Entscheidungsbaeume unabhaengig voneinander gebaut wobei der erstellung eines Baumes immer nur eine Teilmenge aus allen Attributen gezogen. Zur Klassifizierung wird anschließend eine mehrheitsabstimmung durchgefuehrt. Dadurch das die einzelnen Baeume experten auf ihrem Teilgebiet sind und ueber die einzelnen lerner gemittelt wird, ergibt sich ein modell mit reduzierter Varianz im gegensatz zum Entscheidungsbaum, welches robuster gegen overfitting ist.
 \subsection{extra boosted Decisiontree}
 
 \section{Evaluieren}
 
 \subsection{Li und Ma Signifikanz}
-
+Aufgrund der begrenztheit der Dektor sensitivitaet muss bei der Analyse von moeglichen Quellen sorgsam mit den Daten zur Bestimmung der sicherheit einer quelle umgegangen werden. Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. Stattdessen muss eine Sicherheit des Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist. Ein moeglicher Anatz ist die Li and Ma Signifikanz, bei der ueber einen Statistischen ``Null Hypothesen'' test prueft ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. Aus dem Verhaeltniss der Messzeiten der On und Off position $\alpha$ wird die Hintergrundstrahlung berechnet. Aus Der Differenz der On Region und der Hintergrundrate laesst sich so die Signalrate bestimmen. Durch das Aufstellen der Maximum Liklihood Funktion und des anschließendem test ergibt sich fuer die Li and Ma Signifikanz.
 \begin{equation}
 S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}
 \end{equation}
-\subsection{Receiver Operating Characteristic}
 
+\subsection{Receiver Operating Characteristic}
+\begin{wrapfigure}[11]{R}[0pt]{0.4\textwidth}
+  \centering
+  \includegraphics[width=0.4\textwidth]{./logos/roc_info.pdf}
+  \caption{ROC Score zweier verschiedenen Modelle}
+\end{wrapfigure}
+Zum vergleich von verschiedenen Klassifizierung zweier Klassen ist der Receiver operating characteristic curve ein Maß des Informationsgehalt. Dabei wird der die True Positive rate gegen die Fals Positive Rate aufgetragen fuer verschiedene confidencewerte. Fuer einen perfekten classifier betraegt die Flaeche unter der Kurve eins. Wird nur geraten strebt der Flaecheninhalt gegen 1/2.
