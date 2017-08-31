@@ -2,31 +2,32 @@
 \documentclass[border=1pt]{standalone}
 \usepackage{tikz}
 \begin{document}
-\tikzstyle{label} = [shape=rectangle,rounded corners,align=center, draw,
-	  fill=green!60, text=white] 
-\tikzstyle{normal} = [green, shape=rectangle, draw, text=green, thick] 
+%\tikzstyle{label} = [shape=rectangle,rounded corners,align=center, draw,
+%	  fill=green!60, text=white] 
+%\tikzstyle{normal} = [green, shape=rectangle, draw, text=green, thick] 
+\input{../tikzstyle.tex}
 \begin{tikzpicture}[
 	edge from parent/.style = {green!80!black, thick, draw},
 	level distance = 15mm , level/.style ={sibling distance = 58mm/#1}
   ]
-  \node[normal] {width}
-  child { node[normal] {num\_islands}
-  	child { node[normal] {Hadron}
-		edge from parent node[label, left] {<5}
+  \node[normalBox] {width}
+  child { node[normalBox] {num\_islands}
+  	child { node[normalBox] {Hadron}
+		edge from parent node[alternBox, left] {<5}
   	}
-  	child { node[normal] {Gamma}
-		edge from parent node[label, right] {<5}
+  	child { node[normalBox] {Gamma}
+		edge from parent node[alternBox, right] {<5}
  	}
-	edge from parent node[label, left] {<5}
+	edge from parent node[alternBox, left] {<5}
   }
-  child { node[normal] {leakage}
-  	child { node[normal] {Hadron}
-		edge from parent node[label, left] {<5}
+  child { node[normalBox] {leakage}
+  	child { node[normalBox] {Hadron}
+		edge from parent node[alternBox, left] {<5}
 	}
-	child { node[normal] {Gamma}
-		edge from parent node[label, right] {<5}
+	child { node[normalBox] {Gamma}
+		edge from parent node[alternBox, right] {<5}
 	}
-	edge from parent node[label] {>5}
+	edge from parent node[alternBox] {>5}
 };
-  \end{tikzpicture}
-  \end{document}
+\end{tikzpicture}
+\end{document}
