@@ -10,8 +10,8 @@
 
 \begin{document}
 \begin{tikzpicture}[node distance=1.5cm]
-  \draw [fill=black!09!white, rounded corners] (-1.7,1) rectangle (1.7,-2.3);
-
+  \draw [fill=black!09!white, draw=tugreen, rounded corners] (-1.7,1) rectangle (1.7,-2.3);
+  \draw (0,0.75) node[text=tugreen!50!black] {FACT-Tools};
   \node (MCPRO) [NormalBox] {MC-Protonen};
   \node (MCGAM) [NormalBox, below of=MCPRO] {MC-Gammas};
   \node (MEPRO) [AlternBox, below of=MCGAM] {Gemessener Untergrund};

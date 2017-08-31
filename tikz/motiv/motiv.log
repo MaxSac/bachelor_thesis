@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  31 AUG 2017 19:19
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  31 AUG 2017 19:57
  restricted system commands enabled.
 **motiv.tex
 (./motiv.tex
@@ -35,7 +35,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.103 seconds
+luaotfload | main : initialization completed in 0.104 seconds
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 
 (/home/maximilian/.local/texlive/2016/texmf-dist/tex/generic/luatex85/luatex85.
@@ -559,20 +559,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ap}] (./motiv.aux))
 
 Here is how much of LuaTeX's memory you used:
- 13312 strings out of 494577
+ 13316 strings out of 494577
  100000,319454 words of node,token memory allocated
- 5838 words of node memory still in use:
-   83 hlist, 9 vlist, 1 rule, 13 disc, 8 local_par, 2 math, 173 glue, 7 kern, 12
- penalty, 120 glyph, 421 attribute, 40 glue_spec, 421 attribute_list, 1 write, 2
-76 pdf_literal, 4 pdf_colorstack nodes
-   avail lists: 2:26,3:290,4:9,5:18,6:129,7:188,8:1,9:97,10:2,11:13
- 16847 multiletter control sequences out of 65536+600000
+ 6260 words of node memory still in use:
+   89 hlist, 9 vlist, 1 rule, 14 disc, 8 local_par, 2 math, 180 glue, 11 kern, 1
+2 penalty, 130 glyph, 457 attribute, 40 glue_spec, 457 attribute_list, 1 write, 
+304 pdf_literal, 4 pdf_colorstack nodes
+   avail lists: 2:26,3:318,4:9,5:22,6:139,7:195,8:1,9:103,10:2,11:14
+ 16851 multiletter control sequences out of 65536+600000
  25 fonts using 1344807 bytes
  55i,7n,56p,426b,638s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/maximilian/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroma
 n10-regular.otf></home/maximilian/.local/texlive/2016/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi10.pfb>
-Output written on motiv.pdf (1 page, 14479 bytes).
+Output written on motiv.pdf (1 page, 14731 bytes).
 
 PDF statistics: 22 PDF objects out of 1000 (max. 8388607)
  14 compressed objects within 1 object stream
