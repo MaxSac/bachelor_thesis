@@ -1,27 +1,42 @@
-\chapter{Ergebnisse}
-\section{Motivation}
+\chapter{Gamma Hadron Seperation mit gemessenen Daten}
+Um eine Gamma Hadron serperation bei gemessenen Daten durchzufuehren, muss dafur zunachst ein Modell trainiert werden. Dieses Modell welches anhand eines Trainingsdatenset trainiert wurde entscheidend fortlaufend welche Ereignisse der Klasse Hadron oder Gamma zugewiesen werden. Dabei kann die guete dieses Modell einerseits auf dem Roc\_Auc score gemssen werden oder der maximierung auf einem Datensample. Dabei wird bei FACT als Trainingssample von Monte Carlo simulierten Protonen als auch Gammas zum trainieren der Klassifier genutzt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
   \caption{<+caption text+>}
   \label{fig:<+label+>}
 \end{figure}
+Ansatz dieser Arbeit ist die Monte Carlo simulierten Hadronen durch gemessene zu ersetzen. Dabei erhofft man sich die Klassifizierung zu verbessern, da bekannt ist das die MonteCarlo missmatches zwischen SImulation und gemessenen Daten groß sind. Desweiteren koennte somit die Monte Carlo simulation des Untergrundes eingestellt werden. Bein ahnlichen Experimenten wie z.B. MAGIC hat sich diese Methode bereits bewaehrt. 
+
+Quality cuts erwaehnen!!
 
 \section{Erstellen des gemessenen Untergrund}
+Aufgrund der geringen Spiegelflaeche hatt sich FACT zur Aufgabe gemacht Monitoring zu betreiben und bei erhoehter Aktivitaet groeßere Experimente zu benachrichtigen.
+Um die Observationszeit zu maximieren nimmt Fact dafuer Daten im Wobble modus auf. 
+Dabei muss die Kamera nicht extra auf off-Positionen ausgerichtet werden und kann dementsprechend effizienter in der selben Zeit arbeiten. 
+Dies hat zur Folge das keine explizieten OFF-Daten exsitieren. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/theta_cut.pdf}
-  \caption{}
-  \label{fig:}
+  \caption{Hier sollte noch eine moeglichst praezise beschreibung der Abbildung rein geschrieben werden}
+  \label{fig:thetacut}
 \end{figure}
+Dementsprechend wird versucht anhand des trennstaerksten Features versucht eine seperation von Daten einer Quelle in Protonen und Gammas durchzufuehren. 
+Dabei soll einerseits ein moeglischst reines als auch großes Testset erstellt werden. 
+Dabei ist dazu beachten das Protonen zwar isotrop verteilt sind, aber bei zu großen Theta cuts moeglicherweise Detektoreigenschaften zu buche schlagen. 
+Der Informationsgewinn des Trennstaerksten Features ist einmal in \ref{fig:roc} dargestellt. In Abbildung \ref{fig:thetacut} sind fuer Hadronen und Protonen einmal die $\theta^{2}$ Verteilungen der MonteCarlo Simulationen aufgetragen. 
+Fuer kleine $\theta$ werte ist das Gamma Signal um vielfaches groesser und nimmt fuer groeßer werdende $\theta$ Werte kontinierlich ab. 
+Ab ein $\theta^{2}$ Wert von $0.5$ ist das Signal zu Hintergrund verhaeltniss um ein $>10$ kleiner. 
+Dies scheint ein Plausibler wert zu seinen bei dem die Statistik groß ist und das Stoerverhaeltniss klein.
 
+Um zu ueberpruefen in wie fern die Detektor eigenschaften vernachlaessigt werden koennen ist in Abbildung \ref{fig:corrtheta} die Signifikanz in Abhaengigkeit des Parameters $\theta^{2}$ dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/corr_sig_theta2.pdf}
   \caption{<+caption text+>}
-  \label{fig:<+label+>}
+  \label{fig:corrtheta}
 \end{figure}
-
+Dabei faellt auf das bis Werten gegen $\theta^{2} < 1$ die Signifikanz nicht wesentlich von theta abhaengt. Bei werten $>1$ nimmt die Signifikanz dementsprechend ab weil Detekoreigenschaften vernachlaessigt werden.
 \section{Optimieren der Modelle}
 \begin{figure}
   \begin{subfigure}[b]{0.5\textwidth}
@@ -42,15 +57,19 @@
   \includegraphics[width=\textwidth]{./tikz/conf/conf.pdf}
   \caption{<+caption text+>}
   \label{fig:<+label+>}
-\end{figure}<++>
+\end{figure}
+
 \begin{table}
   \centering
   \caption{tabel}
-  \begin{tabular}{s s s}
+  \begin{tabular}{l s s}
 	\toprule
-
+		& Random & XGBoost \\
+		& Forest & (Tiefe= 1) \\
 	\midrule
-
+	unklassifizierte Daten & \multicolumn{2}{c}{\SI{17.1}{\sigma}}	\\
+	MC-Proton	 		   & \SI{35.5}{\sigma}	& \SI{35.6}{\sigma}	\\
+	gemessene Proton	   & \SI{23.6}{\sigma}	& \SI{35.2}{\sigma}	\\
 	\bottomrule
   \end{tabular}
   \label{tab:<+label+>}

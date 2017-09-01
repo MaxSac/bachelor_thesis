@@ -92,7 +92,13 @@ Ein Random forest besteht aus vielen schlechten lernern. dabei werden mehrer Ent
 \section{Evaluieren}
 
 \subsection{Li und Ma Signifikanz}
-Aufgrund der begrenztheit der Dektor sensitivitaet muss bei der Analyse von moeglichen Quellen sorgsam mit den Daten zur Bestimmung der sicherheit einer quelle umgegangen werden. Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. Stattdessen muss eine Sicherheit des Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist. Ein moeglicher Anatz ist die Li and Ma Signifikanz, bei der ueber einen Statistischen ``Null Hypothesen'' test prueft ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. Aus dem Verhaeltniss der Messzeiten der On und Off position $\alpha$ wird die Hintergrundstrahlung berechnet. Aus Der Differenz der On Region und der Hintergrundrate laesst sich so die Signalrate bestimmen. Durch das Aufstellen der Maximum Liklihood Funktion und des anschließendem test ergibt sich fuer die Li and Ma Signifikanz.
+Aufgrund der begrenztheit der Dektor sensitivitaet muss bei der Analyse von moeglichen Quellen sorgsam mit den Daten zur Bestimmung der sicherheit einer quelle umgegangen werden.
+Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. 
+Stattdessen muss eine Sicherheit des Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
+Ein moeglicher Anatz ist die Li and Ma Signifikanz, bei der ueber einen Statistischen ``Null Hypothesen'' test prueft ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. 
+Aus dem Verhaeltniss der Messzeiten der On und Off position $\alpha$ wird die Hintergrundstrahlung berechnet. 
+Aus Der Differenz der On Region und der Hintergrundrate laesst sich so die Signalrate bestimmen. 
+Durch das Aufstellen der Maximum Liklihood Funktion und des anschließendem test ergibt sich fuer die Li and Ma Signifikanz.
 \begin{equation}
 S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}
 \end{equation}
@@ -103,9 +109,11 @@ S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{
   \includegraphics[width=0.4\textwidth]{./Plots/roc_info.pdf}
   \caption{ROC Score zweier verschiedenen Modelle}
 \end{wrapfigure}
-Zum vergleich von verschiedenen Klassifizierung zweier Klassen ist der Receiver operating characteristic curve ein Maß des Informationsgehalt. Dabei wird der die True Positive rate gegen die Fals Positive Rate aufgetragen fuer verschiedene confidencewerte. Fuer einen perfekten classifier betraegt die Flaeche unter der Kurve eins. Wird nur geraten strebt der Flaecheninhalt gegen 1/2.
+Zum vergleich von verschiedenen Klassifizierung zweier Klassen ist der Receiver operating characteristic curve ein Maß des Informationsgehalt. 
+Dabei wird der die True Positive rate gegen die Fals Positive Rate aufgetragen fuer verschiedene confidencewerte. 
+Fuer einen perfekten classifier betraegt die Flaeche unter der Kurve eins. 
+Wird nur geraten strebt der Flaecheninhalt gegen 1/2.
 
 \section{Quellen}
-
 \subsection{Krebs nebel}
 In einer Entfernung von 6400 Lichtjahre befindet sich im Sternzeichen Stier der Ueberrrest der ersten und letzten documentierten Suoernovaexplosion die auf das Jahr 1054 datiert ist. Die Ueberreste erstrecken sich ueber eine Strecke von 6 Bogenminuten laenge und 4 Bogenminuten breite. In der mitte des Krebsnebel liegt ein Neutronenstern und aufgrund seines konstanten Strahlungsflusses gilt dieser als die Kerze der Astronomie. Der Krebsnebel gilt dabei als staerkste anhaltende Quelle am Himmel. Viele wissentschaftliche Arbeiten nehmen diesen als referenzwert um ihre Messwerte zu vergleichen. 
