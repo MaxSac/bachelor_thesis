@@ -207,13 +207,21 @@ Da bekannt ist das der Monte Carlo simulierte Untergrund schlecht simuliert ist 
 Ziel ist es durch das entfernen von Featuren welche eine grossen Montecarlo missmatch haben die Seperation zu verbessern. 
 Dabei soll das Modell nicht mehr zwischen gemessenen und monte Carlo simulierten Daten unterscheiden sonder die Klassifikation zwischen Gamma und Hadronen vornehmen.
 
-Dafuer wird zunaechst ein Modell gelernt welches ein datenset aus gleich vielen Teilen simulierten und gemessenen (nach section \ref{sec:} zusammengestellt) Protonenen trainiert wird. 
-Im Falle die simulierten nicht von den gemessenen Protonen zu unterscheiden seien sollte, wird die Accuracy ungefaher 0.5 betragen. 
+Dafuer wird zunaechst ein Modell traininiert welches aus gleich vielen Teilen simulierten und gemessenen (nach section \ref{sec:} zusammengestellt) Protonenen besteht. 
+Im Falle das das Modell die simulierten nicht von den gemessenen Protonen zu unterscheiden vermag, wird die Accuracy ungefaher 0.5 betragen. 
+Die Accuracy betraegt jedoch auf dem kreuzvalidierten Datenset \num{0.99(9)}. 
+
+Zur visualisierung der Feature bei denen sich echten von simulierten daten unterscheiden ist die Feature importance des trainierten Modells ist in Abbildung \ref{fig:featureimportance} durch die orangen balken dargestellt. 
+In blau sind die gewichte der Feautre der Gamma hadron seperation dargestellt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./Plots/feature_elemination.pdf}
   \caption{<+caption text+>}
   \label{fig:<+label+>}
 \end{figure}
+Bei dem entfernen eines Features wird des Modells wird dementsprechend auch Informationsgehalt der Gamma Proton seperation verworfen. 
+Dementsprechend muss ein Verhaeltniss zwischen Montecarlo missmatches einerseits und Informationsgehalt der Seperation anderseits gefunden werden.
+
+Durch das entfernen der Feature \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{concentration\_two\_pixel} und \texttt{leakage2} laesst sich sowohl die Seperation zwischen simulierten und echten Daten minimieren als auch die Signifikanz der auf echten Daten trainierten Random Forest erhoehen.
 
 \textbf{Confidence verteilung mal anschauen und die mit einem hohen conf wert genauer betrachten !!!!!!!!!!!!}

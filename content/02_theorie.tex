@@ -5,7 +5,7 @@ Quality cuts angeben.
 \section{FACT Einleitung}
 \begin{wrapfigure}[24]{R}[0pt]{0.5\textwidth}
   \includegraphics[width=0.5\textwidth]{./images/FACT.jpg}
-  \caption{FACT in Observatiosposition}
+  \caption{FACT in Observatiosposition \cite{factpic}}
   \label{fig:observ}
 \end{wrapfigure}
 Das FACT (First G-APD Cherenkov Telescope) dient der Überwachung von $\gamma$-Quellen, um bei erhöhter Aktivität, für genauere Observationen größere Telekope zu informieren. 
@@ -79,6 +79,7 @@ Zur Auswertung der Datenmengen von 300 GB bis 1 TB cite MaxNoethe die FACT jede 
 Zunachst muss dafur das Modell auf einen Datensatz trainiert werden. Daf↓r wird der Datensatz ($X$, $y$) in zwei teile aufgeteilt, dem Trainings- und dem Testdatensatz. Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (uebertraining), sondern allgemein genug bleibt auch aehnliche Datensaetze genau vorherzusagen. Dies geschieht durch beschraenkung der Modelle. Durch berechnung des Scores auf dem Testdatensatz welcher unabhaenging von dem Trainings modell ist kann geprueft werden, ob das modell allgemein genug ist oder an ueber trainiert ist.
 \subsection{Entscheidungsbaum}
 \begin{wrapfigure}[11]{R}[0pt]{0.5\textwidth}
+  \centering
   \includegraphics[width=0.5\textwidth]{./tikz/tree/tree.pdf}
   \caption{Entscheidungsbaum der Tiefe 2 bei Gamma Handron Seperation}
 \end{wrapfigure}

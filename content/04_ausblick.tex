@@ -1,43 +1,18 @@
-\chapter{Abbildungen und Tabellen}
+\chapter{Zusammenfassung und Ausblick}
+Das Ziel war es die Gamma Hadron seperation zu verbessern indem anstelle der Monte Carlo simulierten Protonen, gemessene zum trainieren der Classifier verwendet werden. 
+Dadurch das diese eher dem gemessenen Untergrund aehneln sollte eine bessere Classifizierung erfolgen
 
-\section{Abbildungen}
+Dabei wurde der gemessene Untergrund mittels eines Cutes auf dem Trennstaerksten parameter $\theta$ erstellt. 
+Die Wahl des $\theta^{2}$-cuttes kann nicht trivial gewaehlt werden. 
+Wird $\theta^{2}$ zu groß gewaehlt kommt es dazu das Detektoreigenschaften signifikant werden. 
+Dennoch Darf $\theta^{2}$ auch nicht zu klein gewaehlt werden, da sonst noch verhaeltniss maeßig viele Gammas in dem erstellen Protonen datenset sind.
 
-Achten Sie bei ihren Plots auf ausreichend große Achsenbschriftungen, ausreichende Schriftdicken und gut unterscheidbare Farben.
-Im Idealfall haben Sie im Plot und der Arbeit die gleiche Schriftgröße und Schriftart.
-Dies lässt sich durch Erstellen des Plots in der korrekten Größe und Einbinden mit dem optionalen Argument \texttt{scale=1} erreichen. Ein Beispiel sehen Sie in Abbildung \ref{fig:bsp}.
+Desweiteren wurde festgestellt, dass die Monte Carlo Gamma besser von den gemessenen als von den simulierten Protonen zu trennen sind. 
+Eine moegliche Ursache dafuer ist das fuer die Seperation zusaetylich die Information eingeht, dass die Modelle zwischen simulation und gemessenen Events unterscheiden.
 
-Nutzen Sie wenn möglich Vektorgrafiken (pdf) und nur in Ausnahmen Rastergrafiken wie .png oder .jpg.
-Setzen Sie Punkte hinter Abbildungsunterschriften.
+Dies Aussage laesst sich dadurch stuetzen dass die Klassifizierer welche auf echten Daten trainiert wurden, niedrigere Signifikanzen als die auf den Montecarlo simulierten Protonen aufweisen. Dies wiederspricht der anfaenglichen vermutung das durch echte Daten die seperation verbessert werden kann. Zusaetzlich weist ein weniger komplexer Baum wesentlich hoehere Signifikanzen auf. In verbindung seiner stark begrenzten Tiefe ist er damit moeglicherweise nicht in der laage zwischen simulierten und gemessenen Protonen zu unterscheiden. 
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=1]{./Plots/Histogramm.pdf}
-    \caption{Ein Histogramm mit Fehlerbalken für zwei Datensätze, Schriftgröße und -art entsprechen der des Dokuments.}
-    \label{fig:bsp}
-\end{figure}
+Cross check 
+-> proton proton seperation mit baum der Tiefe 1
 
-\section{Tabellen}
-
-Tabellen sollten so einfach wie möglich aufgebaut sein, verzichten Sie auf zu viele Linien. In fast allen Fällen reichen drei horizontale Linien aus, jeweils über und unter der Tabelle und zwischen den Spaltenüberschriften und der eigentlichen Tabelle.
-
-Das Paket \texttt{booktabs} stellt hierfür \verb_\toprule_, \verb_\midrule_ und 
-\verb_\bottomrule_ zur Verfügung.
-Das Paket \texttt{siunitx} stellt eine extrem mächtige neue Spalteneinstellung bereit: \texttt{S}, mit ihr können Zahlen und Einheiten sehr sauber und gut ausgerichtet gesetzt werden.
-
-Diese Vorlage geht von Tabellenüberschriften aus, möchten Sie dagegen Tabellenunterschriften entfernen Sie das entsprechende optionale Argument für die Dokumentenklasse in der Präambel.
-
-Ein Beispiel ist Tabelle~\ref{tab:bsp}.
-\begin{table}
-    \centering
-    \caption{Beispieltabelle mit willkürlichen Werten, für die Zahlenwerte wurde die S-Option aus \texttt{siunitx} verwendet.}
-    \label{tab:bsp}
-    \begin{tabular}{S[table-format=4.2] S[table-format=3.2]}
-        \toprule
-        {$p \mathrel{/} \si{\pascal}$}  & {$T \mathrel{/} \si{\kelvin}$} \\
-        \midrule
-        1024,23 & 273,15 \\
-        1025,31 & 274,5 \\
-        1026,27 & 276,2 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+Desweiteren konnte gezeigt werden dass durch das entfernen von Featuren die nicht dem gemessenen Proton untergrund aehneln die seperation verbessert werden konnte. Dies stuetzt die These das der Klassifizierer zwischensimulierten und echten Daten unterscheidet.
