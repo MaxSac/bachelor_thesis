@@ -26,27 +26,54 @@
 	  \pgfusepath{stroke}
 	}
 
-\tikzstyle{myarrow} = [<<->>, shorten >=4pt, shorten <=4pt, thick, line width=4pt]
+\tikzstyle{distArrow} = [<<->>, shorten >=8pt, shorten <=8pt, thick, line width=4pt]
+\tikzstyle{dist2Arrow} = [|<->|, thick, line width=4pt]
+\tikzstyle{pointer} = [->, shorten >=8pt, shorten <=14pt, thick, line width=2pt]
+\tikzstyle{textStyle} = [fill=white!90!black]
 
 
 \begin{document}
 \begin{tikzpicture}
-  %camera achse
+  %camera Achse
   \draw[line width=3pt,,dash pattern={on 7pt off 2pt on 3pt off 3pt}] (-7.8,-7.8) -- (9,6);
   %zeichnet hexagonales Rundes Grid
   \fill[pattern=hexagons] (0,0) circle (10cm);
-  %position expected source
-  \filldraw[fill=blue] (6.6, 4) circle [radius=0.2];
-  %position measured source 
-  \filldraw[fill=red] (3,4) circle [radius=0.2];
-  %theta2
-  \draw[myarrow] (3,4) -- (6.6,4);
 
-  \draw[line width=4pt] (-0.6,-1.9) circle [x radius=30mm, y radius=15mm, rotate=39.4];
-  \draw[line width=4pt] (0,-1.4) circle [x radius=16mm, y radius=8mm, rotate=39.4];
-  \filldraw[fill=blue] (0.4, -1.05) circle [radius=0.2];
+  %position expected source
+  \fill[fill=blue] (6.6, 4) circle [radius=0.3];
+  %position measured source 
+  \fill[fill=red] (3,4) circle [radius=0.3];
+  %theta2
+  \draw[distArrow] (3,4) -- (6.6,4);
+
+  % Con core of image 
+  \fill[fill=green!20] (-0.6,-1.9) circle [x radius=38mm, y radius=19mm, rotate=39.4];
+  \fill[fill=green!40] (0,-1.4) circle [x radius=20mm, y radius=10mm, rotate=39.4];
+  \fill[fill=green] (0.4, -1.05) circle [radius=0.3];
   
-  \filldraw[fill=blue] (-5.8, -6.15) circle [radius=0.2];
+  %Vorzeichen
+  \fill[fill=blue] (-5.8, -6.15) circle [radius=0.3];
+
+  %DISP
+  \draw[dist2Arrow] (7.6,3) -- (1.4,-2.05);
+  \draw[dist2Arrow] (1.4,-2.05) -- (-4.8,-7.15);
+
+  %Beschriftung der Sachen
+  \node[rotate=39.4, textStyle] at (5,-0) {\Huge \textbf{DISP}};
+  \node[rotate=39.4, textStyle] at (-1,-5) {\Huge \textbf{DISP}};
+  \node[textStyle] at (4.8,5) {\Huge \textbf{Theta2}};
+  \node[textStyle] at (-3,3) {\Huge \textbf{Con Core}};
+  \node[textStyle] at (-5,1) {\Huge \textbf{Size}};
+  \node[textStyle] at (-6,-9) {\Huge \textbf{Vorzeichen B}};
+  \node[textStyle] at (6,7.5) {\Huge \textbf{Vorzeichen A}};
+  \node[textStyle] at (-2,6) {\Huge \textbf{Quellposition}};
+
+  %Arrows
+  \draw[pointer] (-6,-9) .. controls (-6.7,-7.5) .. (-5.8,-6.15);
+  \draw[pointer] (6,7.5) .. controls (7.5,6) .. (6.6,4);
+  \draw[pointer] (-5,1) .. controls (-4,-2) .. (-2.2,-3.5);
+  \draw[pointer] (-1,3) .. controls (1,1) .. (0.4,-1.05);
+  %\draw[dist2Arrow] (1.4,-2.05) -- (-4.8,-7.15);
 
 
 \end{tikzpicture}
