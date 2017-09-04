@@ -2,7 +2,8 @@
 Für die Seperation zwischen Gamma und Hadronen muss zunächst einmal ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
 Dabei wurde bis jetzt anhand der FACT-Tools \cite{FACT-Tools} der klassifizierte Datensatz aus Monte Carlo simulierten Gammas so wie Protonen erstellt. 
 Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
-Da gemessene Protonenen besser als simulierte den Untergrund wiedergeben, besteht die Idee die Klassifikation dadurch zu optimieren.
+Da gemessene Protonenen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
+Bein ahnlichen Experimenten wie z.B. MAGIC hat sich diese Methode bereits bewaehrt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
@@ -14,13 +15,9 @@ Aus dem Verhältniss, der Scores der beiden Modelle, lässt sich womöglich Aufs
 
 Das Trennvermögen der auf den beiden unterschiedlichen Datensets trainierten Modelle wird anhand des Roc\_Auc score gemessen.
 
+Desweiteren wird die Signifikanz der verschieden tranierten Modelle von zwei verschiedenen Quellen berechnet. 
+Dabei werden vorallendingen die maximalen Signifikanzen der Klassifizierer verglichen.
 
-
-Dabei wird bei FACT als Trainingssample von Monte Carlo simulierten Protonen als auch Gammas zum trainieren der Klassifier genutzt.
-Ansatz dieser Arbeit ist die Monte Carlo simulierten Hadronen durch gemessene zu ersetzen. 
-Dabei erhofft man sich die Klassifizierung zu verbessern, da bekannt ist das die MonteCarlo missmatches zwischen SImulation und gemessenen Daten groß sind. 
-Desweiteren koennte somit die Monte Carlo simulation des Untergrundes eingestellt werden. 
-Bein ahnlichen Experimenten wie z.B. MAGIC hat sich diese Methode bereits bewaehrt. 
 
 Quality cuts erwaehnen!!
 
