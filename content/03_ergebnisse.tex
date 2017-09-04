@@ -1,14 +1,22 @@
 \chapter{Gamma Hadron Seperation mit gemessenen Daten}
-Um eine Gamma Hadron serperation bei gemessenen Daten durchzufuehren, muss dafur zunachst ein Modell trainiert werden. 
-Dieses Modell welches anhand eines Trainingsdatenset trainiert wurde entscheidend fortlaufend welche Ereignisse der Klasse Hadron oder Gamma zugewiesen werden.
-Dabei kann die guete dieses Modell einerseits auf dem Roc\_Auc score gemssen werden oder der maximierung auf einem Datensample. 
-Dabei wird bei FACT als Trainingssample von Monte Carlo simulierten Protonen als auch Gammas zum trainieren der Klassifier genutzt.
+Für die Seperation zwischen Gamma und Hadronen muss zunächst einmal ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
+Dabei wurde bis jetzt anhand der FACT-Tools \cite{FACT-Tools} der klassifizierte Datensatz aus Monte Carlo simulierten Gammas so wie Protonen erstellt. 
+Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
+Da gemessene Protonenen besser als simulierte den Untergrund wiedergeben, besteht die Idee die Klassifikation dadurch zu optimieren.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
   \caption{<+caption text+>}
   \label{fig:<+label+>}
 \end{figure}
+Dazu werden ein \texttt{Random Forest}, so wie ein \texttt{XGBOOSTClassifier} der Tiefe 1 trainiert und optimiert.
+Aus dem Verhältniss, der Scores der beiden Modelle, lässt sich womöglich Aufschluss über die Klassifikation erhalten.
+
+Das Trennvermögen der auf den beiden unterschiedlichen Datensets trainierten Modelle wird anhand des Roc\_Auc score gemessen.
+
+
+
+Dabei wird bei FACT als Trainingssample von Monte Carlo simulierten Protonen als auch Gammas zum trainieren der Klassifier genutzt.
 Ansatz dieser Arbeit ist die Monte Carlo simulierten Hadronen durch gemessene zu ersetzen. 
 Dabei erhofft man sich die Klassifizierung zu verbessern, da bekannt ist das die MonteCarlo missmatches zwischen SImulation und gemessenen Daten groß sind. 
 Desweiteren koennte somit die Monte Carlo simulation des Untergrundes eingestellt werden. 

@@ -1,70 +1,69 @@
-\chapter{Theoretische Grundlage}
-Hier die zugrunde liegenden Grundlagen des Papers.
-Quality cuts angeben.
-
-\section{FACT Einleitung}
-\begin{wrapfigure}[24]{R}[0pt]{0.5\textwidth}
-  \includegraphics[width=0.5\textwidth]{./images/FACT.jpg}
+\chapter{FACT Grundlagen}
+\begin{wrapfigure}[23]{R}[0pt]{0.45\textwidth}
+  \includegraphics[width=0.45\textwidth]{./images/FACT.jpg}
   \caption{FACT in Observatiosposition \cite{factpic}}
   \label{fig:observ}
 \end{wrapfigure}
 Das FACT (First G-APD Cherenkov Telescope) dient der Überwachung von $\gamma$-Quellen, um bei erhöhter Aktivität, für genauere Observationen größere Telekope zu informieren. 
 Desweiteren erprobt das Telekop die Nutzung von Silizium Photomultiplier (SiMPs) mit welchen es möglich ist, auch an Tagen mit starker diffuser Hintergrundstrahlung Quellen zu observieren. 
 
-Auf einer höhe von 2200 meter über dem Meeresspiegel befindet sich das Cherenkov Teleskop auf der kanarischen Insel Las Palma. 
-Das Projekt entstand als ein Nachfolgerexperiment des übergebliebenen HEGRA CT3 Telskope, wobei die übergeblieben Spiegel aufbereitet und wiederverwertet werden. (nochmal schöner Formulieren)
+Auf einer Höhe von 2200 Meter über dem Meeresspiegel befindet sich das Cherenkov Teleskop auf der kanarischen Insel La Palma. 
+Das Projekt entstand als ein Nachfolgerexperiment des übergebliebenen HEGRA CT3 Telskope, wobei die übergeblieben Spiegel aufbereitet und wiederverwertet werden.
 
-Die 30 hexongonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter\squared} bei einem Blickfeld von \SI{4.5}{\degree}. 
-Die Spiegel sind seid der neuasusrichtung in der Davies-Cotton design ausgerichtet. \cite{??} 
-Als erstes Telskope seiner Zeit verwendet FACT SiPMs verwendet anstelle von herkömlichen Photomultiplier Tubes. 
-Halbleiterdetektoren lassen sich mit einer geringerren operation Spannung (< \SI{100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was die Gestaltung des Kameradesigns, als auch die Finanzierung vereinfacht. 
-SiPMs sind aufgrund ihrer hoher Sensitivität dazu in der Laage einzelne Photonen zu detektieren.
-Dabei bilden 1440 Kamerapixel das Bild der Kamera, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelne Oberflächen der Hexagonal zulaufenden Plexiglasleiter bilden dabei das Kamerabild.
+Die 30 hexangonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter\squared} bei einem Blickfeld von \SI{4.5}{\degree}. 
+Die Spiegel sind seit der Neuausrichtung in der Davies-Cotton Design ausgerichtet \cite{design-detec}.
+Dabei bilden die einzelnen Spiegel einen sphärisch ähnliche Fläche bei denen die Brennpunkte in die Kamera gelegt werden.
 
-\section{Entstehung von Cherenkov Schauern}
-Trifft ein hochenergetisches Teilchen auf die Atmosphäre löst dieses ein schauer von Sekundärteilchen aus. Dabei ist die Energie der erzeugten Teilchen stets geringer als das einfallende Teilchen. Dabei wird zwischen zwei verschiedenen Arten von Schauern unterschieden. 
+Als erstes Telskop seiner Zeit verwendet FACT, SiPMs anstelle von herkömlichen Photomultiplier Tubes. 
+Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (< \SI{100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was die Gestaltung des Kameradesigns, als auch die Finanzierung vereinfacht. 
+SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage einzelne Photonen zu detektieren, als auch bei Vollmond noch verwertbare Ergebnisse zu produzieren.
+Dabei bilden 1440 Kamerapixel das Bild der Kamera, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei das Kamerabild.
+
+\chapter{Entstehung von Cherenkov Schauern}
+Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. Die Energie der erzeugten Sekundärteilchen ist stets geringer als das der einfallende Primärteilchen. Dabei wird zwischen zwei verschiedenen Arten von Schauern unterschieden. 
 
 \textbf{Møglicher weise Tikz picture}
 
-Trifft ein hochenergetisches $\gamma$-Quant auf die Atmosphaere, so wird es wahrscheinlich im Columbwall der Molekühle durch Paarerzeugung ein Elektronen-Positron-Paar erzeugen. 
-Anschließend kann bei hinreichend großer Energie das Elektron durch Bremsstrahlung weiter Photonen erzeugen. 
+Trifft ein hochenergetisches $\gamma$-Quant auf die Atmosphaere, so wird es wahrscheinlich im Coloumbwall der Moleküle durch Paarerzeugung ein Elektronen-Positron-Paar erzeugen. 
+Anschließend kann bei hinreichend großer Energie das Elektron durch Bremsstrahlung weitere Photonen erzeugen. 
 \begin{eqnarray}
   \gamma \rightarrow& e^{+} + e^{-} \\
   e^{+} \rightarrow& e^{+'} + \gamma \\
   e^{-} \rightarrow& e^{-'} + \gamma 
 \end{eqnarray}
-Dieser Prozess ist solange fortlaufend bis die Energie der Teilchen zu klein ist ein neues Teilchenpaar zu erzeugen. 
-Trifft ein geladenes kosmisches Teilchen in die Atmosphäre so kann dieses viele verschiedene Sekundarteilchen bilden. 
-Dabei entstehen unter anderem Neutronen, Protonen und Pionen welche wiederum zerstrahlen. 
+Dieser Prozess ist solange fortlaufend bis, die Energie der Teilchen zu klein ist, ein neues Teilchenpaar zu erzeugen. 
+Trifft ein geladenes kosmisches Teilchen in die Atmosphäre, so kann dieses über die starke Wechselwirkung, anders als beim elektromagnetischen Schauer, unterschiedliche Sekundärteilchen bilden. 
+Dabei entstehen, unter anderem neue Hadronen, Mesonen und Myonen, welche wiederum zerstrahlen. 
 \begin{eqnarray}
   \pi^{0} \rightarrow& \gamma + \gamma \\
   \pi^{+} \rightarrow& \mu^{+} + \nu_{\mu} \\
   \pi^{-} \rightarrow& \mu^{-} + \bar{\nu}_{\mu}
 \end{eqnarray}
 Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der Teilchenschauer kaum von dem eines $\gamma$-Quanten zu unterscheiden. 
- Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium polarisiert es dieses Kurzzeitig. 
-Dabei wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. Diese Bilden ein Mach-Kegel aus dessen Öffungswinkel $\theta$ von dem Brechungsindex $n$ des Mediums und der Phasengeschwindikeit der Welle abhängt.
+
+Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium polarisiert es dieses kurzzeitig. 
+Dabei wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. Diese bilden ein Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechungsindex $n$ des Mediums und der Phasengeschwindikeit der Welle abhängt.
 \begin{equation}
   \cos  \theta = \frac{1}{\text{n} \beta}
-  %  \label{}
 \end{equation}
-
+Wird in einem Cherenkov-Teleskop die Größe des Lichtkegels gemessen, bietet dies eine Möglichkeit, die Energie der Primärteilchen zu schätzen. 
+\chapter{Observation}
 \section{Bildgebene Paramter}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{images/detektor.pdf}
-  \caption{Muss noch eine bessere Grafik gesucht werden}
+  \includegraphics[width=0.5\textwidth]{tikz/camera/camera.pdf}
+  \caption{Hillas Parameter, anhand derer verschiedene Modelle zur Auswertung des Kamerabildes trainiert werden.}
 \end{figure}
-Fällt ein Schauer in das Teleskop erzeugt dieses in der Kamera ein Bild. Nach dem Artefakte und äußere Einflüsse (noch mehr zu schreiben ?) bereinigt worden sind, wird anhand der Pixel die auf den Tscherenkovschauer zurück zu führen sind, die Hillas Parameter berechnet. 
-Dazu wird im wesentlichen eine Gaußverteilung furch die Helligkeit der Pixel gefittet. 
+Fällt ein Schauer in das Teleskop, erzeugt dieses in der Kamera ein Bild. Nachdem Artefakte und äußere Einflüsse (noch mehr zu schreiben ?) bereinigt worden sind, wird anhand der Pixel, die auf den Cherenkovschauer zurückzuführen sind, die Hillas Parameter berechnet. 
+Dazu wird im eine Gaußverteilung durch die Helligkeit der Pixel gefittet. 
 Zu den Hillasparameter zählen:
 \begin{itemize}
-  \item \textbf{width/length:} Hauptachse der Ellipse
+  \item \textbf{width/length:} Hauptachsen der Ellipse
   \item \textbf{size:} Anzahl an Pixel im Schauer
   \item \textbf{CoG:} Schwerpunkt des Schauers
   \item \textbf{Core of image:} Helligkeit der einzelnen Pixel
-  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der parameter width und length wird DISP abgeschätzt um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, welche man durch die observation der zeitlichen Konzentration der einzelenen Pixel im Schauer abzuschätzen versucht.
-  \item \textbf{Source Position:} erwatete Quellposition
+  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der parameter width und length wird DISP abgeschätzt um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, welche man durch die Observation der zeitlichen Konzentration der einzelenen Pixel im Schauer abzuschätzen versucht.
+  \item \textbf{Source Position:} erwartete Quellposition
   \item \textbf{$\theta$:} Winkelzwischen der gemessenen und echten Quellposition
 \end{itemize}
 \section{Wobble Observation Strategy}
@@ -72,49 +71,84 @@ Zu den Hillasparameter zählen:
   \includegraphics[width=0.5\textwidth]{images/wobble.pdf}
   \caption{Wobble observation muss noch zitiert werden. Theme dissertaion}
 \end{wrapfigure}
-Die Wobble Observation Strategy zeichnet aus, dass im gegensatz zur klassischen Methode nicht hintereinander On/Off postion beobachtet werden. Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. Dies hatt zur Folge dass es mehrere Positionen mit dem selben offest und symmetrie gibt. Bei der standard analyse bei Fact koennen so neben der ON-Position, f↓nf Off-Positionen mit demselben Kippungswinkel zur Kameraachse gemessen. Somit ergibt sich fuer jedes Datensample jeweils ein $\theta_\text{on}$ und fuenf $\theta_\text{off}$. Fuer kleine $\theta$ Winkel kann geschlossen werden, dass das gemessene Teilchen aus richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. Da der Hadron untergrund isotrop in alle Richtungen auftritt, sollten bei Hadronischen Schauern eine Thetaverteilung in etwa gleichverteilt seien  Zu den Vorteilen dieser Methode zaehlen das keine Extra OFF Daten genommen werden muessen. Somit ist es moeglich die Messzeit der Quellaktivitaet zu maximieren. Desweiteren kann durch die gleichzeitige Daten nahme davon ausgegangen werden das fuer die ON/OFF-Positionen annaehernd die selben Wetterbedingungen gelten. 
+Die Wobble Observation Strategy zeichnet aus, dass im Gegensatz zur klassischen Methode, nicht hintereinander On/Off Postionen beobachtet werden. 
+Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. 
+Dies hat zur Folge, dass es mehrere Positionen mit dem selben Offest und Symmetrie zur Kameraachse gibt. 
+Bei der Standardanalyse bei Fact können so neben der ON-Position, fünf Off-Positionen mit demselben Kippungswinkel zur Kameraachse gemessen werden. 
+Somit ergibt sich für jedes Datensample jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
+Für sehr kleine $\theta$ Winkel kann oftmals geschlossen werden, dass das gemessene Teilchen aus Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
+Da der Hadron Untergrund isotrop in alle Richtungen verteilt auftritt, sollten bei hadronischen Schauern die Thetaverteilung in etwa gleichverteilt seien. 
+Zu den Vorteilen dieser Methode zählen das keine extra OFF-Daten genommen werden müssen. 
+Somit ist es möglich, die Messzeit der Quellaktivität zu maximieren. 
+Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die ON/OFF-Positionen annähernd die selben Wetterbedingungen gelten. 
 
-\section{Überwachtes Maschinelles Lernen}
-Zur Auswertung der Datenmengen von 300 GB bis 1 TB cite MaxNoethe die FACT jede Nacht aufnimmt werden maschinelle lernmethodenen verwendet. Maschinelles lernen kann dazu genutzt werden Muster und Strukturen auf Datensaetze zu erkennen und zukuenftige ereignisse hervorzusagen. Dabei wird zwischen ueberwachtem und unueberwachtem Training unterschieden. Unueberwachtes lernen kennzeichnet sich dadurch, dass versucht wird auf dem Trainingsdatensatz $X$ spannende Muster zu erkennen.  Ziel des Ueberwachten lernens ist es bei einem gegebenen Trainingsset welches aus Input variablen $X$ und Zielvariablen $y$ besteht Modelle zu finden, welche $X$ bestmoeglich auf $y$ abbilden. \newline
-Zunachst muss dafur das Modell auf einen Datensatz trainiert werden. Daf↓r wird der Datensatz ($X$, $y$) in zwei teile aufgeteilt, dem Trainings- und dem Testdatensatz. Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (uebertraining), sondern allgemein genug bleibt auch aehnliche Datensaetze genau vorherzusagen. Dies geschieht durch beschraenkung der Modelle. Durch berechnung des Scores auf dem Testdatensatz welcher unabhaenging von dem Trainings modell ist kann geprueft werden, ob das modell allgemein genug ist oder an ueber trainiert ist.
-\subsection{Entscheidungsbaum}
-\begin{wrapfigure}[11]{R}[0pt]{0.5\textwidth}
+\chapter{Überwachtes Maschinelles Lernen}
+Zur Auswertung der Datenmengen von 300 GB bis 1 TB \cite{MaxNoethe} die FACT jede Nacht aufnimmt werden maschinelle Lernmethodenen verwendet. 
+Maschinelles Lernen kann dazu genutzt werden, Muster und Strukturen auf Datensaetze zu erkennen und zukünftige Ereignisse hervorzusagen. 
+Dabei wird zwischen überwachtem und unüberwachtem Training unterschieden.
+
+Unüberwachtes Lernen kennzeichnet sich dadurch aus, dass versucht wird, auf dem Trainingsdatensatz spannende Muster zu erkennen.  
+
+Ziel des überwachten Lernens ist es bei einem gegebenen Trainingsset welches aus Eingagsvariablen $X$ und Zielvariablen $y$ besteht Modelle zu finden, welche $X$ bestmoeglich auf $y$ abbilden. 
+Zunächst muss dafur das Modell auf einen Datensatz trainiert werden. 
+Dafür wird der Datensatz ($X$, $y$) in zwei Teile aufgeteilt, dem Trainings- und dem Testdatensatz. 
+Dabei wird das Modell, auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. 
+Dabei ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (Übertraining), sondern allgemein genug bleibt auch ähnliche Datensätze genau vorherzusagen. 
+Dies geschieht durch Beschränkung der Modelle. 
+Durch Berechnung des Scores auf dem Testdatensatz welcher unabhänging von dem Trainingsmodell ist, kann geprüft werden, ob das Modell allgemein genug ist oder an Übertraining leidet.
+\section{Entscheidungsbaum}
+\begin{wrapfigure}[12]{R}[0pt]{0.5\textwidth}
   \centering
   \includegraphics[width=0.5\textwidth]{./tikz/tree/tree.pdf}
   \caption{Entscheidungsbaum der Tiefe 2 bei Gamma Handron Seperation}
 \end{wrapfigure}
-Ein Entscheidungsbaum besteht aus einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. In der Regel werden in der Datenanalyse Binaere Entscheidungsbaume genutzt, so dass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. Dieser Prozess wird solange durchgefuehrt bis ein Blatt erreicht wird. Die Anzahl an Knoten die durchlaufen werden bis das letzte Blatt errreicht wird, wird als Tiefe der Baeume bezeichnet.
-Der Baum kann entsprechend verschiederner Kriterien gebaut werden. Zu den gaengigen gehoert die Minimierung der Entropie oder der Gini-Index. 
-Zu den vorteilen eines Entscheidungsbaum zaehlt das dieser gut Interpretierbar und Nachvollziehbar ist. Desweiteren kommt es ohne beschraenkung schnell zum Uebertraining.
-\subsection{Random Forest}
-Ein Random forest besteht aus vielen schlechten lernern. dabei werden mehrer Entscheidungsbaeume unabhaengig voneinander gebaut wobei der erstellung eines Baumes immer nur eine Teilmenge aus allen Attributen gezogen. Zur Klassifizierung wird anschließend eine mehrheitsabstimmung durchgefuehrt. Dadurch das die einzelnen Baeume experten auf ihrem Teilgebiet sind und ueber die einzelnen lerner gemittelt wird, ergibt sich ein modell mit reduzierter Varianz im gegensatz zum Entscheidungsbaum, welches robuster gegen overfitting ist.
-\subsection{extra boosted Decisiontree}
+Ein Entscheidungsbaum besteht aus einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. 
+In der Regel werden in der Datenanalyse, Binäre Entscheidungsbaume genutzt, sodass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. 
+Dieser Prozess wird solange durchgeführt bis ein Blatt erreicht wird. 
+Die Anzahl an Knoten die durchlaufen werden bis das letzte Blatt errreicht wird, wird als Tiefe der Baeume bezeichnet.
+Der Baum kann entsprechend verschiederner Kriterien gebaut werden.
+Zu den gängigen gehört die Minimierung der Entropie oder des Gini-Indexes. 
+Zu den Vorteilen eines Entscheidungsbaum zählt, dass dieser gut interpretierbar und nachvollziehbar ist. 
+Desweiteren kommt es ohne Beschränkung schnell zum Übertraining.
+\section{Random Forest}
+Ein Random Forest besteht aus vielen schlechten Lernern.
+Dabei werden mehrer Entscheidungsbäume unabhängig voneinander gebaut wobei der Erstellung eines Baumes immer nur eine Teilmenge aus allen Attributen gezogen wird.
+Zur Klassifizierung wird anschließend eine Mehrheitsabstimmung durchgeführt.
+Dadurch, dass die einzelnen Bäume Experten auf ihrem Teilgebiet sind und über die einzelnen Lerner gemittelt werden, ergibt sich ein Modell mit reduzierter Varianz im Gegensatz zum Entscheidungsbaum, welches robuster gegen Übertraining ist.
+\section{extra boosted Decisiontree}
 
 \section{Evaluieren}
-
+Zum testen inwiefern sich die Modelle auf den Datensätze verhalten werden zweierlei Maße zu der Beurteilung von Klassifizierer benutzt.
+\subsection{Receiver Operating Characteristic}
+\begin{wrapfigure}[12]{R}[0pt]{0.4\textwidth}
+  \centering
+  \includegraphics[width=0.4\textwidth]{./Plots/roc_info.pdf}
+  \caption{ROC Score zweier verschiedenen Modelle}
+\end{wrapfigure}
+Zum vergleich von verschiedenen Klassifizierung zweier Klassen ist der ``Receiver Operating Characteristic Curve'' ein Maß des Informationsgehalt. 
+Dabei wird der die True Positive rate gegen die Fals Positive Rate aufgetragen fuer verschiedene confidencewerte. 
+Für einen perfekten Klassifizier beträgt die Fläche unter der Kurve eins. 
+Wird nur geraten strebt der Flächeninhalt gegen 1/2.
 \subsection{Li und Ma Signifikanz}
-Aufgrund der begrenztheit der Dektor sensitivitaet muss bei der Analyse von moeglichen Quellen sorgsam mit den Daten zur Bestimmung der sicherheit einer quelle umgegangen werden.
+Aufgrund der Begrenztheit der Dektorsensitivität muss bei der Analyse von möglichen Quellen sorgsam mit den Daten zur Bestimmung der Sicherheit einer Quelle umgegangen werden.
 Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. 
-Stattdessen muss eine Sicherheit des Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
-Ein moeglicher Anatz ist die Li and Ma Signifikanz, bei der ueber einen Statistischen ``Null Hypothesen'' test prueft ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. 
-Aus dem Verhaeltniss der Messzeiten der On und Off position $\alpha$ wird die Hintergrundstrahlung berechnet. 
-Aus Der Differenz der On Region und der Hintergrundrate laesst sich so die Signalrate bestimmen. 
+Stattdessen muss eine Sicherheit auf das Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
+Ein möglicher Anatz ist die Li and Ma Signifikanz, bei der über einen statistischen ``Null Hypothesen'' Test prüft ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. 
+Aus dem Verhältniss der Messzeiten der On und Off position $\alpha$ wird die Hintergrundstrahlung berechnet. 
+Aus Der Differenz der On Region und der Hintergrundrate lässt sich so die Signalrate bestimmen. 
 Durch das Aufstellen der Maximum Liklihood Funktion und des anschließendem test ergibt sich fuer die Li and Ma Signifikanz.
 \begin{equation}
 S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}
 \end{equation}
 
-\subsection{Receiver Operating Characteristic}
-\begin{wrapfigure}[11]{R}[0pt]{0.4\textwidth}
-  \centering
-  \includegraphics[width=0.4\textwidth]{./Plots/roc_info.pdf}
-  \caption{ROC Score zweier verschiedenen Modelle}
-\end{wrapfigure}
-Zum vergleich von verschiedenen Klassifizierung zweier Klassen ist der Receiver operating characteristic curve ein Maß des Informationsgehalt. 
-Dabei wird der die True Positive rate gegen die Fals Positive Rate aufgetragen fuer verschiedene confidencewerte. 
-Fuer einen perfekten classifier betraegt die Flaeche unter der Kurve eins. 
-Wird nur geraten strebt der Flaecheninhalt gegen 1/2.
+\chapter{Quellen}
+Als gemesserner Untergrund werden die modifizierten Datensätze zweier unabhängigen Quellen genommen. 
 
-\section{Quellen}
-\subsection{Krebs nebel}
-In einer Entfernung von 6400 Lichtjahre befindet sich im Sternzeichen Stier der Ueberrrest der ersten und letzten documentierten Suoernovaexplosion die auf das Jahr 1054 datiert ist. Die Ueberreste erstrecken sich ueber eine Strecke von 6 Bogenminuten laenge und 4 Bogenminuten breite. In der mitte des Krebsnebel liegt ein Neutronenstern und aufgrund seines konstanten Strahlungsflusses gilt dieser als die Kerze der Astronomie. Der Krebsnebel gilt dabei als staerkste anhaltende Quelle am Himmel. Viele wissentschaftliche Arbeiten nehmen diesen als referenzwert um ihre Messwerte zu vergleichen. 
+\subsection{Krebs Nebel}
+In einer Entfernung von 6400 Lichtjahre befindet sich im Sternzeichen Stier der Überrrest der ersten und letzten dokumentierten Supernovaexplosion die auf das Jahr 1054 datiert ist. 
+Die Überreste erstrecken sich über eine Strecke von 6 Bogenminuten Länge und 4 Bogenminuten Breite. 
+In der mitte des Krebs Nebels liegt ein Neutronenstern und aufgrund seines konstanten Strahlungsflusses gilt dieser als die Kerze der Astronomie. 
+Der Krebsnebel gilt dabei als stärkste anhaltende Quelle am Himmel. 
+Viele wissentschaftliche Arbeiten nehmen diesen als Referenzwert um ihre Messwerte zu vergleichen. 
+
+\section{Markarian 501}
