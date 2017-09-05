@@ -1,9 +1,9 @@
 \chapter{Gamma Hadron Seperation mit gemessenen Daten}
-Für die Seperation zwischen Gamma und Hadronen muss zunächst einmal ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
-Dabei wurde bis jetzt anhand der FACT-Tools \cite{FACT-Tools} der klassifizierte Datensatz aus Monte Carlo simulierten Gammas so wie Protonen erstellt. 
+Für die Seperation zwischen Gamma und Hadronen muss ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
+Dabei wurde bis jetzt anhand der FACT-Tools \cite{FACT-Tools}, der klassifizierte Datensatz aus Monte Carlo simulierten Gammas so wie Protonen erstellt. 
 Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
 Da gemessene Protonenen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
-Bein ahnlichen Experimenten wie z.B. MAGIC hat sich diese Methode bereits bewaehrt. 
+Bein ähnlichen Experimenten wie z.B. MAGIC hat sich diese Methode bereits bewährt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
@@ -19,35 +19,35 @@ Desweiteren wird die Signifikanz der verschieden tranierten Modelle von zwei ver
 Dabei werden vorallendingen die maximalen Signifikanzen der Klassifizierer verglichen.
 
 
-Quality cuts erwaehnen!!
+Quality cuts erwaehnen?!
 
 \section{Erstellen des gemessenen Untergrund}
-Aufgrund der geringen Spiegelflaeche hatt sich FACT zur Aufgabe gemacht Monitoring zu betreiben und bei erhoehter Aktivitaet groeßere Experimente zu benachrichtigen.
-Um die Observationszeit zu maximieren nimmt Fact dafuer Daten im Wobble modus auf. 
-Dabei muss die Kamera nicht extra auf off-Positionen ausgerichtet werden und kann dementsprechend effizienter in der selben Zeit arbeiten. 
+Aufgrund der geringen Spiegelfläche hatt sich FACT zur Aufgabe gemacht Monitoring zu betreiben und bei erhöhter Aktivität größere Experimente zu benachrichtigen.
+Um die Observationszeit zu maximieren nimmt Fact dafür Daten im Wobble modus auf. 
+Dabei muss die Kamera nicht extra auf Off-Positionen ausgerichtet werden und kann dementsprechend Effizienter in der selben Zeit arbeiten. 
 Dies hat zur Folge das keine explizieten OFF-Daten exsitieren. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/theta_cut.pdf}
-  \caption{Hier sollte noch eine moeglichst praezise beschreibung der Abbildung rein geschrieben werden}
+  \caption{$\theta^{2}$ Verteilung von Simulierten Gamma und Protonen, sowie das Verhältniss von Gamma zu Protonen}
   \label{fig:thetacut}
 \end{figure}
-Dementsprechend wird versucht anhand des trennstaerksten Features versucht eine seperation von Daten einer Quelle in Protonen und Gammas durchzufuehren. 
-Dabei soll einerseits ein moeglischst reines als auch großes Testset erstellt werden. 
-Dabei ist dazu beachten das Protonen zwar isotrop verteilt sind, aber bei zu großen Theta cuts moeglicherweise Detektoreigenschaften zu buche schlagen. 
-Der Informationsgewinn des Trennstaerksten Features ist einmal in~\ref{fig:roc} dargestellt. In Abbildung~\ref{fig:thetacut} sind fuer Hadronen und Protonen einmal die $\theta^{2}$ Verteilungen der MonteCarlo Simulationen aufgetragen. 
-Fuer kleine $\theta$ werte ist das Gamma Signal um vielfaches groesser und nimmt fuer groeßer werdende $\theta$ Werte kontinierlich ab. 
-Ab ein $\theta^{2}$ Wert von $0.5$ ist das Signal zu Hintergrund verhaeltniss um ein $>10$ kleiner. 
-Dies scheint ein Plausibler wert zu seinen bei dem die Statistik groß ist und das Stoerverhaeltniss klein.
+Dementsprechend wird versucht anhand des trennstärksten Features versucht eine Seperation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
+Dabei soll einerseits ein möglischst reines als auch großes Testset erstellt werden. 
+Zu beachten ist das Protonen zwar isotrop verteilt seien sollten, jedoch bei zu großen $\theta^{2}$-cuts die Detektoreigenschaften singnifikant werden.
+Der Informationsgewinn des Trennstaerksten Features ist einmal in~\ref{fig:roc} dargestellt. In Abbildung~\ref{fig:thetacut} sind für Hadronen und Protonen die $\theta^{2}$ Verteilungen der MonteCarlo Simulationen aufgetragen. 
+Für kleine $\theta^{2}$ Werte ist das Gamma Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$ Werte kontinierlich ab. 
+Ab ein $\theta^{2}$ Wert von $0.5$ ist das Signal- zu Hintergrundverhältniss um ein zehntel kleiner. 
+Dies scheint ein plausibler Wert zu seinen bei dem die Statistik groß ist und das Störverhaeltniss klein.
 
-Um zu ueberpruefen in wie fern die Detektor eigenschaften vernachlaessigt werden koennen ist in Abbildung~\ref{fig:corrtheta} die Signifikanz in Abhaengigkeit des Parameters $\theta^{2}$ dargestellt.
+Um zu überpruefen inwiefern die Detektoreigenschaften vernachlässigt werden können ist in Abbildung~\ref{fig:corrtheta} die Signifikanz in Abhängigkeit des Parameters $\theta^{2}$ dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/corr_sig_theta2.pdf}
   \caption{<+caption text+>}
   \label{fig:corrtheta}
 \end{figure}
-Dabei faellt auf das bis Werten gegen $\theta^{2} < 1$ die Signifikanz nicht wesentlich von theta abhaengt. Bei werten $>1$ nimmt die Signifikanz dementsprechend ab weil Detekoreigenschaften vernachlaessigt werden.
+Dabei fällt auf das bis Werten gegen $\theta^{2} < 1$ die Signifikanz nicht wesentlich von theta abhängt. Bei werten $>1$ nimmt die Signifikanz dementsprechend ab weil Detekoreigenschaften im Traing vernachlässigt werden.
 \section{Optimieren der Modelle}
 Zum evaluieren welche Methode besser ist werden zwei Datensaetze erstellt. 
 \begin{enumerate}
