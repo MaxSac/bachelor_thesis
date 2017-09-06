@@ -1,18 +1,21 @@
 \chapter{Zusammenfassung und Ausblick}
-Das Ziel war es die Gamma Hadron seperation zu verbessern indem anstelle der Monte Carlo simulierten Protonen, gemessene zum trainieren der Classifier verwendet werden. 
-Dadurch das diese eher dem gemessenen Untergrund aehneln sollte eine bessere Classifizierung erfolgen
+Das Ziel der Arbeit war, die Gamma Hadron seperation zu verbessern indem anstelle der Monte Carlo simulierten Protonen, gemessene zum trainieren der Klassifizierer verwendet werden. 
+Dadurch das diese eher dem gemessenen Untergrund ähneln sollte eine bessere Klassifizierung erfolgen.
 
-Dabei wurde der gemessene Untergrund mittels eines Cutes auf dem Trennstaerksten parameter $\theta$ erstellt. 
+Dabei wurde der gemessene Untergrund mittels eines Schnitts auf dem Trennstärksten Parameter $\theta$ erstellt um zu vermeiden das bei der Erstellung des Datensatzes erneut Monte-Carlo Missmatches eingehen.
 Die Wahl des $\theta^{2}$-cuttes kann nicht trivial gewaehlt werden. 
-Wird $\theta^{2}$ zu groß gewaehlt kommt es dazu das Detektoreigenschaften signifikant werden. 
-Dennoch Darf $\theta^{2}$ auch nicht zu klein gewaehlt werden, da sonst noch verhaeltniss maeßig viele Gammas in dem erstellen Protonen datenset sind.
+Wird $\theta^{2}$ zu groß gewählt, kommt es dazu das Detektoreigenschaften signifikant werden. 
+$\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnissmäßig viele Gammas in dem erstellen Protonen-Datensatz sind.
 
 Desweiteren wurde festgestellt, dass die Monte Carlo Gamma besser von den gemessenen als von den simulierten Protonen zu trennen sind. 
-Eine moegliche Ursache dafuer ist das fuer die Seperation zusaetylich die Information eingeht, dass die Modelle zwischen simulation und gemessenen Events unterscheiden.
+Eine mögliche Ursache dafür ist, dass für die Seperation zusätzlich die Information eingeht, dass die Modelle zwischen Simulation und gemessenen Events unterscheiden.
 
-Dies Aussage laesst sich dadurch stuetzen dass die Klassifizierer welche auf echten Daten trainiert wurden, niedrigere Signifikanzen als die auf den Montecarlo simulierten Protonen aufweisen. Dies wiederspricht der anfaenglichen vermutung das durch echte Daten die seperation verbessert werden kann. Zusaetzlich weist ein weniger komplexer Baum wesentlich hoehere Signifikanzen auf. In verbindung seiner stark begrenzten Tiefe ist er damit moeglicherweise nicht in der laage zwischen simulierten und gemessenen Protonen zu unterscheiden. 
+Dies Aussage lässt sich dadurch stützen, dass die Klassifizierer welche auf echten Daten trainiert wurden, niedrigere Signifikanzen, als die auf den Montecarlo simulierten Protonen aufweisen. 
+Dies wiederspricht der anfänglichen Vermutung, dass durch echte Daten die Seperation verbessert werden kann. 
+Zusätzlich weist ein weniger komplexer Baum wesentlich höhere Signifikanzen auf. 
+In Verbindung seiner stark begrenzten Tiefe ist er damit möglicherweise nicht in der Lage zwischen simulierten und gemessenen Protonen zu unterscheiden. 
 
-Cross check 
--> proton proton seperation mit baum der Tiefe 1\ldots
+Desweiteren konnte gezeigt werden dass durch das Entfernen von Featuren, die nicht dem gemessenen Protonen-Untergrund ähneln die Seperation verbessert werden konnte. 
+Dies stützt die These das der Klassifizierer zwischen simulierten und echten Daten unterscheidet.
 
-Desweiteren konnte gezeigt werden dass durch das entfernen von Featuren die nicht dem gemessenen Proton untergrund aehneln die seperation verbessert werden konnte. Dies stuetzt die These das der Klassifizierer zwischensimulierten und echten Daten unterscheidet.
+Letzendlich konnte die Gamma/Hadron Separation nicht, durch das verwenden von gemessenen Protonen-Daten antselle von simulierten, verbessert werden. 
