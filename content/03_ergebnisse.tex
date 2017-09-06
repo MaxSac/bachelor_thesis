@@ -126,13 +126,12 @@ Der $\theta^{2}$ wird bei den Modellen konstant bei \num{0.03} gehalten.
 \begin{table}[H]
   \centering
   \caption{warum werden die Striche nicht komplett durchgezogen und stoppen bei einer Multicolumn?}
-  \begin{tabular}{l s s|s s}
+  \begin{tabular}{l s s s s}
 	\toprule
 	& \multicolumn{2}{c}{Krebs Nebel}	& \multicolumn{2}{c}{Markarian} \\
-	\midrule
-	& Random & XGBoost 		& Random & XGBoost 	 \\
+	  \cmidrule(r){2-3} \cmidrule(l){4-5}
+	  & Random & XGBoost 		& Random & XGBoost 	 \\
 	& Forest & (Tiefe= 1) 	& Forest & (Tiefe= 1)\\
-	\midrule
 	unklassifizierte Daten & \multicolumn{2}{c}{\SI{21.4}{\sigma}}	& \multicolumn{2}{c}{\SI{17.1}{\sigma}} \\
 	MC-Proton	 		   & \SI{41.9}{\sigma}	& \SI{41.3}{\sigma}	& \SI{35.5}{\sigma}	& \SI{35.6}{\sigma}\\
 	gemessene Proton	   & \SI{32.9}{\sigma}	& \SI{37.8}{\sigma}	& \SI{23.6}{\sigma}	& \SI{35.2}{\sigma}\\
