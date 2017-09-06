@@ -11,10 +11,10 @@
 
 \begin{tikzpicture}[node distance=3.5cm]
   \node (RAW)  [NormalBox] {Daten der Quelle};
-  \node (CLAS) [NormalBox, right of=RAW] {Classifier};
-  \node (PRED) [NormalBox, right of=CLAS, xshift=0.5cm] {Predicted Gamma};
-  \node (RGAM) [AlternBox, right of=PRED, yshift=1cm] {Real Gamma (TP)};
-  \node (RPRO) [AlternBox, right of=PRED, yshift=-1cm] {Real Proton (FP)};
+  \node (CLAS) [NormalBox, right of=RAW] {Klassifizierer};
+  \node (PRED) [NormalBox, right of=CLAS, xshift=0.5cm] {Gelabeltes Gamma};
+  \node (RGAM) [AlternBox, right of=PRED, yshift=1cm] {echtes Gamma (TP)};
+  \node (RPRO) [AlternBox, right of=PRED, yshift=-1cm] {echtes Proton (FP)};
   \node (SIGM) [NormalBox, right of=RGAM, yshift=-1cm] {$\sigma$(conf)};
 
   \draw [normalArrow] (RAW) -- (CLAS);

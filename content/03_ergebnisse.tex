@@ -214,6 +214,8 @@ Dabei scheint der \texttt{RandomForest} ein Problem mit Events die hohe Konfiden
 Möglicherweise konnte er beim Training in diesem Bereich durch die Seperation von Monte-Carlo Events von echten gemessenen eine große Trennstärke erreichen. 
 Da diese Information nicht bei echten gemessen Daten nicht eingeht, hat dieser somit Probleme für hohe Konfidenzwerte.
 
+Der \texttt{XGBoost Classifier} scheint auf grund seiner beschränkten Tiefe von diesem Problem weniger betroffen. 
+
 \section{Rekusive feature Elemination}
 Da bekannt ist das der Monte Carlo simulierte Untergrund schlecht simuliert ist wird dieser mit dem gemessenen verglichen. 
 Ziel ist es durch das entfernen von Featuren welche eine grossen Montecarlo missmatch haben die Seperation zu verbessern. 
