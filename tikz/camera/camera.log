@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  3 SEP 2017 23:14
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  6 SEP 2017 11:03
  restricted system commands enabled.
 **camera.tex
 (./camera.tex
@@ -35,7 +35,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.116 seconds
+luaotfload | main : initialization completed in 0.109 seconds
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 
 (/home/maximilian/.local/texlive/2016/texmf-dist/tex/generic/luatex85/luatex85.
@@ -555,19 +555,19 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ap}] (./camera.aux))
 
 Here is how much of LuaTeX's memory you used:
- 12907 strings out of 494577
+ 12908 strings out of 494577
  100000,319454 words of node,token memory allocated
- 5052 words of node memory still in use:
-   55 hlist, 1 vlist, 1 rule, 5 disc, 112 glue, 13 kern, 65 glyph, 476 attribute
-, 40 glue_spec, 476 attribute_list, 1 write, 353 pdf_literal, 4 pdf_colorstack n
-odes
-   avail lists: 2:26,3:355,4:9,5:24,6:66,7:125,8:1,9:61,11:5
- 16460 multiletter control sequences out of 65536+600000
+ 5734 words of node memory still in use:
+   67 hlist, 4 vlist, 1 rule, 13 disc, 3 local_par, 129 glue, 15 kern, 6 penalty
+, 110 glyph, 482 attribute, 40 glue_spec, 482 attribute_list, 1 write, 353 pdf_l
+iteral, 4 pdf_colorstack nodes
+   avail lists: 2:26,3:361,4:9,5:26,6:114,7:142,8:1,9:76,10:3,11:13
+ 16461 multiletter control sequences out of 65536+600000
  17 fonts using 986663 bytes
  55i,7n,59p,419b,633s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/maximilian/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroma
 n12-bold.otf>
-Output written on camera.pdf (1 page, 15812 bytes).
+Output written on camera.pdf (1 page, 15973 bytes).
 
 PDF statistics: 19 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream
