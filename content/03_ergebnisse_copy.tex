@@ -97,11 +97,91 @@ Dafür werden die Klassifizierer einmal mit dem MC-Daten und einmal mit den Mess
   \caption{<+caption text+>}
   \label{fig:<+label+>}
 \end{figure}
-Im Anschluss wird für jedes Event ein Konfidenzwert bestimmt. 
-Der Konfidenzwert spiegelt die Sicherheit des Klassifizierer wieder, dass das Event ein Gamma \texttt{1} oder ein Proton \texttt{0} ist. 
-In Abbildung \ref{fig:confdist} ist die Konfidenzverteilung des klassifizierten Krebs Nebel Datensatzes aufgetragen. 
-Dabei ist auffällig das ein Großteil der Events eindeutig der Klasse Proton zugeordnet werden kann. 
-Im Gegensatz dazu finden sich keine Events die Eindeutig der Klasse Gamma zuordnen lassen.
+Die Trainierten Modelle sollen daraufhin ein Konfidenzwert, für ein Datenset aus einer Quellregion, abgeben welche von den Daten Gamma bzw Protonen sind. 
+Der Confidencewert spiegelt die Sicherheit des Klassifizierer wieder, dass das Event ein Gamma \texttt{1} oder ein Proton \texttt{0} ist. 
+Aufgrund dessen das sich Gamma und Hadronen teilweise ähnlich sehen gibt der Klassifizierer eine Wahrescheinlichkeit zwischen 0 und 1 aus das es sich bei dem Event um ein Gamma oder Proton handelt.
+Zur Bestimmung der Signifikanz werden verschiedene Schnitte auf dem Konfidenzwerten gemacht, dass es sich bei dem Signal um ein Gamma handelt.
+Dabei wird die Menge oberhalb des Schnittes als Gamma und unterhalb als Proton klassifiziert. 
+Die Klassifizierten Gammas setzen sich dementsprechend aus richtig Klassifizierten Gammas (TP) und Falsch klassifizierten Protonen (FP) zusammen. 
+Die Größe der Signifikanz wird durch das Verhältniss von TP zu FP bestimmt, als auch durch die Größe der klassifizierten Gammas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth]{./Plots/on_off_ratio.pdf}
+  \caption{Roh Signifikanz von Crab}
+  \label{fig:sig_crab}
+\end{figure}
+Ein grafisches Beispiel für die Signifikanz ist in Abbildung~\ref{fig:sig_crab} zu sehen. 
+Abgebildet ist die $\theta^{2}$ Verteilung der On-Position und das mittel der fünf Off-Positionen.
+Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz der Rohdaten entspricht.
+Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
+
+Durch die Klassifizierung verschiedener Modelle wird versucht diese zu erhöhen. 
+Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBOOSTClassifier} der Tiefe 1. 
+Dabei hat der XGBOOSTClassifier den Vorteil, dass er aufgrund des Addativen Trainings noch einen Erkenntnissgewinn aus den Fehlkalssifizierung zieht, nachdem $n$ Bäume der Anzahl aller möglichen Featuren erstellt wurden.
+
+Die Signifikanzen des Crab und Markarian Datensatzes werden jeweils auf der kompletten Größe des Datensatzes (Stand:00.00.0000) bestimmt. 
+Desweiteren wurden beide Modelle mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma und Hadronen gleichermaßen trainiert. 
+Der $\theta^{2}$ wird bei den Modellen konstant bei \num{0.03} gehalten.
+\begin{table}[H]
+  \centering
+  \caption{warum werden die Striche nicht komplett durchgezogen und stoppen bei einer Multicolumn?}
+  \begin{tabular}{l s s s s}
+	\toprule
+	& \multicolumn{2}{c}{Krebs Nebel}	& \multicolumn{2}{c}{Markarian} \\
+	  \cmidrule(r){2-3} \cmidrule(l){4-5}
+	  & Random & XGBoost 		& Random & XGBoost 	 \\
+	& Forest & (Tiefe= 1) 	& Forest & (Tiefe= 1)\\
+	unklassifizierte Daten & \multicolumn{2}{c}{\SI{21.4}{\sigma}}	& \multicolumn{2}{c}{\SI{17.1}{\sigma}} \\
+	MC-Proton	 		   & \SI{41.9}{\sigma}	& \SI{41.3}{\sigma}	& \SI{35.5}{\sigma}	& \SI{35.6}{\sigma}\\
+	gemessene Proton	   & \SI{32.9}{\sigma}	& \SI{37.8}{\sigma}	& \SI{23.6}{\sigma}	& \SI{35.2}{\sigma}\\
+	\bottomrule
+  \end{tabular}
+  \label{tab:sign}
+\end{table}
+Die Signifikanz der beiden Quellen ist in Tabelle \ref{tab:sign} niedergeschrieben. 
+Auffällig ist das im gegensatz zum Roc auc score die Signifikanz des mit den gemessenen Daten trainierten Klassifizierer geringer ist, als die derer die mit den MC-Daten trainiert wurden. 
+Zu erwarten wäre gewesen, dass der Klassifizierer welche besser separiert auch eine höhere Signifikanz hat. 
+
+Bei den \texttt{XGBOOSTClassifier} tritt dieser Effekt jedoch wesentlich schwächer als beim Random Forest auf. Dies deutet auf Übertraining des RandomForest hin. 
+Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma und Protonen Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Events zu separieren.
+
+\section{Confidence Score}
+Neben der maximalen Signifikanz ist die Verteilung der Signifikanz in abhaengigkeit des Confidence wertes von interesse. 
+In Abbildung \ref{fig:signconf} ist die Signifikanz fuer die einzelnen confidence werte dargestellt. 
+Anhand der Form koennen Rueckschluesse ueber die Klassifier getroffen werden. 
+
+Bei kleinen conf strebt die signifikanz gegen die des unklassifizierten Datensatzes.
+Aufgrund der Groesse der als Gamma klassifitierten Events strebt die Signifikanz fuer grosse confidence werte gegen 0.
+Dazwischen ist die Signifikanz ein Mass fuer die groesse des Testset in Abhaengigkeit der als richtig klassifizierten gammas.
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{./Plots/sig_mess_tree.pdf}
+  \caption{Conf verteilung auf den Monte Carlo trainierten Daten fuere jeweils Random Forest und xgboost classifier}
+  \label{fig:signconfMC}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{./Plots/sig_mess_xgbc.pdf}
+  \caption{Conf verteilung auf den gemessenen trainierten Daten fuere jeweils Random Forest und xgboost classifier}
+  \label{fig:signconfMESS}
+\end{subfigure}
+\caption{Signifikanz der Modelle in Abhaengigkeit der verschiedenen Confidence Werte}
+\label{fig:signconf}
+\end{figure}
+
+Vergleiche Form MonteCarlo Random Forest mit XGBOOSTClassifier 
+
+Vergleiche Form gemssene Daten Random Forest mit XGBOOSTClassifier 
+
+Ursachen fuer moegliche unterschiede.
+
+In Abbildung \ref{fig:figdist} ist die Wahrscheinlichkeitsverteilund der Klassifizierten Events aufgetragen. 
+Dabei ist auffaellig das ein grossteil der Events eindeutig der Klasse Proton zugeordnet werden kann. 
+Im gegensatz dazu finden sich keine Events die Eindeutig der Klasse Gamma zuordnen lassen.
+wann ist das der Fall ?
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{./Plots/conf.pdf}
@@ -136,84 +216,6 @@ Dies hatt zur Folge das Protonen Events die ueber einen anderen Zerfall aufschau
 \end{figure}
 Der anschaulichkeit halber sind in Abbildung~\ref{fig:picevents} drei Events abgebildet.
 Dabei weist das Proton Event in Abbildung~\ref{fig:hadevent} eine Gewisse aehnlichkeit zu dem Gamma Event (Abbildung~\ref{fig:gammaevent}) auf, wohingegen das Event in Abbildung~\ref{fig:had2event} wenig aehnlichkeit aufweist.
-
-Zur Bestimmung der maximalen Signifikanz des Klassifizierten Datensatzes werden 100 gleichverteilte Schnitte auf dem Konfidenzwerten gemacht.
-Dabei wird die Menge oberhalb des Schnittes als Gamma und unterhalb als Proton klassifiziert. 
-Die klassifizierten Gammas setzen sich dementsprechend aus richtig klassifizierten Gammas (TP) und falsch klassifizierten Protonen (FP) zusammen. 
-Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt, als auch durch die Größe der klassifizierten Gammas.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.88\textwidth]{./Plots/on_off_ratio.pdf}
-  \caption{Signifikanz von Crab auf den unklassifizierten Datensatz}
-  \label{fig:sig_crab}
-\end{figure}
-Ein grafisches Beispiel für die Signifikanz ist in Abbildung~\ref{fig:sig_crab} zu sehen. 
-Abgebildet ist die $\theta^{2}$-Verteilung der On-Position und das Mittel der fünf Off-Positionen.
-Dabei ist die Signifikanz des unklassifizierten Krebs Nebel Datensatzes dargestellt, welcher bereits ohne Klassifizierung mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
-% Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz des Rohdaten entspricht. Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
-
-Durch die Klassifizierung verschiedener Modelle wird versucht diese zu erhöhen. 
-Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBOOST Classifier} der Tiefe 1. 
-Dabei hat der \texttt{XGBOOST Classifier} den Vorteil, dass er aufgrund des Addaptiven Trainings noch einen Erkenntnissgewinn aus den Fehlkalssifizierung zieht nachdem die Anzahl an allen möglichen Feature an Bäumen gezogen wurden.
-
-Die Signifikanzen des Crab und Markarian Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei den $\theta^{2} < \num{0.03}$ bestimmt. 
-Ansatz weiter Beobachtung könnte seien den $\theta^{2}$ zu suchen welcher die Signifikanz maximiert. Dies sollte vermutlich nichts an der Größenordnung der ermittlten Werte ändern.
-\textbf{Was soll ich hier noch zu schreiben bezüglich der theta2 wahl?}
-Desweiteren wurden beide Modelle mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma und Hadronen gleichermaßen trainiert. 
-\begin{table}[H]
-  \centering
-  \caption{warum werden die Striche nicht komplett durchgezogen und stoppen bei einer Multicolumn?}
-  \begin{tabular}{l s s s s}
-	\toprule
-	& \multicolumn{2}{c}{Krebs Nebel}	& \multicolumn{2}{c}{Markarian} \\
-	  \cmidrule(r){2-3} \cmidrule(l){4-5}
-	  & Random & XGBoost 		& Random & XGBoost 	 \\
-	& Forest & (Tiefe= 1) 	& Forest & (Tiefe= 1)\\
-	unklassifizierte Daten & \multicolumn{2}{c}{\SI{21.4}{\sigma}}	& \multicolumn{2}{c}{\SI{17.1}{\sigma}} \\
-	MC-Proton	 		   & \SI{41.9}{\sigma}	& \SI{41.3}{\sigma}	& \SI{35.5}{\sigma}	& \SI{35.6}{\sigma}\\
-	gemessene Proton	   & \SI{32.9}{\sigma}	& \SI{37.8}{\sigma}	& \SI{23.6}{\sigma}	& \SI{35.2}{\sigma}\\
-	\bottomrule
-  \end{tabular}
-  \label{tab:sign}
-\end{table}
-Die Signifikanz der beiden Quellen ist in Tabelle \ref{tab:sign} niedergeschrieben. 
-Auffällig ist, dass im Gegensatz zum Auc Wert die Signifikanz des mit den gemessenen Daten geringer ist, als die des Klassifiziers, der mit Monte-Carlo Daten trainiert wurde.
-Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, auch eine höhere Signifikanz hat. 
-
-Bei dem \texttt{XGBOOST Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. Dies deutet auf Übertraining des RandomForest hin. 
-Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Events zu separieren.
-
-\section{Confidence Score}
-Neben der maximalen Signifikanz ist die Verteilung der Signifikanz in abhängigkeit des Konfidenzwertes zwar nicht für die Seperation aber bei der ??? von interesse. 
-In Abbildung \ref{fig:signconf} ist die Signifikanz fuer die einzelnen Konfidenzwerte dargestellt. 
-Anhand der Form können Rueckschluesse über die Klassifier getroffen werden. 
-
-Bei kleinen conf strebt die Signifikanz gegen die des unklassifizierten Datensatzes.
-Aufgrund der Groesse der als Gamma klassifitierten Events strebt die Signifikanz fuer grosse Konfidenzwerte gegen 0.
-Dazwischen ist die Signifikanz ein Mass fuer die groesse des Testset in Abhaengigkeit der als richtig klassifizierten gammas.
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.48\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{./Plots/sig_mess_tree.pdf}
-  \caption{\texttt{Random Forest}}
-  \label{fig:signconfMC}
-\end{subfigure}
-\begin{subfigure}[b]{0.48\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{./Plots/sig_mess_xgbc.pdf}
-  \caption{\texttt{XGBoost Classifier}}
-  \label{fig:signconfMESS}
-\end{subfigure}
-\caption{Signifikanz der Modelle in Abhaengigkeit der verschiedenen Confidence Werte für die mit Mc-Daten sowie Mess-Daten trainierten Klassifizierer}
-\label{fig:signconf}
-\end{figure}
-
-Auffällig ist das die Konfidenzverteilungen trotz zwei verschiedenen Klassifizierer bei unterschiedlichen komplexitäten sich ziemlich für die Monte Carlo daten ähneln.
-Dabei scheint der \texttt{RandomForest} ein Problem mit Events die hohe Konfidenzwert aufweisen zu haben. 
-Möglicherweise konnte er beim Training in diesem Bereich durch die Seperation von Monte-Carlo Events von echten gemessenen eine große Trennstärke erreichen. 
-Da diese Information nicht bei echten gemessen Daten nicht eingeht, hat dieser somit Probleme für hohe Konfidenzwerte.
-
 \section{Rekusive feature Elemination}
 Da bekannt ist das der Monte Carlo simulierte Untergrund schlecht simuliert ist wird dieser mit dem gemessenen verglichen. 
 Ziel ist es durch das entfernen von Featuren welche eine grossen Montecarlo missmatch haben die Seperation zu verbessern. 
