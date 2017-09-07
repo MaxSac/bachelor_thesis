@@ -22,9 +22,20 @@ Die Kamera besteht aus 1440 Kamerapixeln, welche jeweils aus einem quadratischen
 
 \chapter{Entstehung von Cherenkov Schauern}
 Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. Die Energie der erzeugten Sekundärteilchen ist stets geringer als die der einfallende Primärteilchen. Dabei wird zwischen zwei verschiedenen Arten von Schauern unterschieden. 
-
-\textbf{Møglicher weise Tikz picture}
-
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+  	\centering
+	\includegraphics[width=0.5\textwidth]{images/photon_100GeV.png}
+	\caption{Elektromagnetischer Schauer}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+  	\centering
+	\includegraphics[width=0.5\textwidth]{images/proton_100GeV.png}
+	\caption{Hadronischer Schauer}
+  \end{subfigure}
+  \caption{Simulierte Teilchenschauer mit einer Energie des Primärteilchens von \SI{100}{\giga \electronvolt} \cite{corsika}.}
+\end{figure}
 Trifft ein hochenergetisches $\gamma$-Quant auf die Atmosphäre, so wird es wahrscheinlich im Coulombwall der Moleküle durch Paarerzeugung ein Elektronen-Positron-Paar erzeugen. 
 Anschließend kann bei hinreichend großer Energie das Elektron durch Bremsstrahlung weitere Photonen erzeugen. 
 \begin{eqnarray}
@@ -32,7 +43,7 @@ Anschließend kann bei hinreichend großer Energie das Elektron durch Bremsstrah
   e^{+} \rightarrow& e^{+'} + \gamma \\
   e^{-} \rightarrow& e^{-'} + \gamma 
 \end{eqnarray}
-Dieser Prozess ist solange fortlaufend bis die Energie der Teilchen zu klein ist, um ein neues Teilchenpaar zu erzeugen. 
+Dieser Prozess ist solange fortlaufend bis die Energie der Teilchen zu klein ist, um ein neues Teilchenpaar zu erzeugen und wird elektromagnetischer Schauer genannt.
 Trifft ein geladenes kosmisches Teilchen in die Atmosphäre, so kann dieses über die starke Wechselwirkung, anders als beim elektromagnetischen Schauer, unterschiedliche Sekundärteilchen bilden. 
 Dabei entstehen unter anderem neue Hadronen, Mesonen und Myonen, welche wiederum zerstrahlen. 
 \begin{eqnarray}
@@ -40,7 +51,7 @@ Dabei entstehen unter anderem neue Hadronen, Mesonen und Myonen, welche wiederum
   \pi^{+} \rightarrow& \mu^{+} + \nu_{\mu} \\
   \pi^{-} \rightarrow& \mu^{-} + \bar{\nu}_{\mu}
 \end{eqnarray}
-Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
+Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der hadronische Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
 
 Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium $c_\text{med}$ polarisiert es dieses kurzzeitig. 
 Dabei wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
@@ -90,7 +101,7 @@ Somit ist es möglich, die Messzeit zu maximieren.
 Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen annähernd die selben Wetterbedingungen gelten. 
 
 \chapter{Überwachtes Maschinelles Lernen}
-Zur Auswertung der Datenmenge von 300 GB bis 1 TB \cite{MaxNoethe}, die FACT jede Nacht aufnimmt, werden maschinelle Lernmethodenen verwendet. 
+Zur Auswertung der Datenmenge von 300 GB bis 1 TB, die FACT jede Nacht aufnimmt, werden maschinelle Lernmethodenen verwendet. 
 Maschinelles Lernen kann dazu genutzt werden, Muster und Strukturen auf Datensätzen zu erkennen und zukünftige Ereignisse hervorzusagen. 
 Dabei wird zwischen überwachtem und unüberwachtem Lernen unterschieden.
 
@@ -102,7 +113,7 @@ Dafür wird ein Datensatz, bei dem die Zielvariablen $y$ bekannt sind, in zwei T
 Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. 
 Hier ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (Übertraining), sondern allgemein genug bleibt auch ähnliche Datensätze genau vorherzusagen. 
 Dies geschieht durch Beschränkung der Modelle. 
-Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhänging von dem Trainingsdatensatz ist, kann geprüft werden, ob das Modell allgemein genug ist oder an Übertraining leidet.
+Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhängig von dem Trainingsdatensatz ist, kann geprüft werden, ob das Modell allgemein genug ist oder an Übertraining leidet.
 \section{Entscheidungsbaum}
 \begin{wrapfigure}[12]{R}[0pt]{0.5\textwidth}
   \centering
@@ -110,7 +121,7 @@ Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhän
   \caption{Entscheidungsbaum der Tiefe 2 bei Gamma Handron Seperation}
 \end{wrapfigure}
 Ein Entscheidungsbaum beginnt mit einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. 
-In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, \textbf{aufgrund dessen das sich jede komplexere Abfrage auf eine Verknüpfung mehrer binären Abfragen reduziere lässt.}
+In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, da sich die meisten Probleme zu einem zwei-Klassen-Problem reduzieren lassen.
 % aufgrund dessen das sich jedes komplexeres auf ein binäres reduzieren lässt.
 Entsprechend eines Schwellwertes wird der Datensatz aufgeteilt, sodass die entstehenden Untergruppen möglichst homogen werden. 
 %sodass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. 
@@ -126,12 +137,19 @@ Ein Random Forest besteht aus vielen unabhängigen Entscheidungsbäumen.
 Jeder Entscheidungsbaum zieht bei der Erstellung immer nur eine Teilmenge aus allen Attributen.
 Zur Klassifizierung wird anschließend eine Mehrheitsabstimmung über alle Entscheidungsbäumen durchgeführt.
 Dadurch, dass die einzelnen Bäume unterschiedlich aufgebaut sind und über die einzelnen Lerner gemittelt wird, ergibt sich ein Modell mit reduzierter Varianz im Gegensatz zum Entscheidungsbaum, welches robuster gegen Übertraining ist.
-\section{Extra Boosted Decisiontrees}
-Hier kommt später Inhalt hin
+\section{Extreme Gradient Boosting}
+Extreme Gradient Boosting (kurz XGBoost) wurde von Friedman erfunden \cite{xgboost}.
+Es gilt als einer der Methoden die im überwachten Lernen an die Vorhersage-Werte von Neuronalen Netzwerken herankommt.
+Dabei zeichnen sich  XGBoosted Entscheidungsbäume, durch stark in die Tiefe beschränkte Bäume, aus.
+Anders als beim Random Forest werden nicht beliebig viele Bäume parallel gebaut, sondern additiv. 
+Dabei lernt der folgende Baum die Fehler, welcher der vorherige Baum gemacht hat zu minimieren.
+Zusätzlich werden fehlklassifizierte Ereignisse, der vorherigen Iteration, ein höheres Gewicht beim erstellen der Folgebäume zugewiesen.
+Die Berechnung der Gewichte wird mittels den Gradienten der lossfunction ermittelt.
+
 \section{Evaluationsmetriken}
 Um zu überprüfen, wie sich die Modelle auf den Datensätze verhalten, werden zweierlei Metriken zu der Beurteilung der Klassifizierer benutzt.
 \subsection*{Receiver Operating Characteristic}
-\begin{wrapfigure}[12]{R}[0pt]{0.4\textwidth}
+\begin{wrapfigure}[13]{R}[0pt]{0.4\textwidth}
   \centering
   \includegraphics[width=0.4\textwidth]{./Plots/roc_info.pdf}
   \caption{ROC Score zweier verschiedenen Modelle}

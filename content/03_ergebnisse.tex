@@ -1,4 +1,5 @@
 \chapter{Gamma Hadron Separation mit gemessenen Daten}
+\textbf{zwei klassen problem gamma hadron seperation, Gamma Fluüsse}
 Für die Separation zwischen elektromagnetischen und hadronischen Schauern muss ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
 %Dabei wurde bis jetzt anhand der FACT-Tools \cite{FACT-Tools}, der klassifizierte Datensatz aus Monte Carlo simulierten Gammas so wie Protonen erstellt. 
 Dazu wird zunächst mit der Software \texttt{FACT-Tools} ein klassifizierter Monte Carlo simulierter Datensatz prozessiert.
@@ -27,9 +28,9 @@ Dies hat zur Folge, dass keine expliziten gemessenen Untergrund/Hadron-Daten exi
 
 Für die Erstellung eines alternativen Protonendatensatzes müssen, aus dem Datensatz einer Quelleobservation, durch einen sinnvollen Schnitt die Protonenereignisse heraussepariert werden. 
 Denkbar wäre auch einem maschinellen Lerner die Filterung auf Protonen zu überlassen.
-Allerdings würden hier die Monte Carlo\textbf{-Missmatches} erneut eingehen. Aus diesem Grund kann darauf verzichtet werden.
+Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. \textbf{Kurze erklärung zu unstimmigkeiten zu daten monte carlos} Aus diesem Grund kann darauf verzichtet werden.
 
-Dementsprechend wird, anhand des trennstärksten Features $\theta^{2}$, versucht eine Separation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
+Dementsprechend wird, anhand des trennstärksten Attributs $\theta^{2}$, versucht eine Separation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
 Die Trennstärke des trennstärksten Parameters $\theta^{2}$, im Vergleich zu allen anderen verfügbaren Parametern ist in Abbildung~\ref{fig:roc} dargestellt. 
 \begin{figure}[H]
   \centering
@@ -57,7 +58,7 @@ Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften 
 
 Es scheinen $\theta^{2}$-Cuts zwischen \num{0.5} bis \num{1} als plausibel. 
 \textbf{Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < 1$ aus dem Trainingsdatensatz entfernt werden. 
-Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > 1$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma angesehen werden können. (Beschränkung der Modelle -> fällt kaum ins Gewicht?)} 
+Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > 1$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma angesehen werden können. Monte Carlo missmatches gröössenordnung größer} 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Cut von \num{0.5} gewählt. 
 \section{Optimierung der Modelle}
 Um zu evaluieren, welche Methode besser zwischen den elektromagnetischen und hadronischen Schauern separiert, werden zwei Datensätze erstellt. 
@@ -141,7 +142,7 @@ Der Anschaulichkeit halber sind in Abbildung~\ref{fig:picevents} drei Kamerabild
 Dabei weist das Proton Ereignis in Abbildung~\ref{fig:hadevent} eine Gewisse Ähnlichkeit zu dem Gamma Ereignis (Abbildung~\ref{fig:gammaevent}) auf, wohingegen das Ereignis in Abbildung~\ref{fig:had2event} wenig Ähnlichkeit aufweist.
 
 Zur Bestimmung der maximalen Signifikanz des Klassifizierten Datensatzes wird ein Schnitt in $\theta^{2}$ angewendet, sodass das Verhältnis von On- zu Off-Daten möglichst groß ist.
-\texttt{Dabei wird die Menge oberhalb des Schnittes als Gamma- und unterhalb als Proton-Ereignisse klassifiziert.} 
+Dabei wird die Menge unterhalb des Schnittes als Gamma- und oberhalb als Proton-Ereignisse klassifiziert.
 Die klassifizierten Gamma-Ereignisse setzen sich dementsprechend aus richtig klassifizierten Gamma- (TP) und falsch klassifizierten Proton-Ereignissen (FP) zusammen. 
 Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt.
 \begin{figure}[H]
@@ -155,7 +156,7 @@ Abgebildet ist die $\theta^{2}$-Verteilung der On-Position und das Mittel der f�
 Dabei ist die Signifikanz des unklassifizierten Krebsnebel Datensatzes dargestellt, welcher bereits ohne Klassifizierung mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
 % Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz des Rohdaten entspricht. Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
 
-\textbf{Durch die Klassifizierung verschiedener Modelle wird versucht die Signifikanz zu erhöhen.}
+Durch die Bereingung des Datensatzes wird versucht die Signifikanz zu erhöhen.
 Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBOOST Classifier} der Tiefe 1. 
 Dabei hat der \texttt{XGBOOST Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnissgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attribute an Bäumen gezogen wurden.
 
