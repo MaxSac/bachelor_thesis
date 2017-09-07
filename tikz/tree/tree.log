@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  2 SEP 2017 18:40
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2017.4.10)  7 SEP 2017 11:26
  restricted system commands enabled.
 **tree.tex
 (./tree.tex
@@ -35,7 +35,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.102 seconds
+luaotfload | main : initialization completed in 0.129 seconds
 Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
 
 (/home/maximilian/.local/texlive/2016/texmf-dist/tex/generic/luatex85/luatex85.
@@ -538,17 +538,17 @@ ap}] (./tree.aux))
 Here is how much of LuaTeX's memory you used:
  12270 strings out of 494577
  100000,319454 words of node,token memory allocated
- 6245 words of node memory still in use:
-   104 hlist, 1 vlist, 1 rule, 2 disc, 193 glue, 1 kern, 59 glyph, 535 attribute
+ 6323 words of node memory still in use:
+   104 hlist, 1 vlist, 1 rule, 2 disc, 193 glue, 1 kern, 72 glyph, 535 attribute
 , 40 glue_spec, 535 attribute_list, 1 write, 363 pdf_literal, 16 pdf_colorstack 
 nodes
-   avail lists: 1:1,2:26,3:365,4:21,5:16,6:60,7:206,8:1,9:110,11:2
+   avail lists: 1:1,2:26,3:365,4:21,5:16,6:73,7:206,8:1,9:110,11:2
  15844 multiletter control sequences out of 65536+600000
  15 fonts using 723239 bytes
  55i,11n,67p,400b,1194s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/maximilian/.local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroma
 n10-regular.otf>
-Output written on tree.pdf (1 page, 6493 bytes).
+Output written on tree.pdf (1 page, 6897 bytes).
 
 PDF statistics: 18 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream

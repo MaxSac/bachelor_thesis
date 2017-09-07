@@ -74,8 +74,8 @@ Zu den Hillasparameter zählen:
   \includegraphics[width=0.5\textwidth]{images/wobble.pdf}
   \caption{Wobble observation muss noch zitiert werden. Theme dissertaion}
 \end{wrapfigure}
-Zur Abschätzung der Untergrundstrahlung in der Wuellregion (On-Positio) werden stellen am Himmel beobachtet, an denen keine Quellen zu erwaten (Off-Position) sind.
-Die gemessenen Untergrundraten können dann von den Messungen in der Quellregion subtrahiert werden um die \textbf{tatsächliche} Signalrate \textbf{zu bestimmen/ abzuschätzen}.
+Zur Abschätzung der Untergrundstrahlung in der Quellregion (On-Position) werden Stellen am Himmel beobachtet, an denen keine Quellen zu erwarten (Off-Position) sind.
+Die gemessenen Untergrundraten können dann von den Messungen in der Quellregion subtrahiert werden, um die tatsächliche Signalrate zu bestimmen.
 %Zur Bestimmung des Aktivität einer Quelle, werden bei deren Observation einerseits Daten aus der Quellregion (On-Position), sowie Daten aus ähnlichen Richtungen einer Position bei denen nur diffuse Hintergrundstrahlung (Off-Position) erwatet wird genommen. Aus der Beziehung der On- und Off-Daten wird versucht die statistische Effekte der Hintergrundstrahlung bei der Quellobservation zu minimieren.
 
 Die Wobble Observation Strategie zeichnet aus, dass im Gegensatz zur klassischen Methode, nicht hintereinander On/Off Postionen beobachtet werden. 
@@ -115,8 +115,8 @@ In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, \te
 Entsprechend eines Schwellwertes wird der Datensatz aufgeteilt, sodass die entstehenden Untergruppen möglichst homogen werden. 
 %sodass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. 
 %Dieser Prozess wird solange durchgeführt bis ein Blatt erreicht wird, in dem sich ausschließlich Ereignisse einer Klasse befinden und eine erneute Aufspaltung keinen Erkenntnissgewinn bringt. 
-\textbf{Dieser Prozess wird solange durchgeführt bis nach einer Abfrage alle Ereignisse ausschließlich einer Klasse angehören oder eine erneute Aufspaltung keinen Erkenntnissgewinn bringt. Die Enden einer solchen Abfrage werden als Blätter bezeichnet und geben die Vorhersage des Baums an.}
-Die Anzahl an Knoten die durchlaufen werden bis das letzte Blatt errreicht ist, wird als Tiefe der Bäume bezeichnet.
+Dieser Prozess wird solange durchgeführt bis nach einer Abfrage alle Ereignisse ausschließlich einer Klasse angehören oder eine erneute Aufspaltung keinen Erkenntnissgewinn bringt. Die Enden einer solchen Abfrage werden als Blätter bezeichnet und geben die Vorhersage des Baums an.
+Die Anzahl an Knoten, die durchlaufen werden bis das letzte Blatt errreicht ist, wird als Tiefe der Bäume bezeichnet.
 Der Baum kann entsprechend verschiedener Kriterien gebaut werden.
 Zu den gängigen gehört die Entropie oder der Gini-Index \cite{MAchineLearningBook}. 
 Zu den Vorteilen eines Entscheidungsbaums zählt, dass dieser gut interpretierbar und nachvollziehbar ist. 
@@ -129,7 +129,7 @@ Dadurch, dass die einzelnen Bäume unterschiedlich aufgebaut sind und über die 
 \section{Extra Boosted Decisiontrees}
 Hier kommt später Inhalt hin
 \section{Evaluationsmetriken}
-Zum Testen inwiefern sich die Modelle auf den Datensätze verhalten werden zweierlei Metriken zu der Beurteilung der Klassifizierer benutzt.
+Um zu überprüfen, wie sich die Modelle auf den Datensätze verhalten, werden zweierlei Metriken zu der Beurteilung der Klassifizierer benutzt.
 \subsection*{Receiver Operating Characteristic}
 \begin{wrapfigure}[12]{R}[0pt]{0.4\textwidth}
   \centering

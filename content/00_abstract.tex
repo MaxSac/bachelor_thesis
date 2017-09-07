@@ -1,13 +1,14 @@
 \thispagestyle{plain}
 
 \section*{Kurzfassung}
-Schwerpunkt dieser Arbeit ist die Gamma Hadron Seperation. 
-Dazu wird geprüft ob diese, durch die Verwendung von gemessenen Untergrunddaten anstelle von Simulierten verbessert werden kann. 
-Dazu wird mittels eines $\theta^{2}$-Schnittes auf den Quelldaten die FACT aufnimmt, da kein gemessener Untergrunddatensatz exsestiert, der Untergrunddatensatz erstellt.
-Anhand dessen werden ein \texttt{Random Forest} sowie ein \texttt{XGBOOST Classifier} trainiert und der AUC-Wert sowie die Signifikanz von Quellen, anhand der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
-Die durch gemessenen Daten tranierten Modelle seperieren zwar nach dem AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
+Schwerpunkt dieser Arbeit ist die Gamma/Hadron Seperation. 
+Dazu wird geprüft, ob diese verbessert werden kann, indem gemessene Untergrunddaten statt Monte Carlo-Simulationen verwendet werden.
+Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze für diese Arbeit von Quellbeobachtungen so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
+Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBOOST Classifier} trainiert und der AUC-Wert sowie die Signifikanz von Quellen, der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
+Die auf gemessenen Daten trainierten Modelle separieren zwar nach dem AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
 Möglicherweise trainieren die Modelle dabei auf den Unterschied zwischen simulierten und gemessenen Daten. 
-Unter den Vorhanden Monte-Carlo Gamma lässt sich, durch diese Methode, die Seperation nicht verbessern. 
+
+\texttt{Unter den Vorhanden Monte-Carlo Gamma lässt sich, durch diese Methode, die Seperation nicht verbessern.}
 \section*{Abstract}
 \begin{english}
 The abstract is a short summary of the thesis in English, together with the German summary it has to fit on this page.
