@@ -18,7 +18,7 @@
   \node (TREE) [NormalBox, right of=MCGAM, xshift=2cm, yshift=1cm] {Random Forest};
   \node (XGBC) [AlternBox, right of=MCGAM, xshift=2cm, yshift=-1cm] {XGBoost Classifier};
   \node (OPTI) [NormalBox, right of=TREE, xshift=2cm, yshift=-1cm] {Klassifizierer optimieren};
-  \node (ROC) [NormalBox, right of=OPTI, xshift=2cm, yshift=1cm] {ROC AUC Score};
+  \node (ROC) [NormalBox, right of=OPTI, xshift=2cm, yshift=1cm] {AUC-Wert};
   \node (SIGMA) [NormalBox, right of=OPTI, xshift=2cm, yshift=-1cm] {$\sigma$ auf Daten};
 
   \draw [normalArrow] (MCPRO) -- (MCGAM);

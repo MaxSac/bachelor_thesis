@@ -21,6 +21,7 @@ SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage einzelne Photonen
 Die Kamera besteht aus 1440 Kamerapixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei das Kamerabild.
 
 \chapter{Entstehung von Cherenkov Schauern}
+\label{sec:cherenkov}
 Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. Die Energie der erzeugten Sekundärteilchen ist stets geringer als die der einfallende Primärteilchen. Dabei wird zwischen zwei verschiedenen Arten von Schauern unterschieden. 
 \begin{figure}[H]
   \centering
@@ -75,9 +76,9 @@ Zu den Hillasparameter zählen:
   \item \textbf{width/length:} Hauptachsen der Ellipse
   \item \textbf{size:} Anzahl an Pixel im Schauer
   \item \textbf{CoG:} Schwerpunkt des Schauers
-  \item \textbf{Core of image:} Helligkeit der einzelnen Pixel
-  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der Parameter width und length wird DISP abgeschätzt, um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, welche man durch die Observation der zeitlichen Konzentration der einzelenen Pixel im Schauer abzuschätzen versucht.
   \item \textbf{Source Position:} erwartete Quellposition
+%  \item \textbf{Core of image:} Helligkeit der einzelnen Pixel
+  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der Parameter width und length wird DISP abgeschätzt, um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, welche man durch die Observation der zeitlichen Konzentration der einzelenen Pixel im Schauer abzuschätzen versucht.
   \item \textbf{$\theta$:} Winkel zwischen der gemessenen und echten Quellposition
 \end{itemize}
 \section{Wobble Observation Strategie}
@@ -99,6 +100,37 @@ Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei
 Zu den Vorteilen dieser Methode zählt, dass keine extra OFF-Daten genommen werden müssen. 
 Somit ist es möglich, die Messzeit zu maximieren. 
 Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen annähernd die selben Wetterbedingungen gelten. 
+
+% \section{Events in der Kamera}
+% 
+% Dies liegt dem physikalischem Problem zugrunde, dass ein Proton, beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und einem $e^{+}$ zerfällt und kaum von einem elektromagnetischen Schauer zu unterscheiden ist.
+% Dabei zerfällt das $\pi^{0}$ Meson in zwei Gamma-Teilchen, ebenso wie das $e^{+}$ durch inverse Bremsstrahlung weitere Gamma-Teilchen erzeugt. 
+% Dies hat zur Folge, dass Proton- und Gamma-Schauer sehr ähnlich ausschauen können.
+% \begin{figure}[H]
+%   \centering
+% \begin{subfigure}[t]{0.3\textwidth}
+%   \centering
+%   \includegraphics[width=\textwidth]{./images/Gamma.pdf}
+%   \caption{Gamma Ereignis}
+%   \label{fig:gammaevent}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.3\textwidth}
+%   \centering
+%   \includegraphics[width=\textwidth]{./images/Hadron.pdf}
+%   \caption{Hadron Ereignis mit Ähnlichkeit zu einem Gamma Ereignis}
+%   \label{fig:hadevent}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.3\textwidth}
+%   \centering
+%   \includegraphics[width=\textwidth]{./images/Hadron2.pdf}
+%   \caption{Hadron Ereignis ohne Ähnlichkeit zu einem Gamma Ereignis}
+%   \label{fig:had2event}
+% \end{subfigure}
+% \caption{Ereignisse in der Detektor Kamera vor dem Cleaning \cite{campic}}
+% \label{fig:picevents}
+% \end{figure}
+% Der Anschaulichkeit halber sind in Abbildung~\ref{fig:picevents} drei Kamerabild zu sehen.
+% Dabei weist das Proton Ereignis in Abbildung~\ref{fig:hadevent} eine Gewisse Ähnlichkeit zu dem Gamma Ereignis (Abbildung~\ref{fig:gammaevent}) auf, wohingegen das Ereignis in Abbildung~\ref{fig:had2event} wenig Ähnlichkeit aufweist.
 
 \chapter{Überwachtes Maschinelles Lernen}
 Zur Auswertung der Datenmenge von 300 GB bis 1 TB, die FACT jede Nacht aufnimmt, werden maschinelle Lernmethodenen verwendet. 
@@ -129,7 +161,7 @@ Entsprechend eines Schwellwertes wird der Datensatz aufgeteilt, sodass die entst
 Dieser Prozess wird solange durchgeführt bis nach einer Abfrage alle Ereignisse ausschließlich einer Klasse angehören oder eine erneute Aufspaltung keinen Erkenntnissgewinn bringt. Die Enden einer solchen Abfrage werden als Blätter bezeichnet und geben die Vorhersage des Baums an.
 Die Anzahl an Knoten, die durchlaufen werden bis das letzte Blatt errreicht ist, wird als Tiefe der Bäume bezeichnet.
 Der Baum kann entsprechend verschiedener Kriterien gebaut werden.
-Zu den gängigen gehört die Entropie oder der Gini-Index \cite{MAchineLearningBook}. 
+Zu den gängigen gehört die Entropie oder der Gini-Index \cite{model}. 
 Zu den Vorteilen eines Entscheidungsbaums zählt, dass dieser gut interpretierbar und nachvollziehbar ist. 
 Allerdings kommt es ohne Beschränkung schnell zum Übertraining.
 \section{Random Forest}
@@ -164,12 +196,12 @@ Ein Beispiel ist in Abbildung \ref{fig:roc} zu sehen.
 Für einen guten Klassifizier strebt die Kurve bei kleinen FPR gegen hohe TPR. 
 Angeonommen der Klassifier ist nicht in der Lage zwischen den beiden Klassen zu separieren, dann steigen die TPR und FPR gleichermaßen. 
 Anhand der Fläche unter der Kurve können die Güten anhand von Zahlen verglichen werden.
-\subsection*{Li und Ma Signifikanz (nochmal komplett bearbeiten)}
-% Muss noch verbessert werden.
-Aufgrund der Begrenztheit der Dektorsensitivität muss bei der Analyse von möglichen Quellen sorgsam mit den Daten zur Bestimmung der Sicherheit einer Quelle umgegangen werden.
-Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. 
-Stattdessen muss eine Sicherheit auf das Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
-% //////////////////////////////
+\subsection*{Li und Ma Signifikanz}
+% Aufgrund der Begrenztheit der Dektorsensitivität muss bei der Analyse von möglichen Quellen sorgsam mit den Daten zur Bestimmung der Sicherheit einer Quelle umgegangen werden.
+% Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. 
+% Stattdessen muss eine Sicherheit auf das Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
+\textbf{Signal und Untergrund sind schwer zu unterscheiden, da das Signal oftmals wesentlich schwächer als der Untergrund ist und nicht isoliert gemessen werden kann. }
+Daher wird ein Maß für die statistische Sicherheit angegeben, mir der es sich um ein Signa und nicht um statistisches Rauschen handelt.
 Ein möglicher Anatz ist die Li and Ma Signifikanz \cite{liandma}, bei der über einen statistischen Hypothesen Test geprüft wird ob das Signal $N_\text{S}$ nur ein Teil des Untergrunds $N_\text{B}$ ist. 
 Aus dem Verhältniss der Messzeiten der On- und Off-Position $\alpha$ wird die Hintergrundstrahlung berechnet. 
 Aus der Differenz der On-Region und der Hintergrundrate lässt sich so die Signalrate bestimmen. 
@@ -190,6 +222,6 @@ Er gilt dabei als stärkste Quelle am Himmel.
 Viele wissentschaftliche Arbeiten nehmen diesen als Referenzwert, um ihre Messwerte zu vergleichen. 
 
 \section{Markarian 501}
-Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Lichtfahren der Blazar Markarjan. 
+Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Lichtjahren der Blazar Markarjan. 
 In dessen Zentrum befindet sich ein \num{0.9} bis \num{3.4} Milliarden Sonnenmassen schweres schwarzes Loch, dessen Jet in Richtung Erde gerichtet ist.
 Auch dieser gilt als einer der stärksten Gammastrahlungsquellen.

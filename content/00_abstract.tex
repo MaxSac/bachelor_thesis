@@ -1,14 +1,15 @@
 \thispagestyle{plain}
 
 \section*{Kurzfassung}
-Schwerpunkt dieser Arbeit ist die Gamma/Hadron Seperation. 
+Schwerpunkt dieser Arbeit ist die Gamma/Hadron Separation. 
 Dazu wird geprüft, ob diese verbessert werden kann, indem gemessene Untergrunddaten statt Monte Carlo-Simulationen verwendet werden.
 Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze für diese Arbeit von Quellbeobachtungen so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
-Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBOOST Classifier} trainiert und der AUC-Wert sowie die Signifikanz von Quellen, der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
+Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBoost Classifier} trainiert und der AUC-Wert sowie die Signifikanz von Quellen, der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
 Die auf gemessenen Daten trainierten Modelle separieren zwar nach dem AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
 Möglicherweise trainieren die Modelle dabei auf den Unterschied zwischen simulierten und gemessenen Daten. 
+Diese Methode eignet sich somit nicht die Separation zu verbessern. 
+Unter der Annahme, dass die Monte Carlo-Mismatches bei den Simulation verringert werden könnten, würde die Methode voraussichtlich bessere Ergebnisse als die mit Monte Carlo-Protonen trainierten Modelle liefern.
 
-\texttt{Unter den Vorhanden Monte-Carlo Gamma lässt sich, durch diese Methode, die Seperation nicht verbessern.}
 \section*{Abstract}
 \begin{english}
 The abstract is a short summary of the thesis in English, together with the German summary it has to fit on this page.
