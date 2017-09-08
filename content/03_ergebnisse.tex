@@ -79,14 +79,14 @@ Für die Analyse wird die Anzahl der Bäume beim Random Forest auf \texttt{n\_es
 Mithilfe eines Parameternetz wird die optimale Konstellation der Parameter gesucht. 
 \begin{figure}
   \begin{subfigure}[b]{0.5\textwidth}
+	\includegraphics[width=\textwidth]{Plots/parameter_monte.pdf}
+	\caption{Monte Carlo-Daten}
+	\label{fig:mcGrid}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.5\textwidth}
 	\includegraphics[width=\textwidth]{Plots/parameter_crab.pdf}
 	\caption{Messdaten}
 	\label{fig:messGrid}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.5\textwidth}
-	\includegraphics[width=\textwidth]{Plots/parameter_monte.pdf}
-	\caption{MC-Daten}
-	\label{fig:mcGrid}
   \end{subfigure}
   \caption{Parameternetz zum Ermitteln der optimalen Parameter auf den unterschiedlichen Datensätzen.}
 \end{figure}
