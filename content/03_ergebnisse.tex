@@ -1,82 +1,85 @@
-\chapter{Gamma Hadron Separation mit gemessenen Daten}
-\textbf{Ziel der Gamma/Hadron-Separation ist es, dass zwei-Klassen-Problem, bestehend aus Signal und Untergrund, zu lösen. 
-Dazu wird versucht die Signalrate zu rekonstruieren um die Flüsse so wie die Spektren von Gamma Quellen zu bestimmen.}
+\chapter{Gamma/Hadron-Separation mit gemessenen Daten}
+Ziel der Gamma/Hadron-Separation ist es, die von einem Cherenkov-Teleskop gemessenen Ereignisse den beiden Klassen Signal (Gamma) und Untergrund (Proton) zuzuordnen.
+Mit den klassifizierten Gamma-Ereignissen kann dann zum Beispiel der Fluss einer Quelle im Bereich der Gammastrahlung berechnet werden.
 
 Für die Separation zwischen elektromagnetischen und hadronischen Schauern muss ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
-Dazu wird zunächst mit der Software \texttt{FACT-Tools} ein klassifizierter Monte Carlo simulierter Datensatz prozessiert.
+Dazu wird zunächst mit der Software \texttt{FACT-Tools} \cite{Christian Bockermann} ein klassifizierter Datensatz prozessiert.
 %Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
 Ziel der Arbeit ist zu untersuchen, ob die Gamma/Hadron-Separation durch die Verwendung von gemessenen statt simulierten Untergrunddaten im Trainingsdatensatz verbessert werden kann.
 
-\textbf{Da die simulierten nicht immer den Verteilungen des gemessen Protonen folgen, bestehen Unstimmigkeiten auf den Monte Carlo-Daten (Mismatch). 
-Durch die Verwendung des gemessen Untergrund anstelle der simulierten Protonen soll der Mismatch minimiert werden und die Klassifikation verbessert.}
+Es ist bekannt, dass die Verteilung der Attribute auf simulierten und gemessenen Daten unterschiedlich aussehen.
+Dieses Problem wird Daten-Monte Carlo-Mismatch genannt.
+Durch die Verwendung des gemessenen Untergrunds anstelle der simulierten Protonen soll der Mismatch minimiert und die Klassifikation verbessert werden.
 %Da gemessene Protonen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
 Bei ähnlichen Experimenten, wie z.B. MAGIC, hat sich diese Methode bereits bewährt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
-  \caption{Analysekette zur Bewertung welcher Trainingsdatensatz besser für die Gamma Hadron seperation geeignet ist.}
+  \caption{Analysekette zur Evaluation der Trainingsmethoden.}
 \end{figure}
 Zur Überprüfung dieser Methode werden ein \texttt{Random Forest}, so wie ein \texttt{XGBoost Classifier} der Tiefe 1 trainiert und optimiert.
-Aus dem Verhältnis, der Signifikanzen der beiden Klassifizierer, lässt sich womöglich Aufschluss über die Klassifikation erhalten.
+Aus dem Verhältnis der Signifikanzen der beiden Klassifizierer, lässt sich womöglich Aufschluss über die Klassifikation erhalten.
 
-Das Trennvermögen der auf den beiden unterschiedlichen Datensets trainierten Modelle wird anhand der Receiver Operating Curve gemessen.
+Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten Modelle wird anhand der Receiver Operating Curve gemessen.
 
 Desweiteren wird die Signifikanz von zwei verschiedenen Quellen berechnet, die durch zwei unterschiedlich trainierte Modelle gefunden werden. 
-Dabei werden hauptsächlich die maximalen Signifikanzen der Klassifizierer verglichen.
+Anhand der maximalen Signifikanzen werden die Modelle verglichen.
 \section{Erstellen des gemessenen Untergrund}
 \label{sec:makeUnter}
 Aufgrund der geringen Spiegelfläche und der damit verbundenen geringen Auflösung betreibt FACT hauptsächlich Langzeitstudien von bekannten hellen Quellen und alarmiert andere Experimente bei ungewöhnlich hohen Flussraten.
 Um die Observationszeit zu maximieren, nimmt FACT dafür Daten im Wobble Modus auf. 
 Dabei muss die Kamera nicht extra auf Off-Positionen gerichtet werden und kann dementsprechend effizienter in der selben Zeit arbeiten. 
-Dies hat zur Folge, dass keine expliziten gemessenen Untergrund/Hadron-Daten existieren. 
+Dies hat zur Folge, dass keine gemessenen Untergrund/Hadron-Daten existieren. 
 
-Für die Erstellung eines alternativen Protonendatensatzes müssen, aus dem Datensatz einer Quelleobservation, durch einen sinnvollen Schnitt die Protonenereignisse heraussepariert werden. 
-Denkbar wäre auch einem maschinellen Lerner die Filterung auf Protonen zu überlassen.
+Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quelleobservation die Protonenereignisse heraussepariert werden. 
+Dies wird mit einem Schnitt in $\theta^{2}$ realisiert/
+Denkbar wäre auch, einem maschinellen Lerner die Filterung auf Protonen zu überlassen.
 Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. 
 Aus diesem Grund kann darauf verzichtet werden.
 
-Dementsprechend wird, anhand des trennstärksten Attributs $\theta^{2}$, versucht eine Separation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
-Die Trennstärke des trennstärksten Parameters $\theta^{2}$, im Vergleich zu allen anderen verfügbaren Parametern ist in Abbildung~\ref{fig:roc} dargestellt. 
+Dementsprechend wird anhand des trennstärksten Attributs $\theta^{2}$ versucht, eine Separation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
+Die Trennstärke des trennstärksten Parameters $\theta^{2}$ im Vergleich zu allen anderen verfügbaren Parametern ist in Abbildung~\ref{fig:roc} dargestellt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/theta_cut.pdf}
-  \caption{$\theta^{2}$ Verteilung von simulierten Gamma und Protonen, sowie das Verhältnis von Gamma zu Protonen}
+  \caption{$\theta^{2}$ Verteilung von simulierten Gamma- und Protonen-Ereignissen, sowie das Verhältnis von Gamma- zu Protonen-Events.}
   \label{fig:thetacut}
 \end{figure}
-Durch Schnitte auf der $\theta^{2}$ Verteilung soll ein möglichst reines Testset erstellt werden. 
-In Abbildung~\ref{fig:thetacut} sind für Hadronen und Protonen die $\theta^{2}$ Verteilungen der Monte Carlo-Simulationen aufgetragen. 
-Für kleine $\theta^{2}$ Werte ist das Gamma Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$ Werte kontinuierlich ab. 
-Ab einen $\theta^{2}$ Wert von $0.5$ ist das Signal- zu Hintergrundverhältniss um ein Zehntel kleiner.
-Aufgrund dessen, dass der wahre Untergrund einerseits aus Hadronenen als auch aus wenigen diffusen Gammaquanten besteht, ist zu erwarten, dass die vereinzelt verbleibende Gamma-Ereignisse die Klassifizierer nicht weiter negativ beeinflussen.
+Durch einen Schnitt auf der $\theta^{2}$-Verteilung soll ein möglichst reiner Datensatz erstellt werden. 
+In Abbildung~\ref{fig:thetacut} sind für Hadronen und Protonen die $\theta^{2}$-Verteilungen der Monte Carlo-Simulationen aufgetragen. 
+Für kleine $\theta^{2}$-Werte ist das Gamma Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$-Werte kontinuierlich ab. 
+Ab einem $\theta^{2}$-Wert von $0.5$ ist das Signal- zu Hintergrundverhältnis um ein Zehntel kleiner.
+Da der wahre Untergrund sowohl aus Hadronen als auch aus wenigen diffusen Gammaquanten besteht, ist zu erwarten, dass die vereinzelt verbleibenden Gamma-Ereignisse die Klassifizierer nicht weiter negativ beeinflussen.
 
 % Zu beachten ist das Protonen zwar isotrop verteilt seien sollten, jedoch bei zu großen $\theta^{2}$-cuts die Detektoreigenschaften singnifikant werden. Um zu überprüfen inwiefern die Detektoreigenschaften vernachlässigt werden können ist in Abbildung~\ref{fig:corrtheta} die Signifikanz in Abhängigkeit des Parameters $\theta^{2}$ dargestellt.
-Um zu überprüfen, ob die trainierten Modelle durch Schnitte in $\theta^{2}$ grundsätzlich schlechter werden, wird ein Modell trainiert, bei dessen Traningsdatensatz die Proton-Monte Carlo in verschiedenen $\theta^{2}$ geschnitten werden. 
+Um zu überprüfen, ob die trainierten Modelle durch Schnitte in $\theta^{2}$ grundsätzlich schlechter werden, wird ein Modell trainiert, bei dessen Trainingsdatensatz die Proton-Simulationen in verschiedenen $\theta^{2}$ geschnitten werden. 
 Die Signifikanz der unterschiedlich trainierten Modelle ist in Abbildung \ref{fig:corrtheta} dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/corr_sig_theta2.pdf}
-  \caption{Signifikanz in Abhängigkeit des $\theta^{2}$-Schnitts auf dem Trainingsdatensatz der simulierten Protonen}
+  \caption{Signifikanz in Abhängigkeit des $\theta^{2}$-Schnitts auf dem Trainingsdatensatz der simulierten Protonen.}
   \label{fig:corrtheta}
 \end{figure}
 Bei Schnitten auf den Monte Carlo-Protonen bis $\theta^{2} < 1$ hängt die Signifikanz nicht von $\theta^{2}$ ab.
 Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften im Training vernachlässigt werden.
 
-Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} als plausibel. 
-Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < 1$ aus dem Trainingsdatensatz entfernt werden. 
-Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > 0.5$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma, oder Gamma Ereignissen welche hadronischen ähnlich sehen angesehen werden können. 
+Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} plausibel. 
+Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
+Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma Ereignisse angesehen werden können. 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Schnitt von \num{0.5} gewählt. 
+\newpage
 \section{Optimierung der Modelle}
 Um zu evaluieren, welche Methode besser zwischen den elektromagnetischen und hadronischen Schauern separiert, werden zwei Datensätze erstellt. 
 \begin{enumerate}
   \item \textbf{MC-Daten:} Monte Carlo Gamma + Monte Carlo Protonen
   \item \textbf{Messdaten:} Monte Carlo Gamma + gemessene Protonen 
 \end{enumerate}
-Dabei wird auf dem Monte Carlo-Protonen Datensatz kein $\theta^{2}$-Schnitt durchgeführt, weil dieser frei von Gamma-Ereignissen ist.
+Dabei wird auf den simulierten Protonen kein $\theta^{2}$-Schnitt durchgeführt, weil dieser frei von Gamma-Ereignissen ist.
 Mit den erstellten Trainings-Datensätzen wird ein Klassifizierer trainiert und der AUC-Wert für diesen bestimmt.
-Bei einem Random Forest bieten neben einer hohen Anzahl an Bäumen (\texttt{n\_estimators}) die Tiefe der Bäume (\texttt{max\_depth}) und die Anzahl an Trainingsattributen (\texttt{max\_feature}) ein Möglichkeit der Beschränkung.
+Bei einem Random Forest ist die Anzahl an Bäumen (\texttt{n\_estimators}), die Tiefe der Bäume (\texttt{max\_depth}) und die Anzahl an Trainingsattributen (\texttt{max\_feature}) variable, sodass sich hier Möglichkeiten der Beschränkung bieten.
 
 Für die Analyse wird die Anzahl der Bäume beim Random Forest auf \texttt{n\_estimators = 100} konstant gehalten. 
-Mithilfe eines Parameternetz wird die optimale Konstellation der Parameter gesucht. 
+Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter gesucht. 
 \begin{figure}
   \begin{subfigure}[b]{0.5\textwidth}
 	\includegraphics[width=\textwidth]{Plots/parameter_monte.pdf}
@@ -92,8 +95,9 @@ Mithilfe eines Parameternetz wird die optimale Konstellation der Parameter gesuc
 \end{figure}
 
 Dabei fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
-Da auf echten Daten trainierte Modelle ihren besten AUC-Wert erst bei mehreren gezogenen Attributen erreichen, lässt sich folgern, dass die Trennung komplexer ist.
-Desweiteren ist der maximale AUC-Wert, bei dem auf Messdaten trainierten Lerner, größer als bei dem auf Monte Carlo-Daten trainierte.
+Beide Modelle weisen dabei dieselbem Parameter auf, bei denen der AUC-Wert maximal wird.
+Desweiteren ist der maximale AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
+Dies entspricht einem Modell welches besser Signal von Untergrund separiert.
 
 Die Bäume der Tiefe eins brauchen nicht optimiert zu werden, da sie aufgrund der stark begrenzten Tiefe nicht an Übertraining leiden.
 
@@ -114,12 +118,12 @@ Im Gegensatz dazu, finden sich keine Ereignisse, die sich eindeutig der Klasse G
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{./Plots/conf.pdf}
-  \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest} welcher einmal, anhand von simulierten Protonen und einmal auf gemessenen trainiert wurde.}
+  \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest} welcher einmal anhand von simulierten Protonen und einmal auf gemessenen trainiert wurde.}
   \label{fig:confdist}
 \end{figure}
-Dies liegt dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und einem $e^{+}$ zerfällt und kaum von einem elektromagnetischen Schauer zu unterscheiden ist wie in Kapitel \ref{sec:cherenkov} genauer beschrieben ist.
+Dies liegt dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und einem $e^{+}$ zerfällt und kaum von einem elektromagnetischen Schauer zu unterscheiden ist (siehe Kapitel \ref{sec:cherenkov}).
 
-Zur Bestimmung der maximalen Signifikanz des Klassifizierten Datensatzes wird ein Schnitt in $\theta^{2}$ angewendet, sodass das Verhältnis von On- zu Off-Daten möglichst groß ist.
+Zur Bestimmung der maximalen Signifikanz der Quelle wird ein Schnitt in $\theta^{2}$ angewendet, sodass das Verhältnis von On- zu Off-Daten möglichst groß ist.
 Dabei wird die Menge unterhalb des Schnittes als Gamma- und oberhalb als Proton-Ereignisse klassifiziert.
 Die klassifizierten Gamma-Ereignisse setzen sich dementsprechend aus richtig klassifizierten Gamma- (TP) und falsch klassifizierten Proton-Ereignissen (FP) zusammen. 
 Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt.
@@ -131,7 +135,7 @@ Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt.
 \end{figure}
 Ein grafisches Beispiel für die Signifikanz ist in Abbildung~\ref{fig:sig_crab} zu sehen. 
 Abgebildet ist die $\theta^{2}$-Verteilung der On-Position und das Mittel der fünf Off-Positionen.
-Dabei ist die Signifikanz des unklassifizierten Krebsnebel Datensatzes dargestellt, welcher bereits ohne Klassifizierung mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
+Dabei ist die Signifikanz des unklassifizierten Krebsnebel Datensatzes dargestellt, welcher bereits ohne Separation mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
 % Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz des Rohdaten entspricht. Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
 
 Durch die Bereinigung des Datensatzes wird versucht die Signifikanz zu erhöhen.
@@ -139,12 +143,10 @@ Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{
 Dabei hat der \texttt{XGBoost Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attribute an Bäumen gezogen wurden.
 
 Die Signifikanzen des Krebsnebel und Markarian-501 Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei $\theta^{2} < \num{0.03}$ bestimmt. 
-Ansatz weiterer Untersuchungen könnte sein den $\theta^{2}$ zu suchen, welcher die Signifikanz maximiert. 
-Dies sollte jedoch vermutlich nichts an der Größenordnung der ermittelten Werte ändern.
-Beide Modelle werden mit jeweils einer Trainings Größe von \num{100000} Ereignissen aus Gamma- und Hadronen-Ereignissen gleichermaßen trainiert. 
+Beide Modelle werden mit jeweils einer Trainings Größe von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
 \begin{table}[H]
   \centering
-  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils anhand einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensatzes aufgetragen.}
+  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensatzes aufgetragen.}
   \begin{tabular}{l s s s s}
 	\toprule
 	& \multicolumn{2}{c}{Krebsnebel}	& \multicolumn{2}{c}{Markarian 501} \\
@@ -159,15 +161,15 @@ Beide Modelle werden mit jeweils einer Trainings Größe von \num{100000} Ereign
   \label{tab:sign}
 \end{table}
 Die Signifikanz der beiden Quellen ist in Tabelle \ref{tab:sign} niedergeschrieben. 
-Auffällig ist, dass im Gegensatz zum AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte-Carlo Daten trainiert wurde.
+Auffällig ist, dass im Gegensatz zum AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte Carlo Daten trainiert wurde.
 Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, auch eine höhere Signifikanz hat. 
 
 Bei dem \texttt{XGBoost Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. Dies deutet auf Übertraining des \texttt{Random Forest} hin. 
-Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo-Ereignissen zu separieren.
+Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Ereignissen zu separieren.
 
 \section{Konfidenzwert}
 In Abbildung \ref{fig:signconf} ist die Signifikanz für die einzelnen Konfidenzwerte dargestellt. 
-Anhand der Form können Rückschlüsse über die Klassifier gezogen werden. 
+Anhand der Form können Rückschlüsse über die Klassifizierer gezogen werden. 
 
 Bei kleinen Konfidenzwerten strebt die Signifikanz gegen die des unklassifizierten Datensatzes.
 Aufgrund der Größe der als Gamma klassifizierten Ereignisse strebt die Signifikanz für große Konfidenzwerte gegen 0.
@@ -190,10 +192,10 @@ Dazwischen ist die Signifikanz ein Maß für die Größe der Probe in Abhängigk
 \label{fig:signconf}
 \end{figure}
 
-Auffällig ist, dass sich die Konfidenzverteilungen trotz zwei verschiedenen Klassifizierer für die Monte Carlo-Daten ähneln.
-Dabei scheint der \texttt{Random Forest} ein Problem mit Ereignissen, die hohe Konfidenzwert aufweisen, zu haben. 
-Möglicherweise konnte er beim Training in diesem Bereich durch die Separation von Monte Carlo- und gemessenen-Daten eine große Trennstärke erreichen. 
-Da diese Information bei gemessen Daten nicht eingeht, hat dieser somit Probleme bei hohen Konfidenzwerten.
+Auffällig ist, dass sich die Konfidenzverteilungen trotz der verschiedenen Klassifizierer für die Monte Carlo-Daten ähneln.
+Dabei scheint der \texttt{Random Forest} ein Problem mit Ereignissen, die hohe Konfidenzwerte aufweisen, zu haben. 
+Möglicherweise konnte er beim Training in diesem Bereich durch die Separation von Monte Carlo  und gemessenen Daten eine große Trennstärke erreichen. 
+Da diese Information bei gemessen Daten nicht eingeht, hat der Lerner somit Probleme bei hohen Konfidenzwerten.
 
 Der \texttt{XGBoost Classifier} scheint aufgrund seiner beschränkten Tiefe von diesem Problem weniger betroffen. 
 
@@ -202,7 +204,7 @@ Da Modelle bei der Separation lernen, zwischen gemessenen und simulierten Daten 
 Durch das Entfernen von den schlecht simulierten Attributen, soll die Klassifikation zwischen simulierten und gemessen Daten reduziert werden.
 
 Dazu wird zunächst ein Modell trainiert, welches aus gleich vielen Teilen an simulierten und gemessenen (nach Kapitel \ref{sec:makeUnter} zusammengestellt) Proton-Ereignissen besteht. 
-Im Falle, dass das Modell die simulierten nicht von den gemessenen Protonen unterscheiden kann, wird der AUC-Wert ungefähr 0.5 betragen. 
+Im Falle, dass das Modell die simulierten nicht von den gemessenen Protonen unterscheiden kann, wird der AUC-Wert ungefähr \num{0.5} betragen. 
 Der AUC-Wert beträgt auf dem Testdatensatz \num{0.64}. 
 
 Zur Visualisierung der Attribute bei denen sich die gemessenen von simulierten Daten unterscheiden, sind die Gewichte des trainierten Modells ist in Abbildung~\ref{fig:featureimportance} dargestellt. 
@@ -212,7 +214,7 @@ Zur Visualisierung der Attribute bei denen sich die gemessenen von simulierten D
   \caption{Gewichte der Attribute des Random Forest zur Separation von gemessenen und simulierten Daten, sowie der Gamma/Hadron-Separation }
   \label{fig:featureimportance}
 \end{figure}
-Bei dem Entfernen eines Features wird Informationsgehalt verworfen. 
-Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attribute einerseits und Informationsgehalt anderseits gefunden werden.
+Bei dem Entfernen eines Attributes wird Informationsgehalt verworfen. 
+Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attributen einerseits und Informationsgehalt anderseits gefunden werden.
 
-Durch das Entfernen der Attribute \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{concentration\_two\_pixel} und \texttt{leakage2} lässt sich sowohl die Separation zwischen simulierten und echten Daten minimieren, als auch die Signifikanz des auf echten Daten trainierten Random Forest um circa \SI{1}{\sigma} erhöhen.
+Durch das Entfernen der Attribute \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{leakage2} und \texttt{concentration\_two\_pixel} lässt sich sowohl der AUC-Wert der Separation zwischen simulierten und echten Daten minimieren, als auch die Signifikanz des auf echten Daten trainierten Random Forest um circa \SI{1}{\sigma} erhöhen.
