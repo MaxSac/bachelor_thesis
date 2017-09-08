@@ -8,7 +8,7 @@ Dazu wird zunächst mit der Software \texttt{FACT-Tools} ein klassifizierter Mon
 Ziel der Arbeit ist zu untersuchen, ob die Gamma/Hadron-Separation durch die Verwendung von gemessenen statt simulierten Untergrunddaten im Trainingsdatensatz verbessert werden kann.
 
 \textbf{Da die simulierten nicht immer den Verteilungen des gemessen Protonen folgen, bestehen Unstimmigkeiten auf den Monte Carlo-Daten (Mismatch). 
-Durch die verwendung des gemessen Untergrund anstelle der simulierten Protonen soll der Mismatch minimiert werden und die Klassifikation verbessert.}
+Durch die Verwendung des gemessen Untergrund anstelle der simulierten Protonen soll der Mismatch minimiert werden und die Klassifikation verbessert.}
 %Da gemessene Protonen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
 Bei ähnlichen Experimenten, wie z.B. MAGIC, hat sich diese Methode bereits bewährt. 
 \begin{figure}[H]
@@ -114,7 +114,7 @@ Im Gegensatz dazu, finden sich keine Ereignisse, die sich eindeutig der Klasse G
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{./Plots/conf.pdf}
-  \caption{Moeglicherweise einmal mit Crab daten und einmal mit Sample aus 1:1 Gamma und hadronen}
+  \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest} welcher einmal, anhand von simulierten Protonen und einmal auf gemessenen trainiert wurde.}
   \label{fig:confdist}
 \end{figure}
 Dies liegt dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und einem $e^{+}$ zerfällt und kaum von einem elektromagnetischen Schauer zu unterscheiden ist wie in Kapitel \ref{sec:cherenkov} genauer beschrieben ist.
@@ -147,7 +147,7 @@ Beide Modelle werden mit jeweils einer Trainings Größe von \num{100000} Ereign
   \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils anhand einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensatzes aufgetragen.}
   \begin{tabular}{l s s s s}
 	\toprule
-	& \multicolumn{2}{c}{Krebs Nebel}	& \multicolumn{2}{c}{Markarian 501} \\
+	& \multicolumn{2}{c}{Krebsnebel}	& \multicolumn{2}{c}{Markarian 501} \\
 	  \cmidrule(r){2-3} \cmidrule(l){4-5}
 	  & Random & XGBoost 		& Random & XGBoost 	 \\
 	& Forest & (Tiefe= 1) 	& Forest & (Tiefe= 1)\\
