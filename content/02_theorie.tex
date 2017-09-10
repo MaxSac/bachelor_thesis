@@ -1,26 +1,25 @@
 \chapter{FACT}
-\begin{wrapfigure}[23]{R}[0pt]{0.45\textwidth}
-  \includegraphics[width=0.45\textwidth]{./images/FACT.jpg}
-  \caption{FACT in Observatiosposition \cite{factpic}}
+\begin{wrapfigure}[24]{R}[0pt]{0.50\textwidth}
+  \includegraphics[width=0.50\textwidth]{./images/FACT.jpg}
+  \caption{FACT während der Beobachtung.\cite{factpic}}
   \label{fig:observ}
 \end{wrapfigure}
 FACT (First G-APD Cherenkov Telescope) dient der Überwachung von $\gamma$-Quellen, um bei erhöhter Aktivität für genauere Observationen größere Telekope zu informieren. 
-Desweiteren erprobt das Telekop die Nutzung von Silizium Photomultipliern (SiMPs), mit welchen es möglich ist, auch in Nächten mit starker diffuser Hintergrundstrahlung Quellen zu observieren. 
+Desweiteren erprobt das Teleskop die Nutzung von Silizium Photomultipliern (SiMPs), mit welchen es möglich ist, auch in Nächten mit starker diffuser Hintergrundstrahlung Quellen zu observieren. 
 
-%Auf einer Höhe von 2200 Meter über dem Meeresspiegel befindet sich das Cherenkov Teleskop auf der kanarischen Insel La Palma. 
-FACT befindet sich auf der kanarischen Insel La Palma auf einer Höhe von 2200 Meter über dem Meeresspiegel.
-Das Projekt entstand als ein Nachfolgerexperiment des HEGRA CT3 Teleskop, wobei dessen Konponenten aufbereitet und wiederverwertet wurden.
+FACT befindet sich auf der kanarischen Insel La Palma auf einer Höhe von 2200 Metern über dem Meeresspiegel.
+Das Projekt entstand als ein Nachfolgerexperiment des HEGRA CT3 Teleskops, wobei dessen Konponenten aufbereitet und wiederverwertet wurden.
 
 Die 30 hexagonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter\squared} bei einem Blickfeld von \SI{4.5}{\degree}. 
-Die Spiegel sind seit der Neuausrichtung im Davies-Cotton Design ausgerichtet \cite{design-detec}.
-Dabei bilden die einzelnen Spiegel eine annähernd sphärisch Fläche, in deren Brennpunkt in die Kamera liegt.
+%wie sind die Spiegel denn ausgerichtet?
 
 Als erstes Teleskop verwendet FACT SiPMs anstelle von Photomultiplier Tubes (PMTs). 
 Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns, als auch die Finanzierung vereinfacht. 
-SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren und somit auch bei Vollmond noch verwertbare Ergebnisse zu produzieren.
-Die Kamera besteht aus 1440 Kamerapixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei das Kamerabild.
+SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren. 
+Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit verwertbare Ergebnisse zu produzieren.
+Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfäche.
 
-\chapter{Entstehung von Cherenkov Schauern}
+\chapter{Entstehung von Tscherenkov Schauern}
 \label{sec:cherenkov}
 Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. 
 Die Energie der erzeugten Sekundärteilchen ist stets geringer als die der einfallenden Primärteilchen. 
@@ -49,7 +48,7 @@ Anschließend kann bei hinreichend großer Energie das Elektron durch Bremsstrah
 Dieser Prozess ist solange fortlaufend bis die Energie der Teilchen zu klein ist, um ein neues Teilchenpaar zu erzeugen und wird elektromagnetischer Schauer genannt.
 
 Trifft ein geladenes kosmisches Teilchen in die Atmosphäre, so kann dieses über die starke Wechselwirkung, anders als beim elektromagnetischen Schauer, unterschiedliche Sekundärteilchen bilden. 
-Dabei entstehen unter anderem neue Hadronen, Mesonen und Myonen, welche wiederum zerstrahlen. 
+Dabei entstehen unter anderem neue Hadronen und Myonen, welche wiederum zerstrahlen. 
 \begin{eqnarray}
   \pi^{0} \rightarrow& \gamma + \gamma \\
   \pi^{+} \rightarrow& \mu^{+} + \nu_{\mu} \\
@@ -58,12 +57,11 @@ Dabei entstehen unter anderem neue Hadronen, Mesonen und Myonen, welche wiederum
 Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der hadronische Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
 
 Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium $c_\text{med}$ polarisiert es dieses kurzzeitig. 
-Beim Cherenkov-Effekt wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
-Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechungsindex $n$ des Mediums und der Phasengeschwindigkeit der Welle $\beta = v / c_\text{med}$ abhängt.
+Beim Tscherenkov-Effekt wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
+Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechungsindex $n$ des Mediums und der Phasengeschwindigkeit der Welle $\beta = v / c_\text{0}$ abhängt.
 \begin{equation}
   \cos  \theta = \frac{1}{\text{n} \beta}
 \end{equation}
-Wird in einem Cherenkov-Teleskop die Größe des Lichtkegels gemessen, bietet dies eine Möglichkeit, die Energie der Primärteilchen zu schätzen. 
 \chapter{Observation}
 \section{Bildgebende Parameter}
 \begin{figure}[H]
@@ -71,20 +69,19 @@ Wird in einem Cherenkov-Teleskop die Größe des Lichtkegels gemessen, bietet di
   \includegraphics[width=0.5\textwidth]{tikz/camera/camera.pdf}
   \caption{Parametrisierung des Kamerabildes durch Hillas Parameter.}
 \end{figure}
-Fällt ein Schauer in das Teleskop, erzeugt dieser in der Kamera ein Bild. 
-Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Cherenkovschauer zurückzuführen sind, die Hillas Parameter \cite{hillas} berechnet. 
-Dazu wird eine Gaußverteilung durch die Helligkeit der Pixel gefittet. 
+Die im Schauer entstehenden Tscherenkov-Photonen werden vom Teleskop in die Kamera abgebildet.
+Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkovschauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
+Dazu werden die Momente der Lichtverteilung bestimmt. 
 Zu den Hillasparameter zählen:
 \begin{itemize}
   \item \textbf{width/length:} Hauptachsen der Ellipse
-  \item \textbf{size:} Anzahl an Pixel im Schauer
+  \item \textbf{size:} Anzahl an Photonen im Schauer
   \item \textbf{CoG:} Schwerpunkt des Schauers
-  \item \textbf{Source Position:} erwartete Quellposition
-%  \item \textbf{Core of image:} Helligkeit der einzelnen Pixel
-  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der Parameter width und length wird DISP abgeschätzt, um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, welche man durch die Observation der zeitlichen Konzentration der einzelenen Pixel im Schauer abzuschätzen versucht.
+%  \item \textbf{Source Position:} erwartete Quellposition
+  \item \textbf{DISP:} Abstand zwischen Schwerpunkt des Schauers und der gemessenen Quellposition. Anhand der Parameter width und length wird DISP abgeschätzt, um die gemessene Quellposition zu ermitteln. Dabei gibt es zwei mögliche Vorzeichen, wobei über höhere Momente das korrekte Vorzeichen geschätzt wird.
   \item \textbf{$\theta$:} Winkel zwischen der gemessenen und echten Quellposition
 \end{itemize}
-\section{Wobble Observation Strategie}
+\section{Wobble Observation-Strategie}
 \begin{wrapfigure}[18]{L}[0pt]{0.53\textwidth}
   \includegraphics[width=0.5\textwidth]{images/wobble.pdf}
   \caption{Bestimmung von $\theta^{2}$ im Wobble Obersvationsmodus.}
@@ -93,16 +90,16 @@ Zur Abschätzung der Untergrundstrahlung in der Quellregion (On-Position) werden
 Die gemessenen Untergrundraten können dann von den Messungen in der Quellregion subtrahiert werden, um die tatsächliche Signalrate zu bestimmen.
 %Zur Bestimmung des Aktivität einer Quelle, werden bei deren Observation einerseits Daten aus der Quellregion (On-Position), sowie Daten aus ähnlichen Richtungen einer Position bei denen nur diffuse Hintergrundstrahlung (Off-Position) erwatet wird genommen. Aus der Beziehung der On- und Off-Daten wird versucht die statistische Effekte der Hintergrundstrahlung bei der Quellobservation zu minimieren.
 
-Die Wobble Observation Strategie zeichnet aus, dass nicht nacheinander On-/Off-Postionen beobachtet werden müssen. 
+Die Wobble Observation-Strategie zeichnet aus, dass nicht nacheinander On-/Off-Positionen beobachtet werden müssen. 
 Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. 
 Dies hat zur Folge, dass es mehrere Positionen mit dem selben Abstand und Symmetrie zur Kameraachse gibt. 
-Bei der Standardanalyse von Fact können so neben der On-Position, fünf Off-Positionen mit demselben Winkel zur Kameraachse gemessen werden. 
+Bei der Standardanalyse von FACT können so neben der On-Position fünf Off-Positionen mit demselben Winkel zur Kameraachse gemessen werden. 
 Somit ergibt sich für jeden Datenssatz jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
 Für sehr kleine $\theta$ Winkel kann oftmals geschlossen werden, dass das gemessene Teilchen aus der Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
-Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei hadronischen Schauern $\theta^{2}$ in etwa gleichverteilt seien. 
+Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei hadronischen Schauern $\theta^{2}$ in etwa gleichverteilt sein. 
 Zu den Vorteilen dieser Methode zählt, dass keine extra Off-Daten genommen werden müssen. 
 Somit ist es möglich, die Messzeit zu maximieren. 
-Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen die selben Wetterbedingungen gelten. 
+Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen die selben Detektor- und Wetterbedingungen gelten. 
 
 % \section{Events in der Kamera}
 % 
@@ -156,10 +153,10 @@ Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhän
 \begin{wrapfigure}[12]{R}[0pt]{0.5\textwidth}
   \centering
   \includegraphics[width=0.5\textwidth]{./tikz/tree/tree.pdf}
-  \caption{Entscheidungsbaum der Tiefe 2 bei Gamma/Handron-Separation}
+  \caption{Entscheidungsbaum der Tiefe 2 für die Gamma/Handron-Separation.}
 \end{wrapfigure}
 Ein Entscheidungsbaum beginnt mit einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. 
-In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, da sich die meisten Probleme zu einem zwei-Klassen-Problem reduzieren lassen.
+\textbf{In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, da sich die meisten Probleme zu einem zwei-Klassen-Problem reduzieren lassen.}
 % aufgrund dessen das sich jedes komplexeres auf ein binäres reduzieren lässt.
 Entsprechend eines Schwellwertes wird der Datensatz aufgeteilt, sodass die entstehenden Untergruppen möglichst homogen werden. 
 %sodass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. 
@@ -176,10 +173,10 @@ Jeder Entscheidungsbaum zieht bei der Erstellung immer nur eine Teilmenge aus al
 Zur Klassifizierung wird anschließend eine Mehrheitsabstimmung über alle Entscheidungsbäume durchgeführt.
 Dadurch, dass die einzelnen Bäume unterschiedlich aufgebaut sind und über die einzelnen Lerner gemittelt wird, ergibt sich ein Modell mit reduzierter Varianz im Gegensatz zum Entscheidungsbaum, welches robuster gegen Übertraining ist.
 \section{Extreme Gradient Boosting}
-Extreme Gradient Boosting (kurz XGBoost) wurde von Jerome H. Friedman erfunden \cite{xgboost}.
-Dabei zeichnen sich  XGBoosted Entscheidungsbäume durch stark in die Tiefe beschränkte Bäume aus.
-Anders als beim Random Forest werden nicht beliebig viele Bäume parallel gebaut, sondern additiv. 
-Dabei lernt der folgende Baum die Fehler, welcher der vorherige Baum gemacht hat, zu minimieren.
+Extreme Gradient Boosting (kurz XGBoost) wurde von Jerome H. Friedman~\cite{xgboost} entwickelt.
+Dabei zeichnen sich  XGBoosted Entscheidungsbäume durch stark in der Tiefe beschränkte Bäume aus.
+Anders als beim Random Forest werden nicht beliebig viele Bäume parallel gebaut, sondern iterativ. 
+Dabei lernt der folgende Baum die Fehler, welche der vorherige Baum gemacht hat, zu minimieren.
 Zusätzlich werden fehlklassifizierten Ereignissen der vorherigen Iteration höhere Gewichte zugewiesen.
 
 \section{Evaluationsmetriken}
@@ -188,10 +185,10 @@ Um zu überprüfen, wie sich die Modelle auf Datensätzen verhalten, werden zwei
 \begin{wrapfigure}[15]{R}[0pt]{0.45\textwidth}
   \centering
   \includegraphics[width=0.45\textwidth]{./Plots/roc_info.pdf}
-  \caption{AUC-Wert zweier verschiedener Modelle}
+  \caption{ROC-AUC-Wert zweier verschiedener Modelle}
   \label{fig:roc}
 \end{wrapfigure}
-Zum Vergleich von verschiedenen binären Klassifizern ist die ``Receiver Operating Characteristic Curve'' ein Maß für die Güte der Separation. 
+Zum Vergleich von verschiedenen binären Klassifizern ist die \enquote{Receiver Operating Characteristic Curve} ein Maß für die Güte der Separation. 
 Dafür wird zunächst der Konfidenzwert des Klassifizierers berechnet. 
 Dies ist ein Wert zwischen 0 und 1, welcher die Sicherheit wiederspiegelt, dass die Vorhersage den Zielklassen 0 oder 1 entspricht.
 Für alle möglichen Konfidenzwerte wird der prozentuale Anteil an richtig klassifizierten Ereignissen der Klasse 1 (TPR) und an falsch klassifizierten der Klasse 0 (FPR) berechnet. 
@@ -200,7 +197,7 @@ Ein Beispiel ist in Abbildung \ref{fig:roc} zu sehen.
 Für einen guten Klassifizier strebt die Kurve bei kleinen FPR gegen hohe TPR. 
 Ist der Klassifizier nicht in der Lage, zwischen den beiden Klassen zu separieren, steigen die TPR und FPR gleichermaßen. 
 Anhand der Fläche unter der Kurve kann die Güte verglichen werden.
-\subsection*{Li und Ma Signifikanz}
+\subsection*{Signifikanz nach Li und Ma}
 % Aufgrund der Begrenztheit der Dektorsensitivität muss bei der Analyse von möglichen Quellen sorgsam mit den Daten zur Bestimmung der Sicherheit einer Quelle umgegangen werden.
 % Dabei kann nicht das Signal einer Quelle isoliert gemessen werden. 
 % Stattdessen muss eine Sicherheit auf das Signals welches aus Richtung der Quelle $N_\text{on}$ und des Hintergrunds $N_\text{off}$ gegeben werden, dass das gemessene Signal nicht nur statistisches Rauschen ist.
@@ -216,16 +213,16 @@ S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{
 
 \chapter{Quellen}
 In dieser Arbeit werden Datensätze von zwei verschiedenen Quellen verwendet. 
-Beide Quellen sind bereits gut verstanden und können zum Vergleich zu anderen Arbeiten verwendet werden.
+Beide Quellen sind bereits gut verstanden und können zum Vergleich mit anderen Arbeiten verwendet werden.
 \section{Krebsnebel}
-In einer Entfernung von 6400 Lichtjahren befindet sich im Sternzeichen Stier der Überrest der ersten und letzten dokumentierten Supernovaexplosion, die auf das Jahr 1054 datiert ist. 
+In einer Entfernung von 6400 Lichtjahren befindet sich im Sternzeichen Stier der Überrest der ersten dokumentierten Supernovaexplosion, die auf das Jahr 1054 datiert ist. 
 Die Überreste erstrecken sich über eine Fläche von 6 Bogenminuten Länge und 4 Bogenminuten Breite. 
-In der Mitte des Krebsnebels liegt ein Neutronenstern.
+In der Mitte des Krebsnebels liegt ein Pulsar.
 Aufgrund seines konstanten Strahlungsflusses ist der Krebsnebel eine Standard- und Kalibrierungsquelle in der Gammaastronomie.
-Er gilt dabei als stärkste Quelle am Himmel. 
+\textbf{Er gilt dabei als stärkste Quelle am Himmel.falsch muss noch umgeschrieben werden} 
 Viele wissentschaftliche Arbeiten nehmen ihn als Referenzwert, um ihre Messwerte zu vergleichen. 
 
 \section{Markarian 501}
-Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Lichtjahren der Blazar Markarjan. 
+Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Millionen Lichtjahren der Blazar Markarian. 
 In seinem Zentrum befindet sich ein \num{0.9} bis \num{3.4} Milliarden Sonnenmassen schweres schwarzes Loch, dessen Jet in Richtung Erde gerichtet ist.
-Auch dieser gilt als einer der stärksten Gammastrahlungsquellen.
+Auch dieser gilt als eine der stärksten Gammastrahlungsquellen.

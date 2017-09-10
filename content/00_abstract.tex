@@ -1,11 +1,13 @@
 \thispagestyle{plain}
 
 \section*{Kurzfassung}
+\textbf{Einleitungssatz zu FACT und gamma hadron sepertion}
 Schwerpunkt dieser Arbeit ist die Gamma/Hadron Separation. 
 Dazu wird geprüft, ob diese verbessert werden kann, indem gemessene Untergrunddaten statt Monte Carlo-Simulationen verwendet werden.
 Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze von Quellbeobachtungen für diese Arbeit so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
-Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBoost Classifier} trainiert und der AUC-Wert sowie die Signifikanz von Quellen der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
-Die auf gemessenen Daten trainierten Modelle separieren zwar nach dem AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
+Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBoost Classifier} trainiert und der ROC-AUC-Wert sowie die Signifikanz für die Detektion von Quellen der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
+%Die auf gemessenen Daten trainierten Modelle separieren nach dem ROC-AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
+Wohingegen auf dem Trainingsdatensatz ein besser Roc-Auc-Wert erreicht weden konnte sank die Signifikanz für die Detektion der untersuchten Quelle, bei den mit gemessenen Untergrunddaten trainierten Modelle.
 Möglicherweise trainieren die Modelle dabei den Unterschied zwischen simulierten und gemessenen Daten. 
 Diese Methode verbessert derzeitig die Seperation nicht. 
 Unter der Annahme, dass die Unterschiede zwischen simulierten und gemessenen Daten verringert werden können, hat die Methode das Potential die Separation zu verbessern. 

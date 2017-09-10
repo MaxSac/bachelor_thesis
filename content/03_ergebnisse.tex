@@ -7,33 +7,32 @@ Dazu wird zunächst mit der Software \texttt{FACT-Tools} \cite{Bockermann} ein k
 %Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
 Ziel der Arbeit ist zu untersuchen, ob die Gamma/Hadron-Separation durch die Verwendung von gemessenen statt simulierten Untergrunddaten im Trainingsdatensatz verbessert werden kann.
 
-Es ist bekannt, dass die Verteilung der Attribute auf simulierten und gemessenen Daten unterschiedlich aussehen.
+Es ist bekannt, dass die Verteilung der Attribute auf simulierten und gemessenen Daten nicht vollständig übereinstimmen.
 Dieses Problem wird Daten-Monte Carlo-Mismatch genannt.
 Durch die Verwendung des gemessenen Untergrunds anstelle der simulierten Protonen soll der Mismatch minimiert und die Klassifikation verbessert werden.
 %Da gemessene Protonen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
-Bei ähnlichen Experimenten, wie z.B. MAGIC, hat sich diese Methode bereits bewährt. 
+Bei ähnlichen Experimenten, wie z.B. MAGIC \cite{??}, hat sich diese Methode bereits bewährt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
   \caption{Analysekette zur Evaluation der Trainingsmethoden.}
 \end{figure}
 Zur Überprüfung dieser Methode werden ein \texttt{Random Forest}, so wie ein \texttt{XGBoost Classifier} der Tiefe 1 trainiert und optimiert.
-Aus dem Verhältnis der Signifikanzen der beiden Klassifizierer, lässt sich womöglich Aufschluss über die Klassifikation erhalten.
 
-Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten Modelle wird anhand der Receiver Operating Curve gemessen.
+Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten Modelle wird anhand der Receiver Operating Characteristic gemessen.
 
 Desweiteren wird die Signifikanz von zwei verschiedenen Quellen berechnet, die durch zwei unterschiedlich trainierte Modelle gefunden werden. 
 Anhand der maximalen Signifikanzen werden die Modelle verglichen.
 \section{Erstellen des gemessenen Untergrund}
 \label{sec:makeUnter}
-Aufgrund der geringen Spiegelfläche und der damit verbundenen geringen Auflösung betreibt FACT hauptsächlich Langzeitstudien von bekannten hellen Quellen und alarmiert andere Experimente bei ungewöhnlich hohen Flussraten.
+Aufgrund der geringen Spiegelfläche und der damit verbundenen geringen Auflösung betreibt FACT hauptsächlich Langzeitstudien von bekannten, hellen Quellen und alarmiert andere Experimente bei ungewöhnlich hohen Flussraten.
 Um die Observationszeit zu maximieren, nimmt FACT dafür Daten im Wobble Modus auf. 
 Dabei muss die Kamera nicht extra auf Off-Positionen gerichtet werden und kann dementsprechend effizienter in der selben Zeit arbeiten. 
-Dies hat zur Folge, dass keine gemessenen Untergrund/Hadron-Daten existieren. 
+Dies hat zur Folge, dass keine gemessenen reinen Untergrund/Hadron-Daten existieren. 
 
-Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quelleobservation die Protonenereignisse heraussepariert werden. 
-Dies wird mit einem Schnitt in $\theta^{2}$ realisiert/
-Denkbar wäre auch, einem maschinellen Lerner die Filterung auf Protonen zu überlassen.
+Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quellobservation die Protonenereignisse heraussepariert werden. 
+Dies wird mit einem Schnitt in $\theta^{2}$ realisiert.
+Denkbar wäre auch, anhand eines maschinellen Lerners die Gamma Events in dem gemessenen Untergunddatensatz heraus separieren zu lassen.
 Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. 
 Aus diesem Grund kann darauf verzichtet werden.
 
@@ -64,7 +63,7 @@ Bei Schnitten auf den Monte Carlo-Protonen bis $\theta^{2} < 1$ hängt die Signi
 Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften im Training vernachlässigt werden.
 
 Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} plausibel. 
-Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
+Für Monte Carlo basierende Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
 Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma Ereignisse angesehen werden können. 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Schnitt von \num{0.5} gewählt. 
 \newpage
@@ -143,7 +142,7 @@ Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{
 Dabei hat der \texttt{XGBoost Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attribute an Bäumen gezogen wurden.
 
 Die Signifikanzen des Krebsnebel und Markarian-501 Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei $\theta^{2} < \num{0.03}$ bestimmt. 
-Beide Modelle werden mit jeweils einer Trainings Größe von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
+Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
 \begin{table}[H]
   \centering
   \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensatzes aufgetragen.}
@@ -200,7 +199,7 @@ Da diese Information bei gemessen Daten nicht eingeht, hat der Lerner somit Prob
 Der \texttt{XGBoost Classifier} scheint aufgrund seiner beschränkten Tiefe von diesem Problem weniger betroffen. 
 
 \section{Rekusive Feature Elemination}
-Da Modelle bei der Separation lernen, zwischen gemessenen und simulierten Daten zu unterscheiden, liegt die Vermutung nahe, dass einige Attribute schlecht simuliert sind.
+Da Modelle bei der Separation lernen zwischen gemessenen und simulierten Daten zu unterscheiden, liegt die Vermutung nahe, dass einige Attribute schlecht simuliert sind.
 Durch das Entfernen von den schlecht simulierten Attributen, soll die Klassifikation zwischen simulierten und gemessen Daten reduziert werden.
 
 Dazu wird zunächst ein Modell trainiert, welches aus gleich vielen Teilen an simulierten und gemessenen (nach Kapitel \ref{sec:makeUnter} zusammengestellt) Proton-Ereignissen besteht. 
