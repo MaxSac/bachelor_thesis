@@ -13,8 +13,8 @@
   \node (RAW)  [NormalBox] {Daten der Quelle};
   \node (CLAS) [NormalBox, right of=RAW] {Klassifizierer};
   \node (PRED) [NormalBox, right of=CLAS, xshift=0.5cm] {Klassifiziertes Gamma-Ereignis};
-  \node (RGAM) [AlternBox, right of=PRED, yshift=1cm] {echtes Gamma (TP)};
-  \node (RPRO) [AlternBox, right of=PRED, yshift=-1cm] {echtes Proton (FP)};
+  \node (RGAM) [AlternBox, right of=PRED, yshift=1cm] {wahres Gamma (TP)};
+  \node (RPRO) [AlternBox, right of=PRED, yshift=-1cm] {wahres Proton (FP)};
   \node (SIGM) [NormalBox, right of=RGAM, yshift=-1cm] {$\sigma$(Konf.)};
 
   \draw [normalArrow] (RAW) -- (CLAS);

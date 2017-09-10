@@ -11,7 +11,7 @@ Es ist bekannt, dass die Verteilung der Attribute auf simulierten und gemessenen
 Dieses Problem wird Daten-Monte Carlo-Mismatch genannt.
 Durch die Verwendung des gemessenen Untergrunds anstelle der simulierten Protonen soll der Mismatch minimiert und die Klassifikation verbessert werden.
 %Da gemessene Protonen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
-Bei ähnlichen Experimenten, wie z.B. MAGIC \cite{??}, hat sich diese Methode bereits bewährt. 
+Bei ähnlichen Experimenten, wie z.B. MAGIC \cite{magic} hat sich diese Methode bereits bewährt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
@@ -36,23 +36,23 @@ Denkbar wäre auch, anhand eines maschinellen Lerners die Gamma Events in dem ge
 Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. 
 Aus diesem Grund kann darauf verzichtet werden.
 
-Dementsprechend wird anhand des trennstärksten Attributs $\theta^{2}$ versucht, eine Separation von Daten einer Quelle in Protonen und Gammas durchzuführen. 
+Dementsprechend wird anhand des trennstärksten Attributs $\theta^{2}$ versucht, die Region um die bekannte Gamma-Quelle herauszuschneiden, um einen möglichst reinen Untergrunddatensatz zu prozessieren. 
 Die Trennstärke des trennstärksten Parameters $\theta^{2}$ im Vergleich zu allen anderen verfügbaren Parametern ist in Abbildung~\ref{fig:roc} dargestellt. 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/theta_cut.pdf}
-  \caption{$\theta^{2}$ Verteilung von simulierten Gamma- und Protonen-Ereignissen, sowie das Verhältnis von Gamma- zu Protonen-Events.}
+  \caption{$\theta^{2}$ Verteilung von simulierten Gamma- und Protonen-Ereignissen, sowie das Verhältnis von Gamma- zu Protonen-Ereignissen.}
   \label{fig:thetacut}
 \end{figure}
 Durch einen Schnitt auf der $\theta^{2}$-Verteilung soll ein möglichst reiner Datensatz erstellt werden. 
-In Abbildung~\ref{fig:thetacut} sind für Hadronen und Protonen die $\theta^{2}$-Verteilungen der Monte Carlo-Simulationen aufgetragen. 
+In Abbildung~\ref{fig:thetacut} sind für Hadronen und Gamma die $\theta^{2}$-Verteilungen der Monte Carlo-Simulationen aufgetragen. 
 Für kleine $\theta^{2}$-Werte ist das Gamma Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$-Werte kontinuierlich ab. 
 Ab einem $\theta^{2}$-Wert von $0.5$ ist das Signal- zu Hintergrundverhältnis um ein Zehntel kleiner.
 Da der wahre Untergrund sowohl aus Hadronen als auch aus wenigen diffusen Gammaquanten besteht, ist zu erwarten, dass die vereinzelt verbleibenden Gamma-Ereignisse die Klassifizierer nicht weiter negativ beeinflussen.
 
 % Zu beachten ist das Protonen zwar isotrop verteilt seien sollten, jedoch bei zu großen $\theta^{2}$-cuts die Detektoreigenschaften singnifikant werden. Um zu überprüfen inwiefern die Detektoreigenschaften vernachlässigt werden können ist in Abbildung~\ref{fig:corrtheta} die Signifikanz in Abhängigkeit des Parameters $\theta^{2}$ dargestellt.
 Um zu überprüfen, ob die trainierten Modelle durch Schnitte in $\theta^{2}$ grundsätzlich schlechter werden, wird ein Modell trainiert, bei dessen Trainingsdatensatz die Proton-Simulationen in verschiedenen $\theta^{2}$ geschnitten werden. 
-Die Signifikanz der unterschiedlich trainierten Modelle ist in Abbildung \ref{fig:corrtheta} dargestellt.
+Die Signifikanz, für die Detektion des Krebsnebel, der unterschiedlich trainierten Modelle ist in Abbildung \ref{fig:corrtheta} dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/corr_sig_theta2.pdf}
@@ -74,8 +74,8 @@ Um zu evaluieren, welche Methode besser zwischen den elektromagnetischen und had
   \item \textbf{Messdaten:} Monte Carlo Gamma + gemessene Protonen 
 \end{enumerate}
 Dabei wird auf den simulierten Protonen kein $\theta^{2}$-Schnitt durchgeführt, weil dieser frei von Gamma-Ereignissen ist.
-Mit den erstellten Trainings-Datensätzen wird ein Klassifizierer trainiert und der AUC-Wert für diesen bestimmt.
-Bei einem Random Forest ist die Anzahl an Bäumen (\texttt{n\_estimators}), die Tiefe der Bäume (\texttt{max\_depth}) und die Anzahl an Trainingsattributen (\texttt{max\_feature}) variable, sodass sich hier Möglichkeiten der Beschränkung bieten.
+Mit den erstellten Trainings-Datensätzen wird ein Klassifizierer trainiert und der ROC-AUC-Wert für diesen bestimmt.
+Bei einem Random Forest ist die Anzahl an Bäumen (\texttt{n\_estimators}), die Tiefe der Bäume (\texttt{max\_depth}) und die Anzahl an Trainingsattributen (\texttt{max\_feature}) variabel, sodass sich hier Möglichkeiten der Beschränkung bieten.
 
 Für die Analyse wird die Anzahl der Bäume beim Random Forest auf \texttt{n\_estimators = 100} konstant gehalten. 
 Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter gesucht. 
@@ -94,8 +94,8 @@ Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter ges
 \end{figure}
 
 Dabei fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
-Beide Modelle weisen dabei dieselbem Parameter auf, bei denen der AUC-Wert maximal wird.
-Desweiteren ist der maximale AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
+Beide Modelle weisen dabei dieselbem Parameter auf, bei denen der ROC-AUC-Wert maximal wird.
+Desweiteren ist der maximale ROC-AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
 Dies entspricht einem Modell welches besser Signal von Untergrund separiert.
 
 Die Bäume der Tiefe eins brauchen nicht optimiert zu werden, da sie aufgrund der stark begrenzten Tiefe nicht an Übertraining leiden.
@@ -106,7 +106,7 @@ Dafür werden die Klassifizierer einmal mit dem MC-Daten und einmal mit den Mess
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/conf/conf.pdf}
-  \caption{Schaubild zur Bestimmung der Signifikanz einer Quelle}
+  \caption{Schaubild zur Bestimmung der Signifikanz für die Detektion einer Quelle}
   \label{fig:<+label+>}
 \end{figure}
 Im Anschluss wird für jedes Ereignis ein Konfidenzwert bestimmt. 
@@ -120,7 +120,7 @@ Im Gegensatz dazu, finden sich keine Ereignisse, die sich eindeutig der Klasse G
   \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest} welcher einmal anhand von simulierten Protonen und einmal auf gemessenen trainiert wurde.}
   \label{fig:confdist}
 \end{figure}
-Dies liegt dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und einem $e^{+}$ zerfällt und kaum von einem elektromagnetischen Schauer zu unterscheiden ist (siehe Kapitel \ref{sec:cherenkov}).
+Dies liegt vermutlich dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und ein $e^{+}$ zerfällt kaum von einem elektromagnetischen Schauer zu unterscheiden ist (siehe Kapitel \ref{sec:cherenkov}).
 
 Zur Bestimmung der maximalen Signifikanz der Quelle wird ein Schnitt in $\theta^{2}$ angewendet, sodass das Verhältnis von On- zu Off-Daten möglichst groß ist.
 Dabei wird die Menge unterhalb des Schnittes als Gamma- und oberhalb als Proton-Ereignisse klassifiziert.
@@ -139,13 +139,13 @@ Dabei ist die Signifikanz des unklassifizierten Krebsnebel Datensatzes dargestel
 
 Durch die Bereinigung des Datensatzes wird versucht die Signifikanz zu erhöhen.
 Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBoost Classifier} der Tiefe 1. 
-Dabei hat der \texttt{XGBoost Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attribute an Bäumen gezogen wurden.
+Dabei hat der \texttt{XGBoost Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attributen an Bäumen gezogen wurden. \textbf{Rücksprache letzten Satz}
 
 Die Signifikanzen des Krebsnebel und Markarian-501 Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei $\theta^{2} < \num{0.03}$ bestimmt. 
 Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
 \begin{table}[H]
   \centering
-  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensatzes aufgetragen.}
+  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensätze aufgetragen.}
   \begin{tabular}{l s s s s}
 	\toprule
 	& \multicolumn{2}{c}{Krebsnebel}	& \multicolumn{2}{c}{Markarian 501} \\
@@ -160,19 +160,20 @@ Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereigni
   \label{tab:sign}
 \end{table}
 Die Signifikanz der beiden Quellen ist in Tabelle \ref{tab:sign} niedergeschrieben. 
-Auffällig ist, dass im Gegensatz zum AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte Carlo Daten trainiert wurde.
-Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, auch eine höhere Signifikanz hat. 
+Auffällig ist, dass im Gegensatz zum ROC-AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte Carlo Daten trainiert wurde.
+Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, auch eine höhere Signifikanz liefert. 
 
-Bei dem \texttt{XGBoost Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. Dies deutet auf Übertraining des \texttt{Random Forest} hin. 
+Bei dem \texttt{XGBoost Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. 
+Dies deutet auf Übertraining des \texttt{Random Forest}, auf Informationen die nicht bei der Seperation auf echten Daten beitragen, hin. 
 Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Ereignissen zu separieren.
 
 \section{Konfidenzwert}
-In Abbildung \ref{fig:signconf} ist die Signifikanz für die einzelnen Konfidenzwerte dargestellt. 
+In Abbildung \ref{fig:signconf} ist die Signifikanz für die einzelnen Konfidenzwerte, des Krebsnebel-Datensatzes, dargestellt. 
 Anhand der Form können Rückschlüsse über die Klassifizierer gezogen werden. 
 
-Bei kleinen Konfidenzwerten strebt die Signifikanz gegen die des unklassifizierten Datensatzes.
-Aufgrund der Größe der als Gamma klassifizierten Ereignisse strebt die Signifikanz für große Konfidenzwerte gegen 0.
-Dazwischen ist die Signifikanz ein Maß für die Größe der Probe in Abhängigkeit der als richtig klassifizierten Gamma-Ereignisse.
+Der Erwatung entsprechend streben die Signifikanzen für sehr kleine Werte gegen die des unklassifizierten Datensatz und bei großen gegen null.
+Dazwischen werden alle Modelle Maximal und eignen sich dafür die Signifikanz der Quelldaten zu vergrößern.
+\textbf{Aufgrund der annähernden \enquote{Stetigkeit} der Verteilungen kann geschlossen, dass es sich bei den maximalen Signifikanzen nicht nur  um einen statistisches Rauschen handelt. (Hört sich doof an, weiß aber nicht wie man dies anders Formulierren kann.)}
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
@@ -187,24 +188,27 @@ Dazwischen ist die Signifikanz ein Maß für die Größe der Probe in Abhängigk
   \caption{\texttt{XGBoost Classifier}}
   \label{fig:signconfMESS}
 \end{subfigure}
-\caption{Signifikanz der Modelle in Abhängigkeit der verschiedenen Confidence Werte für die mit Mc-Daten sowie Mess-Daten trainierten Klassifizierer}
+\caption{Signifikanz der Modelle in Abhängigkeit der verschiedenen Confidence Werte für die mit MC-Daten sowie Mess-Daten trainierten Klassifizierer}
 \label{fig:signconf}
 \end{figure}
 
 Auffällig ist, dass sich die Konfidenzverteilungen trotz der verschiedenen Klassifizierer für die Monte Carlo-Daten ähneln.
-Dabei scheint der \texttt{Random Forest} ein Problem mit Ereignissen, die hohe Konfidenzwerte aufweisen, zu haben. 
-Möglicherweise konnte er beim Training in diesem Bereich durch die Separation von Monte Carlo  und gemessenen Daten eine große Trennstärke erreichen. 
+\textbf{Beim stark in der Tiefe beschränktem \texttt{XGBoost Classifier} werden die Siginifikanzen annähernd im selben Berreich maximal, wohingegen beim komplexere Modell (\texttt{Random Forest}) die maximalen Signifikanzen des anhand von Messdaten trainierten Modell einer anderen Verteilung folgen und schon frührer maximal werden. 
+Eine Ursache dafür ist (Abbildung \ref{fig:confdist}), dass die Anzahl an mit hohen Konfidenzwerten \num{> 0.8} klassifizierten Ereignissen gering ist. 
+Möglicherweise sind die trennstarken Attribute für die Separation zwischen simulierten Gamma- und gemessenen Untergrund Ereignisse, schlecht für die Seperation an gemessenen Daten gewählt, weil die Seperation nicht anhand von physikalischen Unterschieden sonder von Daten-Monte Carlo-Mismatches geschieht.
+Aufgrund seiner größeren komplexität entscheidet der \texttt{Random Forest} für kleine Konfidenzwerte bessser als der \texttt{XGBoost Classifier}. 
+Bei zunehmenden Konfidenzwerten zieht der \texttt{Random Forest} das Attribut der Daten-Monte Carlo-Missmatches welches nur auf den Trainingsdaten existiert und verschlechtert die Vorhersage dadurch.}
 Da diese Information bei gemessen Daten nicht eingeht, hat der Lerner somit Probleme bei hohen Konfidenzwerten.
 
 Der \texttt{XGBoost Classifier} scheint aufgrund seiner beschränkten Tiefe von diesem Problem weniger betroffen. 
 
-\section{Rekusive Feature Elemination}
+\section{Rekursive Attribut-Elimination }
 Da Modelle bei der Separation lernen zwischen gemessenen und simulierten Daten zu unterscheiden, liegt die Vermutung nahe, dass einige Attribute schlecht simuliert sind.
 Durch das Entfernen von den schlecht simulierten Attributen, soll die Klassifikation zwischen simulierten und gemessen Daten reduziert werden.
 
 Dazu wird zunächst ein Modell trainiert, welches aus gleich vielen Teilen an simulierten und gemessenen (nach Kapitel \ref{sec:makeUnter} zusammengestellt) Proton-Ereignissen besteht. 
-Im Falle, dass das Modell die simulierten nicht von den gemessenen Protonen unterscheiden kann, wird der AUC-Wert ungefähr \num{0.5} betragen. 
-Der AUC-Wert beträgt auf dem Testdatensatz \num{0.64}. 
+Im Falle, dass das Modell die simulierten nicht von den gemessenen Protonen unterscheiden kann, wird der ROC-AUC-Wert ungefähr \num{0.5} betragen. 
+Der ROC-AUC-Wert beträgt auf dem Testdatensatz \num{0.64}. 
 
 Zur Visualisierung der Attribute bei denen sich die gemessenen von simulierten Daten unterscheiden, sind die Gewichte des trainierten Modells ist in Abbildung~\ref{fig:featureimportance} dargestellt. 
 \begin{figure}[H]
@@ -216,4 +220,4 @@ Zur Visualisierung der Attribute bei denen sich die gemessenen von simulierten D
 Bei dem Entfernen eines Attributes wird Informationsgehalt verworfen. 
 Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attributen einerseits und Informationsgehalt anderseits gefunden werden.
 
-Durch das Entfernen der Attribute \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{leakage2} und \texttt{concentration\_two\_pixel} lässt sich sowohl der AUC-Wert der Separation zwischen simulierten und echten Daten minimieren, als auch die Signifikanz des auf echten Daten trainierten Random Forest um circa \SI{1}{\sigma} erhöhen.
+Durch das Entfernen der Attribute \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{leakage2} und \texttt{concentration\_two\_pixel} lässt sich sowohl der ROC-AUC-Wert der Separation zwischen simulierten und echten Daten minimieren, als auch die Signifikanz des auf echten Daten trainierten \text{Random Forest} um circa ein $\sigma$ erhöhen.
