@@ -3,11 +3,11 @@ Ziel der Gamma/Hadron-Separation ist es, die von einem Tscherenkow-Teleskop geme
 Mit den klassifizierten Gamma-Ereignissen kann dann zum Beispiel der Fluss einer Quelle im Bereich der Gammastrahlung berechnet werden.
 
 Für die Separation zwischen elektromagnetischen und hadronischen Schauern muss ein Modell anhand eines klassifizierten Datensatzes trainiert werden.
-Dazu wird zunächst mit der Software \texttt{FACT-Tools} \cite{Bockermann} ein klassifizierter Datensatz prozessiert.
+Dazu wird zunächst mit der Software \texttt{FACT-Tools} \cite{Bockermann} ein klassifizierter Datensatz prozessiert, um die Rohdaten zu kalibrieren und Attribute zu generieren.
 %Ziel der Arbeit ist es die Monte-Carlo simulierten Protonen durch gemessene zu ersetzen.
 Ziel der Arbeit ist zu untersuchen, ob die Gamma/Hadron-Separation durch die Verwendung von gemessenen statt simulierten Untergrunddaten im Trainingsdatensatz verbessert werden kann.
 
-Es ist bekannt, dass die Verteilung der Attribute auf simulierten und gemessenen Daten nicht vollständig übereinstimmen.
+Es ist bekannt, dass die Verteilungen der Attribute auf simulierten und gemessenen Daten nicht vollständig übereinstimmen.
 Dieses Problem wird Daten-Monte Carlo-Mismatch genannt.
 Durch die Verwendung des gemessenen Untergrunds anstelle der simulierten Protonen soll der Mismatch minimiert und die Klassifikation verbessert werden.
 %Da gemessene Protonen besser als simulierte den Untergrund wiedergeben, besteht die Idee, die Klassifikation dadurch zu optimieren.
@@ -23,16 +23,16 @@ Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten
 
 Desweiteren wird die Signifikanz von zwei verschiedenen Quellen berechnet, die durch zwei unterschiedlich trainierte Modelle gefunden werden. 
 Anhand der maximalen Signifikanzen werden die Modelle verglichen.
-\section{Erstellen des gemessenen Untergrund}
+\section{Erstellen des gemessenen Untergrunds}
 \label{sec:makeUnter}
 Aufgrund der geringen Spiegelfläche und der damit verbundenen geringen Auflösung betreibt FACT hauptsächlich Langzeitstudien von bekannten, hellen Quellen und alarmiert andere Experimente bei ungewöhnlich hohen Flussraten.
 Um die Observationszeit zu maximieren, nimmt FACT dafür Daten im Wobble Modus auf. 
 Dabei muss die Kamera nicht extra auf Off-Positionen gerichtet werden und kann dementsprechend effizienter in der selben Zeit arbeiten. 
-Dies hat zur Folge, dass keine gemessenen reinen Untergrund/Hadron-Daten existieren. 
+Dies hat zur Folge, dass keine gemessenen reinen Untergrunddaten existieren. 
 
 Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quellobservation die Protonenereignisse heraussepariert werden. 
 Dies wird mit einem Schnitt in $\theta^{2}$ realisiert.
-Denkbar wäre auch, anhand eines maschinellen Lerners die Gamma Events in dem gemessenen Untergunddatensatz heraus separieren zu lassen.
+Denkbar wäre auch einen maschinellen Lerner die Gamma-Ereignisse in dem gemessenen Untergunddatensatz heraus separieren zu lassen.
 Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. 
 Aus diesem Grund kann darauf verzichtet werden.
 
@@ -45,14 +45,14 @@ Die Trennstärke des trennstärksten Parameters $\theta^{2}$ im Vergleich zu all
   \label{fig:thetacut}
 \end{figure}
 Durch einen Schnitt auf der $\theta^{2}$-Verteilung soll ein möglichst reiner Datensatz erstellt werden. 
-In Abbildung~\ref{fig:thetacut} sind für Hadronen und Gamma die $\theta^{2}$-Verteilungen der Monte Carlo-Simulationen aufgetragen. 
-Für kleine $\theta^{2}$-Werte ist das Gamma Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$-Werte kontinuierlich ab. 
-Ab einem $\theta^{2}$-Wert von $0.5$ ist das Signal- zu Hintergrundverhältnis um ein Zehntel kleiner.
+In Abbildung~\ref{fig:thetacut} sind für Proton- und Gamma-Ereignisse die $\theta^{2}$-Verteilungen der Monte Carlo-Simulationen aufgetragen. 
+Für kleine $\theta^{2}$-Werte ist das Gamma-Signal um vielfaches größer und nimmt für größer werdende $\theta^{2}$-Werte kontinuierlich ab. 
+Ab einem $\theta^{2}$-Wert von \num{0.5} ist das Signal-Untergrund-Verhältnis um ein Zehntel kleiner.
 Da der wahre Untergrund sowohl aus Hadronen als auch aus wenigen diffusen Gammaquanten besteht, ist zu erwarten, dass die vereinzelt verbleibenden Gamma-Ereignisse die Klassifizierer nicht weiter negativ beeinflussen.
 
 % Zu beachten ist das Protonen zwar isotrop verteilt seien sollten, jedoch bei zu großen $\theta^{2}$-cuts die Detektoreigenschaften singnifikant werden. Um zu überprüfen inwiefern die Detektoreigenschaften vernachlässigt werden können ist in Abbildung~\ref{fig:corrtheta} die Signifikanz in Abhängigkeit des Parameters $\theta^{2}$ dargestellt.
 Um zu überprüfen, ob die trainierten Modelle durch Schnitte in $\theta^{2}$ grundsätzlich schlechter werden, wird ein Modell trainiert, bei dessen Trainingsdatensatz die Proton-Simulationen in verschiedenen $\theta^{2}$ geschnitten werden. 
-Die Signifikanz, für die Detektion des Krebsnebel, der unterschiedlich trainierten Modelle ist in Abbildung \ref{fig:corrtheta} dargestellt.
+Die Signifikanz für die Detektion des Krebsnebels der unterschiedlich trainierten Modelle ist in Abbildung \ref{fig:corrtheta} dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Plots/corr_sig_theta2.pdf}
@@ -63,7 +63,7 @@ Bei Schnitten auf den Monte Carlo-Protonen bis $\theta^{2} < 1$ hängt die Signi
 Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften im Training vernachlässigt werden.
 
 Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} plausibel. 
-Für Monte Carlo basierende Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
+Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
 Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma Ereignisse angesehen werden können. 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Schnitt von \num{0.5} gewählt. 
 \newpage
@@ -94,11 +94,25 @@ Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter ges
 \end{figure}
 
 Dabei fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
-Beide Modelle weisen dabei dieselbem Parameter auf, bei denen der ROC-AUC-Wert maximal wird.
+Beide Modelle weisen dabei die selben Parameter auf, bei denen der ROC-AUC-Wert maximal wird.
 Desweiteren ist der maximale ROC-AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
-Dies entspricht einem Modell welches besser Signal von Untergrund separiert.
+Dies entspricht einem Modell, welches besser Signal von Untergrund separiert.
 
 Die Bäume der Tiefe eins brauchen nicht optimiert zu werden, da sie aufgrund der stark begrenzten Tiefe nicht an Übertraining leiden.
+
+\begin{table}
+  \centering
+  \caption{<+Caption text+>}
+  \begin{tabular}{l s s}
+	\toprule
+	& MC-Daten & Messdaten \\
+	\cmidrule(r){2-3}
+	\texttt{XGBoost Classifier}	& \num{0.86(2)}	&\num{0.869(5)} \\ 
+	\texttt{Random Forrest}		& \num{0.87(1)} & \num{0.89(1)} \\
+	\bottomrule
+  \end{tabular}
+  \label{tab:ROC-AUC}
+\end{table}
 
 \section{Signifikanz der Modelle}
 Um ein Maß für die Güte der Modelle zu erhalten, wird die Signifikanz zweier unabhängiger Quellen bestimmt. 
@@ -106,21 +120,20 @@ Dafür werden die Klassifizierer einmal mit dem MC-Daten und einmal mit den Mess
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./tikz/conf/conf.pdf}
-  \caption{Schaubild zur Bestimmung der Signifikanz für die Detektion einer Quelle}
-  \label{fig:<+label+>}
+  \caption{Schaubild zur Bestimmung der Signifikanz für die Detektion einer Quelle.}
 \end{figure}
 Im Anschluss wird für jedes Ereignis ein Konfidenzwert bestimmt. 
 Der Konfidenzwert spiegelt die Sicherheit des Klassifizierers wieder, dass das Ereignis ein Gamma- \texttt{1} oder ein Proton-Schauer \texttt{0} ist. 
 In Abbildung~\ref{fig:confdist} ist die Konfidenzverteilung des klassifizierten Krebsnebel-Datensatzes aufgetragen. 
 Dabei ist auffällig, dass ein Großteil der Ereignisse eindeutig der Klasse Proton zugeordnet werden kann. 
-Im Gegensatz dazu, finden sich keine Ereignisse, die sich eindeutig der Klasse Gamma zuordnen lassen.
+Im Gegensatz dazu finden sich keine Ereignisse, die sich eindeutig der Klasse Gamma zuordnen lassen.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{./Plots/conf.pdf}
-  \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest} welcher einmal anhand von simulierten Protonen und einmal auf gemessenen trainiert wurde.}
+  \caption{Konfidenzverteilung der Krebsnebel-Daten, erstellt mit einem \texttt{Random Forest}, welcher einmal mit simulierten Protonen und einmal mit gemessenen trainiert wurde.}
   \label{fig:confdist}
 \end{figure}
-Dies liegt vermutlich dem physikalischem Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und ein $e^{+}$ zerfällt kaum von einem elektromagnetischen Schauer zu unterscheiden ist (siehe Kapitel \ref{sec:cherenkov}).
+Dies liegt vermutlich dem physikalischen Problem zugrunde, dass ein Proton, welches beim Eintritt in die Atmosphäre schon früh in ein $\pi^{0}$ Meson und ein $e^{+}$ zerfällt, kaum von einem elektromagnetischen Schauer zu unterscheiden ist (siehe Kapitel \ref{sec:cherenkov}).
 
 Zur Bestimmung der maximalen Signifikanz der Quelle wird ein Schnitt in $\theta^{2}$ angewendet, sodass das Verhältnis von On- zu Off-Daten möglichst groß ist.
 Dabei wird die Menge unterhalb des Schnittes als Gamma- und oberhalb als Proton-Ereignisse klassifiziert.
@@ -129,23 +142,23 @@ Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.88\textwidth]{./Plots/on_off_ratio.pdf}
-  \caption{Signifikanz von Crab auf den unklassifizierten Datensatz}
+  \caption{Signifikanz des Krebsnebels auf den unklassifizierten Datensatz.}
   \label{fig:sig_crab}
 \end{figure}
 Ein grafisches Beispiel für die Signifikanz ist in Abbildung~\ref{fig:sig_crab} zu sehen. 
 Abgebildet ist die $\theta^{2}$-Verteilung der On-Position und das Mittel der fünf Off-Positionen.
-Dabei ist die Signifikanz des unklassifizierten Krebsnebel Datensatzes dargestellt, welcher bereits ohne Separation mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
+Dabei ist die Signifikanz des unklassifizierten Krebsnebel-Datensatzes dargestellt, welcher bereits ohne Separation mit einer Signifikanz von \SI{21,4}{\sigma} nachgewiesen werden kann.
 % Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz des Rohdaten entspricht. Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
 
-Durch die Bereinigung des Datensatzes wird versucht die Signifikanz zu erhöhen.
+Durch die Bereinigung des Datensatzes wird versucht, die Signifikanz zu erhöhen.
 Dafür wird einerseits ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBoost Classifier} der Tiefe 1. 
 Dabei hat der \texttt{XGBoost Classifier} den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht, nachdem die Anzahl an allen möglichen Attributen an Bäumen gezogen wurden. \textbf{Rücksprache letzten Satz}
 
-Die Signifikanzen des Krebsnebel und Markarian-501 Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei $\theta^{2} < \num{0.03}$ bestimmt. 
+Die Signifikanz des Krebsnebel- und Markarian-501-Datensatzes werden jeweils auf der kompletten Größe der Datensätze bei $\theta^{2} < \num{0.03}$ bestimmt. 
 Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
 \begin{table}[H]
   \centering
-  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensätze aufgetragen.}
+  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund-Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensätze aufgetragen.}
   \begin{tabular}{l s s s s}
 	\toprule
 	& \multicolumn{2}{c}{Krebsnebel}	& \multicolumn{2}{c}{Markarian 501} \\
@@ -160,7 +173,7 @@ Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereigni
   \label{tab:sign}
 \end{table}
 Die Signifikanz der beiden Quellen ist in Tabelle \ref{tab:sign} niedergeschrieben. 
-Auffällig ist, dass im Gegensatz zum ROC-AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte Carlo Daten trainiert wurde.
+Auffällig ist, dass im Gegensatz zum ROC-AUC-Wert die Signifikanz des mit den gemessenen Daten trainierten Klassifizierers geringer ist, als die des Klassifizierers, der mit Monte Carlo-Daten trainiert wurde.
 Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, auch eine höhere Signifikanz liefert. 
 
 Bei dem \texttt{XGBoost Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. 
@@ -168,10 +181,10 @@ Dies deutet auf Übertraining des \texttt{Random Forest}, auf Informationen die 
 Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Ereignissen zu separieren.
 
 \section{Konfidenzwert}
-In Abbildung \ref{fig:signconf} ist die Signifikanz für die einzelnen Konfidenzwerte, des Krebsnebel-Datensatzes, dargestellt. 
+In Abbildung \ref{fig:signconf} ist die Signifikanz für die einzelnen Konfidenzwerte des Krebsnebel-Datensatzes dargestellt. 
 Anhand der Form können Rückschlüsse über die Klassifizierer gezogen werden. 
 
-Der Erwatung entsprechend streben die Signifikanzen für sehr kleine Werte gegen die des unklassifizierten Datensatz und bei großen gegen null.
+Der Erwartung entsprechend streben die Signifikanzen für sehr kleine Konfidenz-Werte gegen die des unklassifizierten Datensatz und bei großen gegen null.
 Dazwischen werden alle Modelle Maximal und eignen sich dafür die Signifikanz der Quelldaten zu vergrößern.
 \textbf{Aufgrund der annähernden \enquote{Stetigkeit} der Verteilungen kann geschlossen, dass es sich bei den maximalen Signifikanzen nicht nur  um einen statistisches Rauschen handelt. (Hört sich doof an, weiß aber nicht wie man dies anders Formulierren kann.)}
 \begin{figure}[H]
@@ -219,5 +232,14 @@ Zur Visualisierung der Attribute bei denen sich die gemessenen von simulierten D
 \end{figure}
 Bei dem Entfernen eines Attributes wird Informationsgehalt verworfen. 
 Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attributen einerseits und Informationsgehalt anderseits gefunden werden.
+\begin{table}
+  \centering
+  \caption{}
+  \begin{tabular}{l s s}
+	\toprule
 
+	\bottomrule
+  \end{tabular}
+  \label{tab:<+label+>}
+\end{table}<++>
 Durch das Entfernen der Attribute \texttt{ph\_charge\_shower\_max}, \texttt{width}, \texttt{leakage2} und \texttt{concentration\_two\_pixel} lässt sich sowohl der ROC-AUC-Wert der Separation zwischen simulierten und echten Daten minimieren, als auch die Signifikanz des auf echten Daten trainierten \text{Random Forest} um circa ein $\sigma$ erhöhen.

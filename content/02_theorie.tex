@@ -193,9 +193,9 @@ Um zu überprüfen, wie sich die Modelle auf Datensätzen verhalten, werden zwei
 Zum Vergleich von verschiedenen binären Klassifizern ist die \enquote{Receiver Operating Characteristic Curve} ein Maß für die Güte der Separation. 
 Dafür wird zunächst der Konfidenzwert des Klassifizierers berechnet. 
 Dies ist ein Wert zwischen 0 und 1, welcher die Sicherheit wiederspiegelt, dass die Vorhersage den Zielklassen 0 oder 1 entspricht.
-Für alle möglichen Konfidenzwerte wird der prozentuale Anteil an richtig klassifizierten Ereignissen der Klasse 1 (TPR) und an falsch klassifizierten der Klasse 0 (FPR) berechnet. 
+Für alle möglichen Konfidenzwerte wird der prozentuale Anteil an richtig klassifizierten Ereignissen der Klasse 1 (true positive rate, TPR) und an falsch klassifizierten der Klasse 0 (false positive rate, FPR) berechnet. 
 Bei der ROC Curve wird die TPR gegen die FPR aufgetragen. 
-Ein Beispiel ist in Abbildung \ref{fig:roc} zu sehen.
+Ein Beispiel ist in Abbildung~\ref{fig:roc} zu sehen.
 Für einen guten Klassifizier strebt die Kurve bei kleinen FPR gegen hohe TPR. 
 Ist der Klassifizier nicht in der Lage, zwischen den beiden Klassen zu separieren, steigen die TPR und FPR gleichermaßen. 
 Anhand der Fläche unter der Kurve kann die Güte verglichen werden.
@@ -207,7 +207,7 @@ Signal und Untergrund sind schwer zu unterscheiden, da das Signal oftmals wesent
 Daher wird ein Maß für die statistische Sicherheit angegeben, mit der es sich bei einem gemessenen Signal tatsächlich um eine Quelle und nicht um statistisches Rauschen handelt.
 Ein möglicher Anatz ist die Li und Ma Signifikanz \cite{liandma}, bei der über einen statistischen Hypothesentest geprüft wird, ob das Signal nur ein Teil des Untergrunds ist. 
 Aus dem Verhältnis der Messzeiten der On- und Off-Position $\alpha$ wird die Hintergrundstrahlung berechnet. 
-Aus der Differenz Anzahl an Ereignissen in der On-Region und der Hintergrundrate lässt sich die Signalrate bestimmen. 
+Aus der Differenz der Anzahl an Ereignissen in der On-Region und der Hintergrundrate lässt sich die Signalrate bestimmen. 
 Durch das Aufstellen der Maximum Likelihood Funktion und des anschließenden Tests ergibt sich für die Signifikanz nach Li und Ma
 \begin{equation}
 S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}.
@@ -219,11 +219,11 @@ Beide Quellen sind bereits gut verstanden und können zum Vergleich mit anderen 
 \section{Krebsnebel}
 In einer Entfernung von 6400 Lichtjahren befindet sich im Sternzeichen Stier der Überrest der ersten dokumentierten Supernovaexplosion, die auf das Jahr 1054 datiert ist. 
 Die Überreste erstrecken sich über eine Fläche von 6 Bogenminuten Länge und 4 Bogenminuten Breite. 
-In der Mitte des Krebsnebels liegt ein Pulsar, welcher sich bei einem Durchmesser von etwa \SI{30}{\kilo \meter} sich 30 mal die Sekunde um seine eigene Achse dreht.
-Der Pulsar emittiert regelmäßige Gamma Strahlung Pulse, wodurch der Krebsnebel eine Standard- und Kalibrierungsquelle in der Gammaastronomie ist.
+In der Mitte des Krebsnebels liegt ein Pulsar, welcher sich bei einem Durchmesser von etwa \SI{30}{\kilo \meter} 30 mal pro Sekunde um seine eigene Achse dreht.
+Der Pulsar emittiert regelmäßige Gammastrahlungspulse, wodurch der Krebsnebel eine Standard- und Kalibrierungsquelle in der Gammaastronomie ist.
 Viele wissentschaftliche Arbeiten nehmen ihn als Referenzwert, um ihre Messwerte zu vergleichen. 
 
 \section{Markarian 501}
-Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Millionen Lichtjahren der Blazar Markarian. 
+Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Millionen Lichtjahren der Blazar Markarian 501. 
 In seinem Zentrum befindet sich ein \num{0.9} bis \num{3.4} Milliarden Sonnenmassen schweres schwarzes Loch, dessen Jet in Richtung Erde gerichtet ist.
 Auch dieser gilt als eine der stärksten Gammastrahlungsquellen.
