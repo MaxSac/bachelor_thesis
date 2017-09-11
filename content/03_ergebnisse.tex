@@ -208,7 +208,7 @@ Aufgrund des stetigen Anstieges ist davon auszugehen, dass es sich beim Maximum 
 Auffällig ist, dass sich die Konfidenzverteilungen trotz der verschiedenen Klassifizierer für die Monte Carlo-Daten ähneln.
 Beim stark in der Tiefe beschränktem \texttt{XGBoost Classifier} werden die Siginifikanzen annähernd im selben Berreich maximal, wohingegen beim \texttt{Random Forest} die maximalen Signifikanzen des anhand von Messdaten trainierten Modells einer anderen Verteilung folgen und schon früher maximal werden. 
 Eine Ursache dafür ist (Abbildung \ref{fig:confdist}), dass die Anzahl an mit hohen Konfidenzwerten (\num{> 0.8}) klassifizierten Ereignissen gering ist. 
-Ein \texttt{Random Forest}, der auf gemessenen Daten trainiert wurde, ist sich also bei der Klassifizierung von Ereignissen wesentlich unsicherer, ob es sich um ein Gamma- oder Proton-Event handelt.
+Ein \texttt{Random Forest}, der auf gemessenen Daten trainiert wurde, ist sich also bei der Klassifizierung von Ereignissen wesentlich unsicherer, ob es sich um ein Gamma- oder Proton-Ereigniss handelt.
 Ein Grund dafür können Daten-Monte Carlo-Mismatches sein. 
 Der Lerner sieht im Training verstärkt die Unterschiede zwischen Simulation und Wirklichkeit, statt zwischen Gamma- und Hadron-Ereignissen.
 Da diese Unterschiede im zu klassifizierenden Datensatz nicht mehr vorhanden sind, wird die Prognose des Lerners unsicher.

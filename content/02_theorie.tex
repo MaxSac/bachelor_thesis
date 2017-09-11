@@ -17,11 +17,11 @@ Als erstes Teleskop verwendet FACT SiPMs anstelle von Photomultiplier Tubes (PMT
 Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns als auch die Finanzierung vereinfacht. 
 SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren. 
 Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit, verwertbare Ergebnisse zu produzieren.
-Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfäche.
+Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfläche.
 
 \chapter{Entstehung von Tscherenkow Schauern}
 \label{sec:cherenkov}
-Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. 
+Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses einen Schauer von Sekundärteilchen aus. 
 Die Energie der erzeugten Sekundärteilchen ist stets geringer als die der einfallenden Primärteilchen. 
 Dabei wird zwischen zwei verschiedenen Arten von Schauern unterschieden. 
 \begin{figure}[H]
@@ -70,8 +70,8 @@ Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechu
   \caption{Parametrisierung des Kamerabildes durch Hillas Parameter.}
 \end{figure}
 Die im Schauer entstehenden Tscherenkow-Photonen werden vom Teleskop in die Kamera reflektiert.
-So entsteht in der Kamera ein Abbild des Schauers, das durch verschiedene Parameterbeschrieben werdn kann.
-Diese Parameter bilden nachfolgend die Attribute, auf deren Basis ein maschineller Lerneer den Schauer klassifizier.
+So entsteht in der Kamera ein Abbild des Schauers, das durch verschiedene Parameter beschrieben werden kann.
+Diese Parameter bilden nachfolgend die Attribute, auf deren Basis ein maschineller Lerner den Schauer klassifiziert.
 Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkowschauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
 Dazu werden die Momente der Lichtverteilung bestimmt. 
 Zu den Hillasparametern zählen:
@@ -152,7 +152,7 @@ Hier ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz ausw
 Dies geschieht durch Beschränkung der Modelle. 
 Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhängig von dem Trainingsdatensatz ist, kann geprüft werden, ob das Modell allgemein genug ist oder an Übertraining leidet.
 \section{Entscheidungsbaum}
-\begin{wrapfigure}[12]{R}[0pt]{0.5\textwidth}
+\begin{wrapfigure}[13]{R}[0pt]{0.5\textwidth}
   \centering
   \includegraphics[width=0.5\textwidth]{./tikz/tree/tree.pdf}
   \caption{Entscheidungsbaum der Tiefe 2 für die Gamma/Handron-Separation.}
@@ -179,7 +179,7 @@ Extreme Gradient Boosting (kurz XGBoost) wurde von Jerome H. Friedman~\cite{xgbo
 Dabei zeichnen sich  XGBoosted Entscheidungsbäume durch stark in der Tiefe beschränkte Bäume aus.
 Anders als beim Random Forest werden nicht beliebig viele Bäume parallel gebaut, sondern iterativ. 
 Dabei lernt der folgende Baum die Fehler, welche der vorherige Baum gemacht hat, zu minimieren.
-Zusätzlich werden fehlklassifizierten Ereignissen der vorherigen Iteration höhere Gewichte zugewiesen.
+Zusätzlich werden fehlklassifizierten Ereignissen der vorherigen Iteration höhere Gewichtungen zugewiesen.
 
 \section{Evaluationsmetriken}
 Um zu überprüfen, wie sich die Modelle auf Datensätzen verhalten, werden zweierlei Metriken zu der Beurteilung der Klassifizierer benutzt.
