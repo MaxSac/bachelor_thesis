@@ -1,26 +1,27 @@
 \chapter{Zusammenfassung und Ausblick}
-Das Ziel der Arbeit war, die Gamma/Hadron-Separation zu verbessern, indem anstelle der Monte Carlo simulierten Protonen gemessene Protonen zum Trainieren der Klassifizierer verwendet werden. 
+Das Ziel der Arbeit ist, die Gamma/Hadron-Separation zu verbessern, indem anstelle der Monte Carlo simulierten Protonen gemessene Protonen zum Trainieren der Klassifizierer verwendet werden. 
 Da diese eher dem gemessenen Untergrund ähneln, sollte eine bessere Klassifizierung erfolgen.
 
-Weil FACT keine gemessenen Untergrund-Daten besitzt, muss ein Protonen-Datensatz aus dem Modifizieren einer bekannten Gamma-Quelle erstellt werden. 
-Dies geschieht durch das Ausschneiden der Gamma-Quelle, mittels eines Schnitts, auf dem trennstärksten Parameter $\theta^{2}$.
+Weil FACT keine gemessenen Untergrund-Daten besitzt, muss ein Protonen-Datensatz aus dem Datensatz einer bekannten Gamma-Quelle erstellt werden. 
+Dies geschieht durch mittels eines Schnitts auf dem trennstärksten Parameter $\theta^{2}$, wodurch der größte Teil der Gamma-Ereignisse verworfen wird.
 Die Wahl des $\theta^{2}$-Schnitts liegen dabei folgende Überlegungen zugrunde:
 Wird $\theta^{2}$ zu groß gewählt, kommt es dazu, dass Detektoreigenschaften signifikant werden und der Lerner einen großen Teil der $\theta^{2}$-Verteilung im Training nicht auswertet. 
 $\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnismäßig viele Gamma-Ereignisse in dem erstellen Protonen-Datensatz sind.
 
-Lerner welche auf simulierten Gamma- sowie Protonen-Events trainiert wurden, weisen niedrigere ROC-AUC-Werte auf, als welche die auf simulierte Gamma- und gemessenen Untergrund-Events trainierten wurden.
-Eine mögliche Ursache dafür ist, dass die Modelle zwischen Simulation und gemessenen Ereignisse unterscheiden.
+Für diese Arbeit wurden zwei verschiedene Lerner (\texttt{Random Forest} und \texttt{XGBoost Classifier}) verwendet und deren ROC-AUC-Wert sowie die Quell-Signifikanz zur Messung ihre Güter genutzt. 
+Beide Lerner weisen einen höheren ROC-AUC-Wert auf, wenn sie auf gemessenen Untergrunddaten trainiert werden.
+Eine mögliche, aber unerwünschte, Ursache dafür ist, dass die Modelle zwischen Simulation und gemessenen Ereignissen unterscheiden.
 
-Diese Aussage lässt sich dadurch stützen, dass die Klassifizierer, die auf echten Daten trainiert wurden, zu niedrigeren Signifikanzen führen, als Lerner, die auf den Monte Carlo simulierten Daten trainiert wurden. 
+Diese Aussage lässt sich dadurch stützen, dass beide Klassifizierer, wenn sie auf echten Daten trainiert werden, zu niedrigeren Signifikanzen führen, als wenn sie auf simulierten Daten trainiert werden. 
 Dies widerspricht der anfänglichen Vermutung, dass durch gemessene Daten die Separation verbessert werden kann. 
-Zusätzlich weist ein weniger komplexer Baum wesentlich höhere Signifikanzen auf. 
-In Verbindung mit seiner stark begrenzten Tiefe ist er damit möglicherweise nicht in der Lage, zwischen simulierten und gemessenen Protonen zu unterscheiden. 
+Zusätzlich weist ein stark begrenzter \texttt{XGBoost Classifier} wesentlich höhere Signifikanzen auf. 
+In Verbindung mit seiner stark begrenzten Tiefe ist er damit möglicherweise weniger sensitiv auf Daten-Monte Carlo-Mismatches. 
 
-Desweiteren konnte gezeigt werden, dass durch das Entfernen von Attributen, die einen hohen Monte Carlo Mismatch aufweisen, die Separation verbessert werden kann. 
+Desweiteren konnte gezeigt werden, dass durch das Entfernen von Attributen, die einen hohen Monte Carlo-Mismatch aufweisen, die Separation verbessert werden kann. 
 Dies stützt die These, dass der Klassifizierer zwischen simulierten und echten Daten unterscheidet.
 
-Letztendlich konnte die Gamma/Hadron-Separation nicht durch die Verwendung von gemessenen Protonen-Daten anstelle von simulierten im Trainingsdatensatz, verbessert werden. 
+Letztendlich konnte die Gamma/Hadron-Separation nicht durch die Verwendung von gemessenen anstelle von simulierten Protonen-Daten im Trainingsdatensatz verbessert werden. 
 
-Ansatz weiterer Untersuchungen könnte die Nahme von Off-Daten seien.
+Ansatz weiterer Untersuchungen könnte die Aufnahme von Off-Daten sein.
 Somit könnte auf den Schnitt um die Quellregion verzichtet werden. 
-Desweiteren könnte durch die Verbesserung der Gamma Monte Carlo-Simulation, oder eines Modells welches robuster gegen Daten-Monte Carlo Mismatches bei gleicher TPR ist die Klassifikation verbessert werden.
+Desweiteren könnte durch die Verbesserung der Gamma-Monte Carlo-Simulation, oder eines Modells, welches robuster gegen Daten-Monte Carlo Mismatches bei gleicher TPR ist, die Klassifikation verbessert werden.
