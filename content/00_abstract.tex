@@ -1,15 +1,16 @@
 \thispagestyle{plain}
 
 \section*{Kurzfassung}
-Ziel der Arbeit ist es die, mit dem First G-APD Cherenkov Telescope (FACT) aufgenommenen, Quell-Observationen von dem Untergrund-Ereignissen zu trennen. 
-Dazu wird geprüft, ob diese verbessert werden kann, indem bei der Gamma/Hadron-Seperation gemessene Untergrunddaten statt Monte Carlo-Simulationen verwendet werden.
+Das First G-APD Cherenkov Telescope (FACT) observiert Quellen hochenergetischer Gammastrahlung.
+Um aus den Messunge Informationen über eine Quelle zu bekommen, muss zunächst das Quell-Signal (Gamma-Ereignisse) vom Untergrund (Hadron-Ereignisse) separiert werden.
+Dazu werden maschinelle Lerner verwendet, die für beide Klassen (Gamma/Hadron) mit Monte Carlo-Simulationen trainiert werden.
+Ziel dieser Arbeit ist es, zu überprüfen, ob die Gamma/Hadron-Seperation verbessert werden kann, indem gemessene Untergrunddaten statt Monte Carlo-Simulationen zum trainieren der Lerner verwendet werden.
 Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze von Quellbeobachtungen für diese Arbeit so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
 Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBoost Classifier} trainiert und der ROC-AUC-Wert sowie die Signifikanz für die Detektion von Quellen der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
-%Die auf gemessenen Daten trainierten Modelle separieren nach dem ROC-AUC-Wert besser, weisen jedoch niedrigere Signifikanzen auf. 
-Wohingegen auf dem Trainingsdatensatz ein besser ROC-AUC-Wert erreicht weden konnte, sank die Signifikanz für die Detektion der untersuchten Quelle bei den mit gemessenen Untergrunddaten trainierten Modelle.
-Möglicherweise trainieren die Modelle dabei den Unterschied zwischen simulierten und gemessenen Daten. 
-Diese Methode verbessert derzeitig die Seperation nicht. 
-Unter der Annahme, dass die Unterschiede zwischen simulierten und gemessenen Daten verringert werden können, hat die Methode das Potential die Separation zu verbessern. 
+Obwohl mit den gemessenen Untergruddaten als Trainingsdatensatz ein besserer ROC-AUC-Wert für den Lerner erreicht werden konnte, sank die Signifikanz für die Detektion der Quelle im Verglich zu einem Lerner, der mit simulierten Daten trainiert wurde. 
+Möglicherweise trainieren die Modelle den Unterschied zwischen simulierten und gemessenen Daten. 
+Diese Methode verbessert derzeitig die Separation nicht. 
+Unter der Annahme, dass die Unterschiede zwischen simulierten und gemessenen Daten verringert werden können, hat die Methode allerdings das Potential, die Separation zu verbessern. 
 \section*{Abstract}
 \begin{english}
 The abstract is a short summary of the thesis in English, together with the German summary it has to fit on this page.
