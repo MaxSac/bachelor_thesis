@@ -14,12 +14,12 @@ Die 30 hexagonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter
 %wie sind die Spiegel denn ausgerichtet?
 
 Als erstes Teleskop verwendet FACT SiPMs anstelle von Photomultiplier Tubes (PMTs). 
-Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns, als auch die Finanzierung vereinfacht. 
+Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns als auch die Finanzierung vereinfacht. 
 SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren. 
-Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit verwertbare Ergebnisse zu produzieren.
+Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit, verwertbare Ergebnisse zu produzieren.
 Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfäche.
 
-\chapter{Entstehung von Tscherenkov Schauern}
+\chapter{Entstehung von Tscherenkow Schauern}
 \label{sec:cherenkov}
 Trifft ein hochenergetisches Teilchen auf die Atmosphäre, löst dieses ein Schauer von Sekundärteilchen aus. 
 Die Energie der erzeugten Sekundärteilchen ist stets geringer als die der einfallenden Primärteilchen. 
@@ -57,22 +57,24 @@ Dabei entstehen unter anderem neue Hadronen und Myonen, welche wiederum zerstrah
 Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der hadronische Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
 
 Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium $c_\text{med}$ polarisiert es dieses kurzzeitig. 
-Beim Tscherenkov-Effekt wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
+Durch den Tscherenkow-Effekt wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
 Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechungsindex $n$ des Mediums und der Phasengeschwindigkeit der Welle $\beta = v / c_\text{0}$ abhängt.
 \begin{equation}
   \cos  \theta = \frac{1}{\text{n} \beta}
 \end{equation}
 \chapter{Observation}
-\section{Bildgebende Parameter}
+\section{Parametrisierung des Schauerbildes}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{tikz/camera/camera.pdf}
   \caption{Parametrisierung des Kamerabildes durch Hillas Parameter.}
 \end{figure}
-Die im Schauer entstehenden Tscherenkov-Photonen werden vom Teleskop in die Kamera abgebildet.
-Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkovschauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
+Die im Schauer entstehenden Tscherenkow-Photonen werden vom Teleskop in die Kamera reflektiert.
+So entsteht in der Kamera ein Abbild des Schauers, das durch verschiedene Parameterbeschrieben werdn kann.
+Diese Parameter bilden nachfolgend die Attribute, auf deren Basis ein maschineller Lerneer den Schauer klassifizier.
+Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkowschauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
 Dazu werden die Momente der Lichtverteilung bestimmt. 
-Zu den Hillasparameter zählen:
+Zu den Hillasparametern zählen:
 \begin{itemize}
   \item \textbf{width/length:} Hauptachsen der Ellipse
   \item \textbf{size:} Anzahl an Photonen im Schauer
@@ -94,7 +96,7 @@ Die Wobble Observation-Strategie zeichnet aus, dass nicht nacheinander On-/Off-P
 Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. 
 Dies hat zur Folge, dass es mehrere Positionen mit dem selben Abstand und Symmetrie zur Kameraachse gibt. 
 Bei der Standardanalyse von FACT können so neben der On-Position fünf Off-Positionen mit demselben Winkel zur Kameraachse gemessen werden. 
-Somit ergibt sich für jeden Datenssatz jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
+Somit ergibt sich für jeden Datensatz jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
 Für sehr kleine $\theta$ Winkel kann oftmals geschlossen werden, dass das gemessene Teilchen aus der Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
 Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei hadronischen Schauern $\theta^{2}$ in etwa gleichverteilt sein. 
 Zu den Vorteilen dieser Methode zählt, dass keine extra Off-Daten genommen werden müssen. 
@@ -144,7 +146,7 @@ Der Lerner sucht eigenständig nach Strukturen, die für den Menschen nicht sich
 Beim überwachten Lernen sind die Klassen, in die ein Datensatz unterteilt werden soll, bekannt.
 Ziel ist es, bei einem gegebenen Trainingsset, welches aus Eingangsvariablen $X$ und Zielvariablen $y$ besteht, Modelle zu finden, welche $X$ bestmöglich auf $y$ abbilden. 
 Zunächst muss das Modell trainiert werden. 
-Dafür wird ein Datensatz, bei dem die Zielvariablen $y$ bekannt sind, in zwei Teile aufgeteilt, dem Trainings- und dem Testdatensatz. 
+Dafür wird ein Datensatz, bei dem die Zielvariablen $y$ bekannt sind, in zwei Teile aufgeteilt, den Trainings- und den Testdatensatz. 
 Dabei wird das Modell auf den Trainingsdatensatz optimiert und anschließend auf dem Testdatensatz evaluiert. 
 Hier ist darauf zu achten, dass das Modell nicht nur den Trainingsdatensatz auswendig lernt (Übertraining), sondern allgemein genug bleibt, um auch ähnliche Datensätze genau vorherzusagen. 
 Dies geschieht durch Beschränkung der Modelle. 
