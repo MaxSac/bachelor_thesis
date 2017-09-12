@@ -3,14 +3,14 @@ Das Ziel der Arbeit ist, die Gamma/Hadron-Separation zu verbessern, indem anstel
 Da diese eher dem gemessenen Untergrund ähneln, sollte eine bessere Klassifizierung erfolgen.
 
 Weil FACT keine gemessenen Untergrund-Daten besitzt, muss ein Protonen-Datensatz aus dem Datensatz einer bekannten Gamma-Quelle erstellt werden. 
-Dies geschieht durch mittels eines Schnitts auf dem trennstärksten Parameter $\theta^{2}$, wodurch der größte Teil der Gamma-Ereignisse verworfen wird.
+Dies geschieht mittels eines Schnitts auf dem trennstärksten Parameter $\theta^{2}$, wodurch der größte Teil der Gamma-Ereignisse verworfen wird.
 Die Wahl des $\theta^{2}$-Schnitts liegen dabei folgende Überlegungen zugrunde:
 Wird $\theta^{2}$ zu groß gewählt, kommt es dazu, dass Detektoreigenschaften signifikant werden und der Lerner einen großen Teil der $\theta^{2}$-Verteilung im Training nicht auswertet. 
-$\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnismäßig viele Gamma-Ereignisse in dem erstellen Protonen-Datensatz sind.
+$\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnismäßig viele Gamma-Ereignisse in dem erstellten Protonen-Datensatz sind.
 
 Für diese Arbeit wurden zwei verschiedene Lerner (\texttt{Random Forest} und \texttt{XGBoost Classifier}) verwendet und deren ROC-AUC-Wert sowie die Quell-Signifikanz zur Messung ihre Güter genutzt. 
 Beide Lerner weisen einen höheren ROC-AUC-Wert auf, wenn sie auf gemessenen Untergrunddaten trainiert werden.
-Eine mögliche, aber unerwünschte, Ursache dafür ist, dass die Modelle zwischen Simulation und gemessenen Ereignissen unterscheiden.
+Eine mögliche, aber unerwünschte Ursache dafür ist, dass die Modelle zwischen Simulation und gemessenen Ereignissen unterscheiden.
 
 Diese Aussage lässt sich dadurch stützen, dass beide Klassifizierer, wenn sie auf echten Daten trainiert werden, zu niedrigeren Signifikanzen führen, als wenn sie auf simulierten Daten trainiert werden. 
 Dies widerspricht der anfänglichen Vermutung, dass durch gemessene Daten die Separation verbessert werden kann. 

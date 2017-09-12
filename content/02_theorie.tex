@@ -8,7 +8,7 @@ FACT (First G-APD Cherenkov Telescope) dient der Überwachung von $\gamma$-Quell
 Desweiteren erprobt das Teleskop die Nutzung von Silizium Photomultipliern (SiMPs), mit welchen es möglich ist, auch in Nächten mit starker diffuser Hintergrundstrahlung Quellen zu observieren. 
 
 FACT befindet sich auf der kanarischen Insel La Palma auf einer Höhe von 2200 Metern über dem Meeresspiegel.
-Das Projekt entstand als ein Nachfolgerexperiment des HEGRA CT3 Teleskops, wobei dessen Konponenten aufbereitet und wiederverwertet wurden.
+Das Projekt entstand als ein Nachfolgerexperiment des HEGRA CT3 Teleskops, wobei dessen Komponenten aufbereitet und wiederverwertet wurden.
 
 Die 30 hexagonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter\squared} bei einem Blickfeld von \SI{4.5}{\degree}. 
 %wie sind die Spiegel denn ausgerichtet?
@@ -16,7 +16,7 @@ Die 30 hexagonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter
 Als erstes Teleskop verwendet FACT SiPMs anstelle von Photomultiplier Tubes (PMTs). 
 Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns als auch die Finanzierung vereinfacht. 
 SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren. 
-Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit, verwertbare Ergebnisse zu produzieren.
+Desweiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit verwertbare Ergebnisse zu produzieren.
 Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfläche.
 
 \chapter{Entstehung von Tscherenkow Schauern}
@@ -54,7 +54,7 @@ Dabei entstehen unter anderem neue Hadronen und Myonen, welche wiederum zerstrah
   \pi^{+} \rightarrow& \mu^{+} + \nu_{\mu} \\
   \pi^{-} \rightarrow& \mu^{-} + \bar{\nu}_{\mu}
 \end{eqnarray}
-Entseht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der hadronische Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
+Entsteht bei der Paarbildung schon früh ein $\pi^{0}$~Meson, so ist der hadronische Teilchenschauer kaum von dem eines $\gamma$-Quants zu unterscheiden. 
 
 Bewegt sich ein Teilchen schneller als die Lichtgeschwindigkeit in dem Medium $c_\text{med}$ polarisiert es dieses kurzzeitig. 
 Durch den Tscherenkow-Effekt wird eine kohärente Schockwelle in Bewegungsrichtung abgestrahlt. 
@@ -67,14 +67,14 @@ Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechu
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{tikz/camera/camera.pdf}
-  \caption{Parametrisierung des Kamerabildes durch Hillas Parameter.}
+  \caption{Parametrisierung des Kamerabildes durch Hillas-Parameter.}
 \end{figure}
 Die im Schauer entstehenden Tscherenkow-Photonen werden vom Teleskop in die Kamera reflektiert.
 So entsteht in der Kamera ein Abbild des Schauers, das durch verschiedene Parameter beschrieben werden kann.
 Diese Parameter bilden nachfolgend die Attribute, auf deren Basis ein maschineller Lerner den Schauer klassifiziert.
-Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkowschauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
+Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkow Schauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
 Dazu werden die Momente der Lichtverteilung bestimmt. 
-Zu den Hillasparametern zählen:
+Zu den Hillas-Parametern zählen:
 \begin{itemize}
   \item \textbf{width/length:} Hauptachsen der Ellipse
   \item \textbf{size:} Anzahl an Photonen im Schauer
@@ -94,14 +94,14 @@ Die gemessenen Untergrundraten können dann von den Messungen in der Quellregion
 
 Die Wobble Observation-Strategie zeichnet aus, dass nicht nacheinander On-/Off-Positionen beobachtet werden müssen. 
 Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraachse gelegt. 
-Dies hat zur Folge, dass es mehrere Positionen mit dem selben Abstand und Symmetrie zur Kameraachse gibt. 
+Dies hat zur Folge, dass es mehrere Positionen mit demselben Abstand und Symmetrie zur Kameraachse gibt. 
 Bei der Standardanalyse von FACT können so neben der On-Position fünf Off-Positionen mit demselben Winkel zur Kameraachse gemessen werden. 
 Somit ergibt sich für jeden Datensatz jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
 Für sehr kleine $\theta$ Winkel kann oftmals geschlossen werden, dass das gemessene Teilchen aus der Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
 Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei hadronischen Schauern $\theta^{2}$ in etwa gleichverteilt sein. 
 Zu den Vorteilen dieser Methode zählt, dass keine extra Off-Daten genommen werden müssen. 
 Somit ist es möglich, die Messzeit zu maximieren. 
-Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen die selben Detektor- und Wetterbedingungen gelten. 
+Desweiteren kann durch die gleichzeitige Datennahme davon ausgegangen werden, dass für die On/Off-Positionen dieselben Detektor- und Wetterbedingungen gelten. 
 
 % \section{Events in der Kamera}
 % 
@@ -158,7 +158,7 @@ Durch Berechnung von Evaluationsmetriken auf dem Testdatensatz, welcher unabhän
   \caption{Entscheidungsbaum der Tiefe 2 für die Gamma/Handron-Separation.}
 \end{wrapfigure}
 Ein Entscheidungsbaum beginnt mit einem Wurzelknoten. Ausgehend von diesem wird durch Abfrage von verschiedenen Bedingungen eine Auswahl an Folgeknoten getroffen. 
-\textbf{In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, da sich die meisten Probleme zu einem zwei-Klassen-Problem reduzieren lassen.}
+In der Regel werden in der Datenanalyse binäre Entscheidungsbäume genutzt, da sich viele Probleme zu einem zwei-Klassen-Problem (Signal/Untergrund) reduzieren lassen.
 % aufgrund dessen das sich jedes komplexeres auf ein binäres reduzieren lässt.
 Entsprechend eines Schwellwertes wird der Datensatz aufgeteilt, sodass die entstehenden Untergruppen möglichst homogen werden. 
 %sodass der Baum entsprechend an einem threshold wert die Daten an jedem Knoten in die zwei folgenden Knoten aufspaltet. 
@@ -173,7 +173,7 @@ Allerdings kommt es ohne Beschränkung schnell zum Übertraining.
 Ein Random Forest besteht aus vielen unabhängigen Entscheidungsbäumen.
 Jeder Entscheidungsbaum zieht bei der Erstellung immer nur eine Teilmenge aus allen Attributen.
 Zur Klassifizierung wird anschließend eine Mehrheitsabstimmung über alle Entscheidungsbäume durchgeführt.
-Dadurch, dass die einzelnen Bäume unterschiedlich aufgebaut sind und über die einzelnen Lerner gemittelt wird, ergibt sich ein Modell mit reduzierter Varianz im Gegensatz zum Entscheidungsbaum, welches robuster gegen Übertraining ist.
+Dadurch, dass die einzelnen Bäume unterschiedlich aufgebaut sind und über die einzelnen Lerner gemittelt wird, ergibt sich ein Modell mit reduzierter Varianz im Gegensatz zum Entscheidungsbaum, welches resistenter gegen Übertraining ist.
 \section{Extreme Gradient Boosting}
 Extreme Gradient Boosting (kurz XGBoost) wurde von Jerome H. Friedman~\cite{xgboost} entwickelt.
 Dabei zeichnen sich  XGBoosted Entscheidungsbäume durch stark in der Tiefe beschränkte Bäume aus.
@@ -190,14 +190,14 @@ Um zu überprüfen, wie sich die Modelle auf Datensätzen verhalten, werden zwei
   \caption{ROC-AUC-Wert zweier verschiedener Modelle}
   \label{fig:roc}
 \end{wrapfigure}
-Zum Vergleich von verschiedenen binären Klassifizern ist die \enquote{Receiver Operating Characteristic Curve} ein Maß für die Güte der Separation. 
+Zum Vergleich von verschiedenen binären Klassifizierern ist die \enquote{Receiver Operating Characteristic Curve} ein Maß für die Güte der Separation. 
 Dafür wird zunächst der Konfidenzwert des Klassifizierers berechnet. 
 Dies ist ein Wert zwischen 0 und 1, welcher die Sicherheit wiederspiegelt, dass die Vorhersage den Zielklassen 0 oder 1 entspricht.
 Für alle möglichen Konfidenzwerte wird der prozentuale Anteil an richtig klassifizierten Ereignissen der Klasse 1 (true positive rate, TPR) und an falsch klassifizierten der Klasse 0 (false positive rate, FPR) berechnet. 
 Bei der ROC Curve wird die TPR gegen die FPR aufgetragen. 
 Ein Beispiel ist in Abbildung~\ref{fig:roc} zu sehen.
 Für einen guten Klassifizier strebt die Kurve bei kleinen FPR gegen hohe TPR. 
-Ist der Klassifizier nicht in der Lage, zwischen den beiden Klassen zu separieren, steigen die TPR und FPR gleichermaßen. 
+Ist der Klassifizierer nicht in der Lage zwischen den beiden Klassen zu separieren, steigen die TPR und FPR gleichermaßen. 
 Anhand der Fläche unter der Kurve kann die Güte verglichen werden.
 \subsection*{Signifikanz nach Li und Ma}
 % Aufgrund der Begrenztheit der Dektorsensitivität muss bei der Analyse von möglichen Quellen sorgsam mit den Daten zur Bestimmung der Sicherheit einer Quelle umgegangen werden.
@@ -224,6 +224,6 @@ Der Pulsar emittiert regelmäßige Gammastrahlungspulse, wodurch der Krebsnebel 
 Viele wissentschaftliche Arbeiten nehmen ihn als Referenzwert, um ihre Messwerte zu vergleichen. 
 
 \section{Markarian 501}
-Im Sternbild Herkules befindet sich in einer Entfernung von in etwa 500 Millionen Lichtjahren der Blazar Markarian 501. 
+Im Sternbild Herkules befindet sich in einer Entfernung von etwa 500 Millionen Lichtjahren der Blazar Markarian 501. 
 In seinem Zentrum befindet sich ein \num{0.9} bis \num{3.4} Milliarden Sonnenmassen schweres schwarzes Loch, dessen Jet in Richtung Erde gerichtet ist.
 Auch dieser gilt als eine der stärksten Gammastrahlungsquellen.
