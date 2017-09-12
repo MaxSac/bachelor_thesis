@@ -16,7 +16,7 @@ Die 30 hexagonalen Spiegel bilden eine Gesamtspiegelfläche von \SI{9.51}{\meter
 Als erstes Teleskop verwendet FACT SiPMs anstelle von Photomultiplier Tubes (PMTs). 
 Halbleiterdetektoren lassen sich mit einer geringeren Operationsspannung (\SI{<100}{\volt}) betreiben und sind preiswerter als Photomultiplier, was sowohl die Gestaltung des Kameradesigns als auch die Finanzierung vereinfacht. 
 SiPMs sind aufgrund ihrer hohen Sensitivität dazu in der Lage, einzelne Photonen zu detektieren. 
-Des weiteren besteht bei FACT auch bei Vollmond noch die Möglichkeit verwertbare Ergebnisse zu produzieren.
+Des weiteren besteht mit FACT auch bei Vollmond noch die Möglichkeit verwertbare Ergebnisse zu produzieren.
 Die Kamera besteht aus 1440 Pixeln, welche jeweils aus einem quadratischen Sensor und einem Plexiglasleiter bestehen. Die einzelnen Oberflächen der hexagonal zulaufenden Plexiglasleiter bilden dabei die empfindliche Detektionsfläche.
 
 \chapter{Entstehung von Tscherenkow Schauern}
@@ -69,7 +69,7 @@ Diese bildet einen Mach-Kegel aus, dessen Öffungswinkel $\theta$ von dem Brechu
   \includegraphics[width=0.5\textwidth]{tikz/camera/camera.pdf}
   \caption{Parametrisierung des Kamerabildes durch Hillas-Parameter.}
 \end{figure}
-Die im Schauer entstehenden Tscherenkow-Photonen werden vom Teleskop in die Kamera reflektiert.
+Die im Schauer entstehenden Tscherenkow-Photonen werden vom Teleskopspiegel in die Kamera reflektiert.
 So entsteht in der Kamera ein Abbild des Schauers, das durch verschiedene Parameter beschrieben werden kann.
 Diese Parameter bilden nachfolgend die Attribute, auf deren Basis ein maschineller Lerner den Schauer klassifiziert.
 Nachdem Artefakte und äußere Einflüsse bereinigt worden sind, werden anhand der Pixel, die auf den Tscherenkow Schauer zurückzuführen sind, die Hillas-Parameter~\cite{hillas} berechnet. 
@@ -86,7 +86,7 @@ Zu den Hillas-Parametern zählen:
 \section{Wobble Observation-Strategie}
 \begin{wrapfigure}[18]{L}[0pt]{0.53\textwidth}
   \includegraphics[width=0.5\textwidth]{tikz/wobble/wobble.pdf}
-  \caption{Bestimmung von $\theta^{2}$ im Wobble Obersvationsmodus.}
+  \caption{Bestimmung von $\theta$ im Wobble Obersvationsmodus.}
 \end{wrapfigure}
 Zur Abschätzung der Untergrundstrahlung in der Quellregion (On-Position) werden Stellen am Himmel beobachtet, an denen keine Quellen zu erwarten sind (Off-Position).
 Die gemessenen Untergrundraten können dann von den Messungen in der Quellregion subtrahiert werden, um die tatsächliche Signalrate zu bestimmen.
@@ -97,7 +97,7 @@ Stattdessen wird die erwartete Quellpostion \SI{0.6}{\degree} neben die Kameraac
 Dies hat zur Folge, dass es mehrere Positionen mit demselben Abstand und Symmetrie zur Kameraachse gibt. 
 Bei der Standardanalyse von FACT können so neben der On-Position fünf Off-Positionen mit identischem Winkel zur Kameraachse gemessen werden. 
 Somit ergibt sich für jeden Datensatz jeweils ein $\theta_\text{on}$ und fünf $\theta_\text{off}$. 
-Für sehr kleine $\theta$ Winkel kann oftmals geschlossen werden, dass das gemessene Teilchen aus der Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
+Für sehr kleine $\theta$ kann oftmals geschlossen werden, dass das gemessene Teilchen aus der Richtung der Quelle kam und vermutlich ein $\gamma$-Quant ist. 
 Da der Hadronuntergrund isotrop in alle Richtungen verteilt auftritt, sollte bei hadronischen Schauern $\theta^{2}$ in etwa gleichverteilt sein. 
 Zu den Vorteilen dieser Methode zählt, dass keine extra Off-Daten genommen werden müssen. 
 Somit ist es möglich, die Messzeit zu maximieren. 
@@ -210,8 +210,9 @@ Aus dem Verhältnis der Messzeiten der On- und Off-Position $\alpha$ wird die Hi
 Aus der Differenz der Anzahl an Ereignissen in der On-Region und der Hintergrundrate lässt sich die Signalrate bestimmen. 
 Durch das Aufstellen der Maximum Likelihood Funktion und des anschließenden Tests ergibt sich für die Signifikanz nach Li und Ma
 \begin{equation}
-S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2}.
+S = \sqrt{2} \left( N_\text{on} \ln \left[ \frac{1+ \alpha}{\alpha}\left( \frac{N_\text{on}}{N_\text{on} + N_\text{off}} \right) \right] + N_\text{off} \ln \left[ \left( 1+ \alpha \right) \left( \frac{N_\text{off}}{N_\text{on} + N_\text{off}} \right) \right] \right)^{1/2},
 \end{equation}
+wobei $N_\text{on}$ die Anzahl gemessener Ereignisse in der On-Region angibt und $N_\text{off}$ entsprechend in der Off-Region.
 
 \chapter{Untersuchte Quellen}
 In dieser Arbeit werden Datensätze von zwei verschiedenen Quellen verwendet. 

@@ -4,12 +4,12 @@ Da diese eher dem gemessenen Untergrund ähneln, sollte eine bessere Klassifizie
 
 Weil FACT keine gemessenen Untergrund-Daten besitzt, muss ein Protonen-Datensatz aus dem Datensatz einer bekannten Gamma-Quelle erstellt werden. 
 Dies geschieht mittels eines Schnitts auf dem trennstärksten Parameter $\theta^{2}$, wodurch der größte Teil der Gamma-Ereignisse verworfen wird.
-Die Wahl des $\theta^{2}$-Schnitts liegen dabei folgende Überlegungen zugrunde:
+Der Wahl des $\theta^{2}$-Schnitts liegen dabei folgende Überlegungen zugrunde:
 Wird $\theta^{2}$ zu groß gewählt, kommt es dazu, dass Detektoreigenschaften signifikant werden und der Lerner einen großen Teil der $\theta^{2}$-Verteilung im Training nicht auswertet. 
-$\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnismäßig viele Gamma-Ereignisse in dem erstellten Protonen-Datensatz sind.
+$\theta^{2}$ darf auch nicht zu klein gewählt werden, da sonst noch verhältnismäßig viele Gamma-Ereignisse in dem erstellten Protonen-Datensatz vorhanden sind.
 
 Für diese Arbeit wurden zwei verschiedene Lerner (\texttt{Random Forest} und \texttt{XGBoost Classifier}) verwendet und deren ROC-AUC-Wert sowie die Quell-Signifikanz zur Messung ihre Güter genutzt. 
-Beide Lerner weisen einen höheren ROC-AUC-Wert auf, wenn sie auf gemessenen Untergrunddaten trainiert werden.
+Beide Lerner weisen einen höheren ROC-AUC-Wert auf, wenn sie auf gemessene Untergrunddaten trainiert werden.
 Eine mögliche, aber unerwünschte Ursache dafür ist, dass die Modelle zwischen Simulation und gemessenen Ereignissen unterscheiden.
 
 Diese Aussage lässt sich dadurch stützen, dass beide Klassifizierer, wenn sie auf echten Daten trainiert werden, zu niedrigeren Signifikanzen führen, als wenn sie auf simulierten Daten trainiert werden. 
@@ -20,7 +20,7 @@ In Verbindung mit seiner stark begrenzten Tiefe ist er damit möglicherweise wen
 Des weiteren konnte gezeigt werden, dass durch das Entfernen von Attributen, die einen hohen Monte Carlo-Mismatch aufweisen, die Separation verbessert werden kann. 
 Dies stützt die These, dass der Klassifizierer zwischen simulierten und echten Daten unterscheidet.
 
-Letztendlich konnte die Gamma/Hadron-Separation nicht durch die Verwendung von gemessenen anstelle von simulierten Protonen-Daten im Trainingsdatensatz verbessert werden. 
+Letztendlich konnte die Gamma/Hadron-Separation nicht durch die Verwendung von gemessenen, anstelle von simulierten Protonen-Daten im Trainingsdatensatz verbessert werden. 
 
 Ansatz weiterer Untersuchungen könnte die Aufnahme von Off-Daten sein.
 Somit könnte auf den Schnitt um die Quellregion verzichtet werden. 
