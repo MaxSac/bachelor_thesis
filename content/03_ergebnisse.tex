@@ -21,7 +21,7 @@ Zur Überprüfung dieser Methode werden ein \texttt{Random Forest}, sowie ein \t
 
 Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten Modelle wird anhand der Receiver Operating Characteristic gemessen.
 
-Desweiteren wird die Signifikanz von zwei verschiedenen Quellen berechnet, die durch zwei unterschiedlich trainierte Modelle gefunden werden. 
+Des weiteren wird die Signifikanz von zwei verschiedenen Quellen berechnet, die durch zwei unterschiedlich trainierte Modelle gefunden werden. 
 Anhand der maximalen Signifikanzen werden die Modelle verglichen.
 \section{Erstellen des gemessenen Untergrunds}
 \label{sec:makeUnter}
@@ -64,7 +64,7 @@ Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften 
 
 Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} plausibel. 
 Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
-Desweiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma-Ereignisse angesehen werden können. 
+Des weiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma-Ereignisse angesehen werden können. 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Schnitt von \num{0.5} gewählt. 
 \newpage
 \section{Optimierung der Modelle}
@@ -95,7 +95,7 @@ Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter ges
 
 Dabei fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
 Beide Modelle weisen dabei die selben Parameter auf, bei denen der ROC-AUC-Wert maximal wird.
-Desweiteren ist der maximale ROC-AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
+Des weiteren ist der maximale ROC-AUC-Wert bei dem auf Messdaten trainierten Lerner größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
 Dies entspricht einem Modell, welches besser das Signal vom Untergrund separiert.
 \begin{table}[H]
   \centering
@@ -157,7 +157,7 @@ Die Signifikanz des Krebsnebel- und Markarian-501-Datensatzes werden jeweils auf
 Beide Modelle werden mit jeweils einer Trainingsgröße von \num{100000} Ereignissen aus Gamma- und Proton-Ereignissen gleichermaßen trainiert. 
 \begin{table}[H]
   \centering
-  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund-Ereignissen trainiert. Desweiteren ist die Signifikanz der unklassifizierten Datensätze aufgetragen.}
+  \caption{Signifikanzen der Quellen Krebsnebel und Markarian 501, ermittelt durch einen \texttt{Random Forest} sowie \texttt{XGBoost Classifier}. Diese wurden jeweils mit einem Datensatz aus simulierten bzw. gemessenen Untergrund-Ereignissen trainiert. Des weiteren ist die Signifikanz der unklassifizierten Datensätze aufgetragen.}
   \begin{tabular}{l s s s s}
 	\toprule
 	& \multicolumn{2}{c}{Krebsnebel}	& \multicolumn{2}{c}{Markarian 501} \\
