@@ -17,10 +17,10 @@ The First G-APD Cherenkov Telescope (FACT) observes high energy gamma ray source
 To get information from the measurements, signal (gamma events) has to be seperated from background (hadron events).
 For this gamma/hadron-separation machine learning models are used and trained on Monte Carlo simulations.
 The aim of this thesis is to achieve a better seperation by use of measured background instead of proton simulations to train a classifier.
-Since FACT does not take so called off data, a modified dataset is used, which is cleaned from gamma events.
-For evaluation ROC-AUC-score and Li and Ma significance are calculated for the different data sets and two different classifiers, \texttt{Random Forest} and \texttt{XGBoost Classifier}.
+Since FACT does not take so called off data, a modified dataset, from which gamma events have been removed, is used.
+For evaluation, the ROC-AUC score and the Li and Ma significance on each dataset are calculated for two different Classifier (\texttt{Random Forest} and \texttt{XGBoost Classifier}).
 Coutrary to the expectations, the Li and Ma significance of a source detected by a Monte Carlo trained model is higher than a significance which results from a model trained by measured data.
-It seems that the models seperates between simulated and measured data and not between gamma and proton events.
+It seems that the models seperate between simulated and measured data and not between gamma and proton events.
 All in all, this approach currently does not improve the seperation.
 In case data/Monte Carlo mismatch does not improve the seperation, this methode maybe has the potential to optimize the seperation.
 \end{english}
