@@ -17,7 +17,7 @@ Bei ähnlichen Experimenten, wie zum Beispiel MAGIC \cite{magic} hat sich diese 
   \includegraphics[width=\textwidth]{./tikz/motiv/motiv.pdf}
   \caption{Analysekette zur Evaluation der Trainingsmethoden.}
 \end{figure}
-Zur Überprüfung dieser Methode werden ein \texttt{Random Forest}, sowie ein \texttt{XGBoost Classifier} der Tiefe 1 trainiert und optimiert.
+Zur Überprüfung dieser Methode werden ein \texttt{Random Forest}, sowie ein \texttt{XGBoost Classifier} der Tiefe eins trainiert und optimiert.
 
 Das Trennvermögen der auf den beiden unterschiedlichen Datensätzen trainierten Modelle wird anhand der Receiver Operating Characteristic gemessen.
 
@@ -93,7 +93,7 @@ Mithilfe eines Parameternetzes wird die optimale Konstellation der Parameter ges
   \caption{Parameternetz zum Ermitteln der optimalen Parameter auf den unterschiedlichen Datensätzen.}
 \end{figure}
 
-Dabei fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
+Es fällt auf, dass sich die beiden Datensätze unterschiedlich gut trennen lassen.
 Beide Modelle weisen dabei die selben Parameter auf, bei denen der ROC-AUC-Wert maximal wird.
 Des weiteren ist der maximale ROC-AUC-Wert bei dem auf Messdaten trainierten Lerner etwas größer als bei dem auf Monte Carlo-Daten trainierten Lerner.
 Dies entspricht einem Modell, welches besser das Signal vom Untergrund separiert.
@@ -149,7 +149,7 @@ Dabei ist die Signifikanz des unklassifizierten Krebsnebel-Datensatzes dargestel
 % Dabei wurde ein Konfidenzschnitt von 0 durchgeführt, was die Signifikanz des Rohdaten entspricht. Die verwedete Quelle ist der Krebsnebel welche bereits ohne Klassifizierung eine Siknifikanz der Daten in einem Bereich von $\theta^{2} < 0.03$ beträgt \SI{21,4}{\sigma}.
 
 Durch die Bereinigung des Datensatzes wird versucht die Signifikanz zu erhöhen.
-Dafür wird sowohl ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBoost Classifier} der Tiefe 1. 
+Dafür wird sowohl ein \texttt{Random Forest} benutzt, als auch ein \texttt{XGBoost Classifier} der Tiefe eins. 
 Der \texttt{XGBoost Classifier} hat den Vorteil, dass er aufgrund des additiven Trainings noch einen Erkenntnisgewinn aus der Fehlklassifizierung zieht.
 Somit kann er durch die Umgewichtung der Ereignisse mit der gleichen Anzahl an Attributen mehr unterschiedliche Bäume als der \texttt{Random Forest} bauen.
 
@@ -207,12 +207,12 @@ Aufgrund des stetigen Anstieges ist davon auszugehen, dass es sich beim Maximum 
 \label{fig:signconf}
 \end{figure}
 Auffällig ist, dass sich die Konfidenzverteilungen trotz der verschiedenen Klassifizierer für die Monte Carlo-Daten ähneln.
-Beim stark in der Tiefe beschränkten \texttt{XGBoost Classifier} werden die Signifikanzen annähernd im selben Berreich maximal, wohingegen beim \texttt{Random Forest} die maximalen Signifikanzen des anhand von Messdaten trainierten Modells einer anderen Verteilung folgen und schon früher maximal werden. 
+Beim stark in der Tiefe beschränkten \texttt{XGBoost Classifier} werden die Signifikanzen annähernd im selben Bereich maximal, wohingegen beim \texttt{Random Forest} die maximalen Signifikanzen des anhand von Messdaten trainierten Modells einer anderen Verteilung folgen und schon früher maximal werden. 
 Eine Ursache dafür ist (Abbildung~\ref{fig:confdist}), dass die Anzahl an mit hohen Konfidenzwerten (\num{> 0.8}) klassifizierten Ereignissen gering ist. 
 Ein \texttt{Random Forest}, der auf gemessenen Daten trainiert wurde, ist sich also bei der Klassifizierung von Ereignissen wesentlich unsicherer, ob es sich um ein Gamma- oder Proton-Ereignis handelt.
 Ein Grund dafür können Daten-Monte Carlo-Mismatches sein. 
 Der Lerner sieht im Training verstärkt die Unterschiede zwischen Simulation und Wirklichkeit, statt zwischen Gamma- und Hadron-Ereignissen.
-Da diese Unterschiede im zu klassifizierenden Datensatz nicht mehr vorhanden sind, wird die Prognose des Lerners unsicher.
+Da die Abweichungen im zu klassifizierenden Datensatz nicht mehr vorhanden sind, wird die Prognose des Lerners unsicher.
 Dass dieser Effekt beim \texttt{Random Forest} stärker auftritt, könnte daran liegen, dass hier öfter Attribute mit höherem Daten-Monte Carlo-Mismatch zum Aufbau des Baumes gewählt werden als beim \texttt{XGBoost Classifier} der Tiefe eins.
 \newpage
 \section{Rekursive Attribut Eliminierung}
