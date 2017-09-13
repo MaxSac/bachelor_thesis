@@ -5,7 +5,7 @@ Das First G-APD Cherenkov Telescope (FACT) observiert Quellen hochenergetischer 
 Um aus den Messungen Informationen über eine Quelle zu bekommen, muss zunächst das Quell-Signal (Gamma-Ereignisse) vom Untergrund (Hadron-Ereignisse) separiert werden.
 Dazu werden maschinelle Lerner verwendet, die für beide Klassen (Gamma/Hadron) mit Monte Carlo-Simulationen trainiert werden.
 Ziel dieser Arbeit ist es, zu überprüfen, ob die Gamma/Hadron-Separation verbessert werden kann, indem gemessene Untergrunddaten statt Monte Carlo-Simulationen zum Trainieren der Lerner verwendet werden.
-Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze von Quellbeobachtungen für diese Arbeit so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
+%Da FACT keine separaten Untergrundmessungen durchführt, werden die Datensätze von Quellbeobachtungen für diese Arbeit so gefiltert, dass annähernd reine Untergrunddatensätze entstehen.
 Mit diesen Daten werden ein \texttt{Random Forest} sowie ein \texttt{XGBoost Classifier} trainiert und der ROC-AUC-Wert sowie die Signifikanz für die Detektion von Quellen der auf simulierten und gemessenen Untergrunddaten trainierten Klassifizierer verglichen. 
 Obwohl mit den gemessenen Untergrundaten als Trainingsdatensatz ein besserer ROC-AUC-Wert für den Lerner erreicht werden konnte, sank die Signifikanz für die Detektion der Quelle im Vergleich zu einem Lerner, der mit simulierten Daten trainiert wurde. 
 Möglicherweise trainieren die Modelle den Unterschied zwischen simulierten und gemessenen Daten. 
@@ -14,13 +14,13 @@ Unter der Annahme, dass die Unterschiede zwischen simulierten und gemessenen Dat
 \section*{Abstract}
 \begin{english}
 The First G-APD Cherenkov Telescope (FACT) observes high energy gamma ray sources. 
-To get information from the measurements, signal (gamma events) has to be seperated from background (hadron events).
-For this gamma/hadron-separation machine learning models are used and trained on Monte Carlo simulations.
-The aim of this thesis is to achieve a better seperation by use of measured background instead of proton simulations to train a classifier.
+To get information from the measurements, signal (gamma events) has to be separated from background (hadron events).
+For this gamma/hadron separation machine learning models are used and trained on Monte Carlo simulations.
+The aim of this thesis is to achieve a better separation by use of measured background instead of proton simulations to train a classifier.
 Since FACT does not take so called off data, a modified dataset, from which gamma events have been removed, is used.
-For evaluation, the ROC-AUC score and the Li and Ma significance on each dataset are calculated for two different Classifier (\texttt{Random Forest} and \texttt{XGBoost Classifier}).
-Coutrary to the expectations, the Li and Ma significance of a source detected by a Monte Carlo trained model is higher than a significance which results from a model trained by measured data.
-It seems that the models seperate between simulated and measured data and not between gamma and proton events.
-All in all, this approach currently does not improve the seperation.
-In case data/Monte Carlo mismatch does not improve the seperation, this methode maybe has the potential to optimize the seperation.
+For evaluation, the ROC-AUC score and the Li and Ma significance on each dataset are calculated for two different classifier (\texttt{Random Forest} and \texttt{XGBoost Classifier}).
+Contrary to the expectations, the Li and Ma significance of a source detected by a Monte Carlo trained model is higher than a significance which results from a model trained by measured data.
+It seems that the models separate between simulated and measured data and not between gamma and proton events.
+All in all, this approach currently does not improve the separation.
+In case data/Monte Carlo mismatch does not improve the separation, this method maybe has the potential to optimize the separation.
 \end{english}

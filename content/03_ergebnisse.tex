@@ -30,7 +30,7 @@ Um die Observationszeit zu maximieren, nimmt FACT dafür Daten im Wobble Modus a
 Dabei muss die Kamera nicht extra auf Off-Positionen gerichtet werden und kann dementsprechend effizienter in derselben Zeit arbeiten. 
 Dies hat zur Folge, dass keine gemessenen reinen Untergrunddaten existieren. 
 
-Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quellobservation die Protonenereignisse heraussepariert werden. 
+Für die Erstellung eines alternativen Protonendatensatzes müssen aus dem Datensatz einer Quellobservation die Protonenereignisse heraus separiert werden. 
 Dies wird mit einem Schnitt in $\theta^{2}$ realisiert.
 Denkbar wäre auch einen maschinellen Lerner die Gamma-Ereignisse in dem gemessenen Untergunddatensatz heraus separieren zu lassen.
 Allerdings würden hier die Monte Carlo-Mismatches erneut eingehen. 
@@ -60,11 +60,11 @@ Die Signifikanz für die Detektion des Krebsnebels der unterschiedlich trainiert
   \label{fig:corrtheta}
 \end{figure}
 Bei Schnitten auf den Monte Carlo-Protonen bis $\theta^{2} < 1$ hängt die Signifikanz nicht von $\theta^{2}$ ab.
-Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detekoreigenschaften im Training vernachlässigt werden.
+Bei Werten $\theta^{2} > 1$ nimmt die Signifikanz ab, weil Detektoreigenschaften im Training vernachlässigt werden.
 
 Es scheinen $\theta^{2}$-Schnitte zwischen \num{0.5} bis \num{1} plausibel. 
 Für Monte Carlo basierte Modelle nimmt die Signifikanz der Quelle nicht ab, wenn Protonen mit $\theta^{2} < \num{1}$ aus dem Trainingsdatensatz entfernt werden. 
-Des weiteren ist das Verhältniss an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma-Ereignisse angesehen werden können. 
+Des weiteren ist das Verhältnis an Gamma-Ereignissen $\theta^{2} > \num{0.5}$ im Untergrunddatensatz gering, sodass diese als diffuse Gamma-Ereignisse angesehen werden können. 
 Für die weitere Analyse wurde fortlaufend ein $\theta^{2}$-Schnitt von \num{0.5} gewählt. 
 \newpage
 \section{Optimierung der Modelle}
@@ -111,7 +111,7 @@ Dies entspricht einem Modell, welches besser das Signal vom Untergrund separiert
   \label{tab:ROC-AUC}
 \end{table}
 Die Bäume der Tiefe eins brauchen nicht optimiert zu werden, da sie aufgrund der stark begrenzten Tiefe nicht an Übertraining leiden.
-Aufgrund ihrer starken Bregrenzung sind die ROC-AUC-Wert erwartungsgemäß niedriger als beim \texttt{Random Forest}.
+Aufgrund ihrer starken Bregrenzung sind die ROC-AUC-Werte erwartungsgemäß niedriger als beim \texttt{Random Forest}.
 \section{Signifikanz der Modelle}
 Um ein Maß für die Güte der Modelle zu erhalten, wird die Signifikanz zweier unabhängiger Quellen bestimmt. 
 Dafür werden die Klassifizierer einmal mit dem MC-Daten und einmal mit den Messdaten trainiert. 
@@ -140,7 +140,7 @@ Die Größe der Signifikanz wird durch das Verhältnis von TP zu FP bestimmt.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=1]{./Plots/on_off_ratio.pdf}
-  \caption{Signifikanz des Krebsnebels auf den unklassifizierten Datensatz.}
+  \caption{Signifikanz des Krebsnebels auf dem unklassifizierten Datensatz.}
   \label{fig:sig_crab}
 \end{figure}
 Ein grafisches Beispiel für die Signifikanz ist in Abbildung~\ref{fig:sig_crab} zu sehen. 
@@ -177,7 +177,7 @@ Zu erwarten wäre gewesen, dass der Klassifizierer, welcher besser separiert, au
 
 Bei dem \texttt{XGBoost Classifier} tritt dieser Effekt wesentlich schwächer als beim \texttt{Random Forest} auf. 
 Dies deutet auf Übertraining oder eine schlechte Übereinstimmung zwischen gemessenen Daten und der Monte Carlo-Simulation hin.
-Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo Ereignissen zu separieren.
+Möglicherweise wird der Klassifizierer nicht mehr darauf trainiert, zwischen Gamma- und Proton-Ereignissen zu unterscheiden, sondern gemessene von Monte Carlo-Ereignissen zu separieren.
 
 \section{Konfidenzwert}
 \label{sec:konf}
@@ -231,7 +231,7 @@ Zur Visualisierung der Attribute, bei denen sich die gemessenen von simulierten 
   \label{fig:featureimportance}
 \end{figure}
 Beim Entfernen eines Attributes wird auch Informationsgehalt verworfen. 
-Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attributen einerseits und Informationsgehalt anderseits gefunden werden.
+Dementsprechend muss ein Verhältnis zwischen schlecht simulierten Monte Carlo-Attributen einerseits und Informationsgehalt andererseits gefunden werden.
 \begin{table}
   \centering
   \caption{Auswirkung der Attribut Eliminierung auf den ROC-AUC-Wert sowie die Li und Ma Signifikanz.}
